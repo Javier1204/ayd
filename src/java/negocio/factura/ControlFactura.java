@@ -9,6 +9,6 @@ package negocio.factura;
  *
  * @author Javier
  */
-public class GestionFactura {
+public class ControlFactura {
     
 }

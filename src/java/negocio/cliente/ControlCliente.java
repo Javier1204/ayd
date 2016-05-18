@@ -9,6 +9,6 @@ package negocio.cliente;
  *
  * @author Javier
  */
-public class GestionCliente {
+public class ControlCliente {
     
 }

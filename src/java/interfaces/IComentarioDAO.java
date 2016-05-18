@@ -5,10 +5,14 @@
  */
 package interfaces;
 
+import dto.ComentarioDTO;
+
 /**
  *
  * @author Javier
  */
-public interface IDAO {
+public interface IComentarioDAO {
+    
+    public boolean registrarComentario(ComentarioDTO comentario);
     
 }

@@ -30,10 +30,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../public/css/bootstrap.css" type="text/css" rel="stylesheet">
         <link href="../plantillas/usuario/css/usuario.css" type="text/css" rel="stylesheet">
-        <link href="../public/css/font-awesome.css" type="text/css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
         <script src="../public/js/jquery-1.11.3.js" type="text/javascript"></script>
-        
-        <link href="../public/css/menu.css" type="text/css" rel="stylesheet">
 
         <title>Hotel DAYAMAR</title>
         <script type="text/javascript">
@@ -55,7 +53,7 @@
     </head>
     <body>
         <div class="row top_bar">
-            <div class="col-lg-12 col-sm-12 col-xs-12 btn-rojo" style="padding: 0px;">
+            <div class="col-lg-12 col-sm-12 col-xs-12 bg-azul" style="padding: 0px;">
 
                 <% if (sw) {%>
                 <div class="pull-left nom-user">
@@ -73,16 +71,16 @@
 
             </div>
         </div>
+                  
         <div class="row" style="height: 30px;"> </div>
         <div class="row bg-blanco">
             <div class="col-lg-12 col-sm-12 col-xs-12">
-
                 <div class="row">
-                    <div class="ima">
-                        <img src="../images/imagen.jpg" class="img-responsive"/>
+                    <div class="col-lg-7 col-sm-7 col-xs-7 logo-banner">
+                        <img src="../images/Product.png" class="img-responsive" />
                     </div>
-                    <div class="col-lg-5 col-sm-5 col-xs-5 info-super">
-                        <div class="row">
+                    <div class="col-lg-5 col-sm-5 col-xs-5 info-hotel">
+                         <div class="row">
                             <div class="col-lg-12">
                                 <p class="pull-right">
                                     <i class="fa fa-mobile"></i> Línea Gratuita: 01 8000 510 765
@@ -118,10 +116,10 @@
             <div class="barra-menu">
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="<%=((pagina.equals("index")) ? "active" : " ")%>"><a href="../index.jsp"><i class="fa fa-home"></i> </a></li>
+                        <li class="<%=((pagina.equals("inicio")) ? "active" : " ")%>" ><a href="#"><i class="fa fa-home"></i>Inicio</a></li>
                         <li class="<%=((pagina.equals("nosotros")) ? "active" : " ")%>" ><a href="#">Nosotros</a></li>
-                        <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="../pedidos/productos.jsp"> Habitaciones</a></li>
-                        <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="../pedidos/productos.jsp"> Haz tu reserva ¡YA!</a></li>
+                        <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="#"> Habitaciones</a></li>
+                        <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="#"> Haz tu reserva ¡YA!</a></li>
 
                     </ul>
 

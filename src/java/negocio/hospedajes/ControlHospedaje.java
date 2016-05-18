@@ -9,6 +9,6 @@ package negocio.hospedajes;
  *
  * @author Javier
  */
-public class GestionHabitacion {
+public class ControlHospedaje {
     
 }

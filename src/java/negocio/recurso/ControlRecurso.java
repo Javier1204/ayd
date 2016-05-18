@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package negocio.reserva;
+package negocio.recurso;
 
 /**
  *
  * @author Javier
  */
-public class GestionReserva {
+public class ControlRecurso {
     
 }

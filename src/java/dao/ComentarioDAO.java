@@ -5,21 +5,18 @@
  */
 package dao;
 
-import dto.RecursoDTO;
-import interfaces.IRecursoDAO;
-import java.sql.Date;
-import java.util.ArrayList;
+import dto.ComentarioDTO;
+import interfaces.IComentarioDAO;
 
 /**
  *
  * @author Javier
  */
-public class RecursoDAO implements IRecursoDAO{
+public class ComentarioDAO implements IComentarioDAO{
 
     @Override
-    public ArrayList<RecursoDTO> obtenerHabitacionesDisponibles(Date fecha_salida, Date fecha_entrada) {
+    public boolean registrarComentario(ComentarioDTO comentario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
     
 }

@@ -18,7 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="../public/js/jquery-1.11.3.js" type="text/javascript"></script>
         <link href="../public/css/bootstrap.css" type="text/css" rel="stylesheet">
-        <link rel="stylesheet" href="../public/css/font-awesome.css">      
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>    
         
         <link rel="stylesheet" href="../plantillas/admin/css/AdminLTE.css">
         <link rel="stylesheet" href="../plantillas/admin/css/skin-red.css">

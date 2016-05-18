@@ -18,9 +18,9 @@
                                 <form name="registrarForm" id="registrarForm" action="#" method="post">
                                     <div id="tablaAdmin">
                                         <table id="tablaAdmin" class="table table-bordered table-striped"> 
-                                            <label> Información del cliente </label>
+                                            <label><i class="fa fa-user"></i> Información del cliente </label>
                                             <tr>
-                                                <td>Nombre cliente </td>
+                                                <td>Nombre cliente</td>
                                                 <td><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
                                                 <td>Apellido </td>
                                                 <td><input type="text" name="txtApellido" id="txtApellido" placeholder="Apellido usuario" class="form-control"></td>
@@ -34,7 +34,7 @@
                                             </tr>
                                         </table>
                                         <table id="tablaAdmin" class="table table-bordered table-striped">
-                                            <label> Información hospedaje </label>
+                                            <label><i class="fa fa-hotel"></i> Información hospedaje </label>
                                             <tr>
                                                 <td>Cantidad personas </td>
                                                 <td><input type="number" name="txtCantPer" id="txtCantPer" placeholder="Cantidad de personas" class="form-control"></td>

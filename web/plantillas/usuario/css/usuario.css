@@ -40,8 +40,8 @@ a:hover
 .bg-verde{
     background-color: #009F00;
 }
-.bg-blanco{
-    background-color: #FFF;
+.bg-azul{
+    background-color: #6666ff;
 }
 /*Fin colores*/
 
@@ -75,48 +75,14 @@ a:hover
     padding-left: 8%;
 }
 
-.info-super{
+.info-hotel{
     font-family: "Treboche MS", sans-serif ;
     padding: 50px 10px;
     padding-bottom: 10px;
     padding-right: 8%;
 
 }
-.carro-comparas{
-    width: 230px;
-    height: 40px;
-    background-color: #F1C905;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    padding: 0px;
-}
 
-.carro-comparas .btn-carro{
-    height: 39px;
-    font-size: 1.1em;
-    font-weight: bold;
-    border-radius: 6px 0px 0px 6px;
-    -moz-border-radius: 6px 0px 0px 6px;
-    -webkit-border-radius: 6px 0px 0px 6px;
-}
-
-.total-compra{
-    margin: 3px 1px;
-    width: 135px;
-    height: 30px;
-    text-align: center;
-    float: right;
-}
-
-
-.total-compra span{
-    font-size: 0.85em;
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-    font-weight: bold;
-}
 .barra-menu{
     padding: 0px 7%;
     font-weight: bold;
@@ -129,7 +95,7 @@ a:hover
 .linea-footer{
     height: 10px;
     padding: 0px;
-    margin-top: 30px;
+    margin-top: 200px;
 }
 .panel .panel-body{
     padding: 0px;

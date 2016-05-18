@@ -9,13 +9,13 @@
 </div><!--FIN CONTENEDOR-->
 <footer id="footer" >
     <div class="row">
-        <div class="col-lg-12 linea-footer bg-verde">
+        <div class="col-lg-12 linea-footer bg-azul">
 
         </div>
-        <div class="col-lg-12" style="height: 100px;">
+        <div class="col-lg-12">
             <div class="row">
                 <div class="pull-right" style="margin-right: 9%;">
-                    <img src="../plantillas/usuario/img/logo.png" class="img-responsive" style="width: 150px;" />
+                    <img src="../images/Product.png" class="img-responsive"/>
                 </div>
             </div>
         </div>

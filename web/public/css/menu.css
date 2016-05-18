@@ -20,8 +20,13 @@ and open the template in the editor.
     padding: 11px;
 
 }
-
-.ima{
+#nav {
+    background-color: white;  
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
+}
+#nav img{
     background-color: white;  
     max-width: 100%;
     margin: 0;

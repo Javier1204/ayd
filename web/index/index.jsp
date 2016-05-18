@@ -7,3 +7,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <jsp:include page="../plantillas/usuario/header.jsp"/>
+
+<div>
+    <h1>
+        <center>
+            Hola
+        </center>
+    </h1>
+</div>
+
+<jsp:include page="../plantillas/usuario/footer.jsp"/>

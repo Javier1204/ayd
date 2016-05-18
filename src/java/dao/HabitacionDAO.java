@@ -5,10 +5,30 @@
  */
 package dao;
 
+import dto.HabitacionDTO;
+import interfaces.IHabitacionDAO;
+import java.sql.Date;
+import java.util.ArrayList;
+
 /**
  *
  * @author Javier
  */
-public class HabitacionDAO {
+public class HabitacionDAO implements IHabitacionDAO{
+
+    @Override
+    public ArrayList<HabitacionDTO> obtenerHabitacionesDisponibles(int cantPersonas, Date fecha_salida, Date fecha_entrada) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean ocuparHabitacion(String id_habitacion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean desocuparHabitacion(String id_habitacion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
