@@ -28,7 +28,7 @@
                                     </div>
                                     <br>
                                     <table id="tablaAdmin" class="table table-bordered table-striped">
-                                        <thead BGCOLOR="#dc4331">
+                                        <thead style="background-color: #2c3b41; color: #fff">
                                             <tr>
                                                 <th> Uno </th>
                                                 <th> Dos </th>

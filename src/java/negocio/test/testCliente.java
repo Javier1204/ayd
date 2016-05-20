@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @author Javier
  */
 public class testCliente {
-    public static void main(String[] args) {
+    public static void registrarCliente(){
         ClienteDAO cliente = new ClienteDAO();
         ClienteDTO dto = new ClienteDTO("109344", "Javix", "Flowers", "5848092", "javier12@gmail.com", "Cúcuta");
         try{
@@ -25,4 +25,19 @@ public class testCliente {
              Logger.getLogger(testHospedaje.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static void validarCliente(String id_cliente){
+        ClienteDAO cliente = new ClienteDAO();
+        try{
+            boolean exito = cliente.validarCliente(id_cliente);
+            System.out.println(exito);
+        }catch (Exception ex){
+             Logger.getLogger(testHospedaje.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void main(String[] args) {
+        validarCliente("1090495");
+    }
+    
 }

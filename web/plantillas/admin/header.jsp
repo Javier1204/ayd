@@ -21,7 +21,7 @@
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>    
         
         <link rel="stylesheet" href="../plantillas/admin/css/AdminLTE.css">
-        <link rel="stylesheet" href="../plantillas/admin/css/skin-red.css">
+        <link rel="stylesheet" href="../plantillas/admin/css/skin.css">
 
         <title>SIHYEST</title>
     </head>
@@ -112,37 +112,38 @@
                         <li class="header">Menú</li>
                         
                         <li class="treeview <%=((pagina.equals("hospedajes")) ? "active" : " ")%>">
-                            <a href="#"><i class="fa fa-ship"></i> <span>Hospedajes</span></a>
+                            <a href="#"><i class="fa fa-home"></i> <span>Hospedajes</span></a>
                             <ul class="treeview-menu">
-                                <li><a href="../hospedajes/registrarHospedaje.jsp"><span>Registrar hospedaje</span></a></li>
-                                <li><a href="../hospedajes/consultarHospedaje.jsp"><span>Consultar hospedajes</span></a></li>
+                                <li><a href="../hospedajes/registrarHospedaje.jsp"><i class="fa fa-pencil"></i><span>Registrar hospedaje</span></a></li>
+                                <li><a href="../hospedajes/consultarHospedaje.jsp"><i class="fa fa-search"></i><span>Consultar hospedajes</span></a></li>
                                 <li><a href="../hospedajes/modificarHospedaje.jsp"><span>Modificar hospedaje</span></a></li>
                             </ul>
                         </li>
                          <li class="treeview <%=((pagina.equals("clientes")) ? "active" : " ")%>">
-                            <a href="#"><i class="fa fa-ship"></i> <span>Clientes</span></a>
+                            <a href="#"><i class="fa fa-user"></i> <span>Clientes</span></a>
                             <ul class="treeview-menu">
-                                <li><a href="../clientes/consultarCliente.jsp"><span>Consultar cliente</span></a></li>
+                                <li><a href="../clientes/registrarCliente.jsp"><i class="fa fa-pencil"></i><span>Registrar cliente</span></a></li>
+                                <li><a href="../clientes/consultarCliente.jsp"><i class="fa fa-search"></i><span>Consultar cliente</span></a></li>
                                 <li><a href="../clientes/modificarCliente.jsp"><span>Modificar cliente</span></a></li>
                             </ul>
                         </li>
                         
                          <li class="treeview <%=((pagina.equals("reservas")) ? "active" : " ")%>">
-                            <a href="#"><i class="fa fa-ship"></i> <span>Reservas</span></a>
+                            <a href="#"><i class="fa fa-book"></i> <span>Reservas</span></a>
                             <ul class="treeview-menu">
                                 <li><a href="../reservas/habitaciones.jsp"><span>Ver reservas</span></a></li>
                             </ul>
                         </li>  
                         
                         <li class="treeview <%=((pagina.equals("facturas")) ? "active" : " ")%>">
-                            <a href="#"><i class="fa fa-ship"></i> <span>Facturas</span></a>
+                            <a href="#"><i class="fa fa-money"></i> <span>Facturas</span></a>
                             <ul class="treeview-menu">
                                 <li><a href="../facturas/verHospedajes.jsp"><span>Facturar hospedaje</span></a></li>
                             </ul>
                         </li>   
                         
                         <li class="treeview <%=((pagina.equals("recursos")) ? "active" : " ")%>">
-                            <a href="#"><i class="fa fa-ship"></i> <span>Recursos</span></a>
+                            <a href="#"><i class="fa fa-building-o"></i> <span>Recursos</span></a>
                             <ul class="treeview-menu">
                                 <li><a href="../recursos/registrarReserva.jsp"><span>Registrar reserva de recurso</span></a></li>
                                 <li><a href="../recursos/consultarReservas.jsp"><span>Consultar recursos reservados</span></a></li>

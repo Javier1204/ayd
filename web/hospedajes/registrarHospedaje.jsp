@@ -17,48 +17,57 @@
                                 <center><h2> Registrar hospedaje </h2></center>
                                 <form name="registrarForm" id="registrarForm" action="#" method="post">
                                     <div id="tablaAdmin">
-                                        <table id="tablaAdmin" class="table table-bordered table-striped"> 
-                                            <label><i class="fa fa-user"></i> Información del cliente </label>
-                                            <tr>
-                                                <td>Nombre cliente</td>
-                                                <td><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
-                                                <td>Apellido </td>
-                                                <td><input type="text" name="txtApellido" id="txtApellido" placeholder="Apellido usuario" class="form-control"></td>
-                                                <td>N° Documento </td>
-                                                <td><input type="text" name="txtDocumento" id="txtDocumento" placeholder="Documento cliente" class="form-control" </td>
-                                            </tr><tr>
-                                                <td>Nacionalidad </td>
-                                                <td><input type="text" name="txtNacionalidad" id="txtNacionalidad" placeholder="Nacionalidad" class="form-control" </td>
-                                                <td>Procedencia </td>
-                                                <td><input type="text" name="txtProcedencia" id="txtProcedencia" placeholder="Procedencia" class="form-control" </td>
-                                            </tr>
-                                        </table>
+                                        <div id="divCambio">
+                                            <table id="tablaAdmin" class="table table-bordered table-striped"> 
+                                                <label><i class="fa fa-user"></i> Información del cliente </label>
+                                                <tr> 
+                                                    <td>N° Documento </td>
+                                                    <td><input type="text" name="txtDocumento" id="txtDocumento" placeholder="Documento cliente" class="form-control" onchange="javascript:validarCliente()"> </td>
+                                                    <td>Nombre cliente</td>
+                                                    <td><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
+                                                    <td>Apellido </td>
+                                                    <td><input type="text" name="txtApellido" id="txtApellido" placeholder="Apellido usuario" class="form-control"></td>
+                                                </tr><tr>
+                                                    <td>Telefono </td>
+                                                    <td><input type="tel" name="txtTelefono" id="txtTelefono" placeholder="Telefono" class="form-control"> </td>
+                                                    <td>Procedencia </td>
+                                                    <td><input type="text" name="txtProcedencia" id="txtProcedencia" placeholder="Procedencia" class="form-control"> </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                         <table id="tablaAdmin" class="table table-bordered table-striped">
                                             <label><i class="fa fa-hotel"></i> Información hospedaje </label>
                                             <tr>
                                                 <td>Cantidad personas </td>
-                                                <td><input type="number" name="txtCantPer" id="txtCantPer" placeholder="Cantidad de personas" class="form-control"></td>
-                                                <td> Cantidad de días</td>
-                                                <td> <input type="number" name="txtDias" id="txtDias" placeholder="Cantidad días" class="form-control"</td>
+                                                <td><input type="number" name="txtCantPer" id="txtCantPer" placeholder="Cantidad de personas" onchange="javascript:validarCampoFecha()" class="form-control"></td>
+                                                <td> Fecha salida</td>
+                                                <td> <input type="date" name="txtFecha_salida" id="txtFecha_salida" placeholder="Fecha salida" class="form-control" onchange="javascript:validarCampoPersonas()"> </td>
                                             </tr>
                                         </table>  
+                                        <div><label> Información habitación </label></div>
+                                        <div id="cargar" style="float:left">
+                                            <table id="tablaAdmin" class="table table-bordered table-striped">
+                                                <tr>
+                                                    <td> Habitación</td>
+                                                    <td> <select id="habitacion" name="habitacion" class="form-control">
+                                                            <option value=""> -No selection-</option>
+                                                        </select> </td>
+                                                </tr>
+                                                <tr> </tr>
+                                            </table>
+                                        </div>
+                                        <div id="descripcion" style="float:left">
                                         <table id="tablaAdmin" class="table table-bordered table-striped">
-                                            <label> Información habitación </label>
                                             <tr>
-                                                <td> Habitación</td>
-                                                <td> <select id="habitacion" name="habitacion" class="form-control">
-                                                        <option> -No selection-</option>
-                                                        <option> Habitación 201 </option>
-                                                        <option> Habitación 202 </option>
-                                                        <option> Habitación 408 </option>
-                                                    </select> </td>
                                                 <td> Descripción habitación</td>
                                                 <td> <input type="text" name="txtDescripcion" id="txtDescripcion" class="form-control" </td>
                                             </tr>
                                         </table>
+                                         </div>
                                     </div>
-                                    <br>
-                                    <input type="button" class="btn btn-primary" action="#" value="Registrar" name="registrar" id="registrar"/>
+                                    <table id="tablaAdmin" class="table table-bordered table-striped">
+                                        <tr><td> <input type="submit" class="btn btn-primary" value="Registrar" name="registrar" id="registrar"/> </td></tr>
+                                    </table>
                                 </form>
                             </div>
                         </div>
@@ -70,7 +79,7 @@
     <link rel="stylesheet" href="../public/css/dataTables.bootstrap.min.css" />
     <script src="../public/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../public/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/producto.js" type="text/javascript"></script>
+    <script src="js/procesar.js" type="text/javascript"></script>
 
 
 <jsp:include page="../plantillas/admin/footer.jsp"/>

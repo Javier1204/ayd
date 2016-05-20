@@ -20,5 +20,6 @@ public interface IClienteDAO {
     public ClienteDTO consultarCliente(String id_cliente)throws Exception;
     public ArrayList<ClienteDTO> obtenerClientes()throws Exception;
     public boolean eliminarCliente(String id_cliente)throws Exception;
+    public boolean validarCliente(String id_cliente) throws Exception;
     
 }

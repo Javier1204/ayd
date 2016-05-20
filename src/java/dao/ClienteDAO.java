@@ -9,6 +9,8 @@ import dto.ClienteDTO;
 import interfaces.IClienteDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import util.Conexion;
 
@@ -55,9 +57,27 @@ public class ClienteDAO implements IClienteDAO{
     }
 
     @Override
-    public ClienteDTO consultarCliente(String id_cliente) {
-        return null;
+    public ClienteDTO consultarCliente(String id_cliente) throws Exception {
+        conn = Conexion.conectar();
+        PreparedStatement stmt = null;
+        ClienteDTO cliente=null;
+        try{
+            stmt = conn.prepareStatement("SELECT * FROM cliente WHERE id_cliente="+id_cliente);
+            ResultSet res = stmt.executeQuery();
+            while(res.next()){
+                cliente = new ClienteDTO(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6));
             }
+            stmt.close();
+            res.close();
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return cliente;
+    }
 
     @Override
     public ArrayList<ClienteDTO> obtenerClientes() {
@@ -67,6 +87,30 @@ public class ClienteDAO implements IClienteDAO{
     @Override
     public boolean eliminarCliente(String id_cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean validarCliente(String id_cliente) throws Exception {
+        conn = Conexion.conectar();
+        boolean exito = false;
+        PreparedStatement stmt = null;
+        try{
+            stmt = conn.prepareStatement("SELECT id_cliente FROM cliente WHERE id_cliente="+id_cliente);
+            ResultSet res = stmt.executeQuery();
+            while(res.next()){
+                exito = true;
+            }
+            stmt.close();
+            res.close();
+        }catch (SQLException ex) {
+            exito = false;
+            throw new Exception(ex);
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return exito;
     }
     
 }
