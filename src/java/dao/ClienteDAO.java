@@ -80,8 +80,28 @@ public class ClienteDAO implements IClienteDAO{
     }
 
     @Override
-    public ArrayList<ClienteDTO> obtenerClientes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<ClienteDTO> obtenerClientes() throws Exception {
+        conn = Conexion.conectar();
+        ArrayList<ClienteDTO> clientes = new ArrayList<>();
+        PreparedStatement stmt = null;
+        try{
+            stmt = conn.prepareStatement("SELECT * FROM cliente WHERE 1");
+            ResultSet res = stmt.executeQuery();
+            while(res.next()){
+                ClienteDTO cliente = new ClienteDTO(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6));
+                clientes.add(cliente);
+            }
+            stmt.close();
+            res.close();
+        }catch (SQLException ex) {
+            clientes = null;
+            throw new Exception(ex);
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return clientes;
     }
 
     @Override

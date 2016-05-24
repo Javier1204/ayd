@@ -116,7 +116,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="../hospedajes/registrarHospedaje.jsp"><i class="fa fa-pencil"></i><span>Registrar hospedaje</span></a></li>
                                 <li><a href="../hospedajes/consultarHospedaje.jsp"><i class="fa fa-search"></i><span>Consultar hospedajes</span></a></li>
-                                <li><a href="../hospedajes/modificarHospedaje.jsp"><span>Modificar hospedaje</span></a></li>
+                                <li><a href="../hospedajes/consultarHospedajesActivos.jsp"><i class="fa fa-search"></i><span>Consultar hospedajes activos</span></a></li>
                             </ul>
                         </li>
                          <li class="treeview <%=((pagina.equals("clientes")) ? "active" : " ")%>">
@@ -124,7 +124,6 @@
                             <ul class="treeview-menu">
                                 <li><a href="../clientes/registrarCliente.jsp"><i class="fa fa-pencil"></i><span>Registrar cliente</span></a></li>
                                 <li><a href="../clientes/consultarCliente.jsp"><i class="fa fa-search"></i><span>Consultar cliente</span></a></li>
-                                <li><a href="../clientes/modificarCliente.jsp"><span>Modificar cliente</span></a></li>
                             </ul>
                         </li>
                         
@@ -147,7 +146,6 @@
                             <ul class="treeview-menu">
                                 <li><a href="../recursos/registrarReserva.jsp"><span>Registrar reserva de recurso</span></a></li>
                                 <li><a href="../recursos/consultarReservas.jsp"><span>Consultar recursos reservados</span></a></li>
-                                <li><a href="../recursos/modificarReserva.jsp"><span>Modificar reserva de recurso</span></a></li>
                             </ul>
                         </li> 
                         </ul>

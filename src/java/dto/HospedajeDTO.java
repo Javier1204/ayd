@@ -16,10 +16,10 @@ public class HospedajeDTO {
     private String id_habitacion;
     private int cantPersonas;
     private String id_cliente;
-    private Date fecha_salida;
-    private Date fecha_entrada;
+    private String fecha_salida;
+    private String fecha_entrada;
 
-    public HospedajeDTO(String id_habitacion, int cantPersonas, String id_cliente,Date fecha_salida, Date fecha_entrada) {
+    public HospedajeDTO(String id_habitacion, int cantPersonas, String id_cliente,String fecha_salida, String fecha_entrada) {
         this.id_habitacion = id_habitacion;
         this.cantPersonas = cantPersonas;
         this.id_cliente = id_cliente;
@@ -51,19 +51,19 @@ public class HospedajeDTO {
         this.id_cliente = id_cliente;
     }
 
-    public Date getFecha_entrada() {
+    public String getFecha_entrada() {
         return fecha_entrada;
     }
 
-    public void setFecha_entrada(Date fecha_entrada) {
+    public void setFecha_entrada(String fecha_entrada) {
         this.fecha_entrada = fecha_entrada;
     }
 
-    public Date getFecha_salida() {
+    public String getFecha_salida() {
         return fecha_salida;
     }
 
-    public void setFecha_salida(Date fecha_salida) {
+    public void setFecha_salida(String fecha_salida) {
         this.fecha_salida = fecha_salida;
     }
 

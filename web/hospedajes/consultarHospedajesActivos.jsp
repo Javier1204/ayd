@@ -1,13 +1,11 @@
 <%-- 
-    Document   : consultarHospedaje
-    Created on : 22-may-2016, 14:50:52
+    Document   : consultarHospedajesActivos
+    Created on : 23-may-2016, 10:50:56
     Author     : Javier
 --%>
 
-
+<%@page import="dto.HospedajeDTO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dto.HospedajeDTO"%>
-<%@page import="dto.HospedajeDTO"%>
 <%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -19,8 +17,8 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-12" style="margin-bottom: 30px;">
-                            <form name="form1" action="javascript:consultarHospedaje()" method="POST">
-                                <center><h1> Consultar Hospedajes </h1></center> <br>
+                            <form name="form1" action="javascript:consultarHospedajeActivo()" method="POST">
+                                <center><h1> Hospedajes Activos </h1></center> <br>
                                 <div id="tablaAdmin">
                                     <label> 
                                         Buscar:
@@ -28,9 +26,7 @@
                                     <div class="input-group">
                                         <input required type="text" name="txtBusq" id="txtBusq" placeholder="Documento cliente..." class="form-control"/> 
                                         <span class="input-group-addon">-</span>
-                                        <input required type="date" name="txtFsalida" id="txtFsalida" placeholder="Fecha de salida..." class="form-control"/>
-                                        <span class="input-group-addon">-</span>
-                                        <input required type="date" name="txtFentrada" id="txtFentrada" placeholder="Fecha de entrada..." class="form-control"/>
+                                        <input required type="text" name="txtHabitacion" id="txtHabitacion" placeholder="Habitación..." class="form-control"/>
                                         <span class="input-group-btn">
                                             <input type="submit" name="btnBusq" id="btnBusq" value="Buscar" class="btn btn-flat"/>
                                         </span>
@@ -44,12 +40,14 @@
                                                 <th> Cliente a cargo </th>
                                                 <th> Fecha entrada </th>
                                                 <th> Fecha salida </th>
+                                                <th> Acción </th>
+                                                <th> Acción </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <%
                                                 Fachada fachada = new Fachada();
-                                                ArrayList<HospedajeDTO> hospedajes = fachada.obtenerHospedajes();
+                                                ArrayList<HospedajeDTO> hospedajes = fachada.obtenerHospedajesActivos();
                                                 System.out.println(hospedajes);
                                                 for (HospedajeDTO h : hospedajes) {
                                             %>
@@ -58,6 +56,8 @@
                                                 <td> <%= h.getId_cliente()%> </td>
                                                 <td> <%= h.getFecha_entrada()%> </td>
                                                 <td> <%= h.getFecha_salida()%></td>
+                                                <td> <a href="modificarHospedaje.jsp?id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>">Modificar </a></td>
+                                                <td> <a href="#">Finalizar </a></td>
                                             </tr>
                                             <% }%>
                                         </tbody>

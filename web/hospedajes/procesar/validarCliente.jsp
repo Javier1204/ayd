@@ -49,8 +49,8 @@
         <td>Apellido </td>
         <td><input type="text" name="txtApellido" value="" id="txtApellido"  placeholder="Apellido usuario" class="form-control"></td>
     </tr><tr>
-        <td>Nacionalidad </td>
-        <td><input type="text" name="txtTelefono" value="" id="txtNacionalidad"  placeholder="Nacionalidad" class="form-control"> </td>
+        <td>Teléfono </td>
+        <td><input type="text" name="txtTelefono" value="" id="txtTelefono"  placeholder="Nacionalidad" class="form-control"> </td>
         <td>Procedencia </td>
         <td><input type="text" value="" name="txtProcedencia" id="txtProcedencia" placeholder="Procedencia" class="form-control"> </td>
     </tr>

@@ -7,6 +7,7 @@ package negocio.hospedajes;
 
 import dao.HabitacionDAO;
 import dao.HospedajeDAO;
+import dto.HabitacionDTO;
 import dto.HospedajeDTO;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -17,18 +18,56 @@ import java.util.ArrayList;
  */
 public class ControlHospedaje {
     
-    public boolean registrarHospedaje(String id_habitacion,int cantPersonas, String id_cliente, Date fecha_salida, Date fecha_entrada) throws Exception{
+    public boolean registrarHospedaje(String id_habitacion,String cantPersonas, String id_cliente, String fecha_salida) throws Exception{
         HospedajeDAO dao = new HospedajeDAO();
-        HospedajeDTO dto = new HospedajeDTO(id_habitacion, cantPersonas, id_cliente, fecha_salida, fecha_entrada);
+        HabitacionDAO est = new HabitacionDAO();
+        java.util.Date date = new java.util.Date();
+        Date entrada = new Date(date.getTime());
+        int cant = Integer.parseInt(cantPersonas);
+        HospedajeDTO dto = new HospedajeDTO(id_habitacion, cant, id_cliente, fecha_salida, entrada.toString());
+        est.ocuparHabitacion(id_habitacion);
         return dao.registrarHospedaje(dto);
     }
     
     public ArrayList<String> obtenerHabitacionesDisponibles(int cantPersonas, String fecha_salida) throws Exception{
         HabitacionDAO dao = new HabitacionDAO();
-        String[] split= fecha_salida.split("-");
         java.util.Date date = new java.util.Date();
-        Date salida = new Date(Integer.parseInt(split[0]), Integer.parseInt(split[1]),Integer.parseInt(split[2]));
         Date entrada = new Date(date.getTime());
-        return dao.obtenerHabitacionesDisponibles(cantPersonas, salida, entrada);
+        return dao.obtenerHabitacionesDisponibles(cantPersonas, fecha_salida, entrada);
+    }
+    
+    public ArrayList<HospedajeDTO> obtenerHospedajes() throws Exception{
+        HospedajeDAO dao = new HospedajeDAO();
+        return dao.mostrarHospedajes();
+    }
+    
+    public ArrayList<HospedajeDTO> obtenerHospedajesActivos() throws Exception{
+        HospedajeDAO dao = new HospedajeDAO();
+        return dao.mostrarHospedajesActivo();
+    }
+    
+    public HospedajeDTO consultarHospedaje(String id_cliente, String f_salida, String f_entrada) throws Exception{
+        HospedajeDAO dao = new HospedajeDAO();
+        return dao.consultarHospedaje(id_cliente, f_salida, f_entrada);
+    }
+   
+    public HospedajeDTO consultarHospedajeActivo(String id_cliente, String id_habitacion) throws Exception{
+        HospedajeDAO dao = new HospedajeDAO();
+        return dao.consultarHospedajeActivo(id_cliente, id_habitacion);
+    }
+    
+    public boolean modificarHospedaje(String id_habitacion,String cantPersonas, String id_cliente, String fecha_salida, String habAnt) throws Exception{
+        HospedajeDAO dao = new HospedajeDAO();
+        HabitacionDAO hab = new HabitacionDAO();
+        int cant = Integer.parseInt(cantPersonas);
+        HospedajeDTO dto = new HospedajeDTO(id_habitacion, cant, id_cliente, fecha_salida, fecha_salida);
+        hab.desocuparHabitacion(habAnt);
+        hab.ocuparHabitacion(id_habitacion);
+        return dao.modificarHospedaje(dto, habAnt);
+    }
+    
+    public HabitacionDTO consultarHabitacion(String id) throws Exception{
+        HabitacionDAO dao = new HabitacionDAO();
+        return dao.consultarHabitacion(id);
     }
 }
