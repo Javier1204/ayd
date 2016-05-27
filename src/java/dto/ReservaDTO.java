@@ -15,15 +15,15 @@ public class ReservaDTO {
     private String id_habitacion;
     private String id_cliente;
     private int cantPersonas;
-    private Date fecha_inicio;
-    private Date fecha_salida;
+    private String fecha_inicio;
+    private String fecha_salida;
     private String nombreCliente;
     private String telefono;
     private String email;
     private String apellido;
-    private String id;
+    private String procedencia;
 
-    public ReservaDTO(String id_habitacion, String id_cliente, int cantPersonas, Date fecha_inicio, Date fecha_salida, String nombreCliente, String telefono, String email, String apellido, String id) {
+    public ReservaDTO(String id_habitacion, String id_cliente, int cantPersonas, String fecha_inicio, String fecha_salida, String nombreCliente, String telefono, String email, String apellido, String procedencia) {
         this.id_habitacion = id_habitacion;
         this.id_cliente = id_cliente;
         this.cantPersonas = cantPersonas;
@@ -33,7 +33,7 @@ public class ReservaDTO {
         this.telefono = telefono;
         this.email = email;
         this.apellido = apellido;
-        this.id = id;
+        this.procedencia = procedencia;
     }
 
     public String getId_habitacion() {
@@ -60,19 +60,19 @@ public class ReservaDTO {
         this.cantPersonas = cantPersonas;
     }
 
-    public Date getFecha_inicio() {
+    public String getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public void setFecha_inicio(Date fecha_inicio) {
+    public void setFecha_inicio(String fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public Date getFecha_salida() {
+    public String getFecha_salida() {
         return fecha_salida;
     }
 
-    public void setFecha_salida(Date fecha_salida) {
+    public void setFecha_salida(String fecha_salida) {
         this.fecha_salida = fecha_salida;
     }
 
@@ -108,13 +108,12 @@ public class ReservaDTO {
         this.apellido = apellido;
     }
 
-    public String getId() {
-        return id;
+    public String getProcedencia() {
+        return procedencia;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setProcedencia(String procedencia) {
+        this.procedencia = procedencia;
     }
-    
     
 }

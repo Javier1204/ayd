@@ -14,11 +14,11 @@ import java.util.ArrayList;
  */
 public interface IReservaDAO {
     
-    public boolean registrarReserva(ReservaDTO dto);
-    public ReservaDTO consultarReserva(String id);
-    public ArrayList<ReservaDTO> obtenerReservas();
-    public boolean cancelarReserva(String id);
-    public ArrayList<ReservaDTO> obtenerReservasPendientes();
-    public boolean pagarReserva(String id);
+    public boolean registrarReserva(ReservaDTO dto) throws Exception;
+    public ReservaDTO consultarReserva(int id) throws Exception;
+    public ArrayList<ReservaDTO> obtenerReservas() throws Exception;
+    public boolean cancelarReserva(int id) throws Exception;
+    public ArrayList<ReservaDTO> obtenerReservasPendientes() throws Exception;
+    public boolean pagarReserva(int id) throws Exception;
     
 }

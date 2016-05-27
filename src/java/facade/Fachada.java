@@ -8,9 +8,12 @@ package facade;
 import dto.ClienteDTO;
 import dto.HabitacionDTO;
 import dto.HospedajeDTO;
+import dto.ReservaDTO;
+import java.sql.Date;
 import java.util.ArrayList;
 import negocio.cliente.ControlCliente;
 import negocio.hospedajes.ControlHospedaje;
+import negocio.reserva.ControlReserva;
 
 /**
  *
@@ -77,4 +80,13 @@ public class Fachada {
         return cliente.consultarCliente(id);
     }
     
+    public ArrayList<String> consultarHabitacionesDispReserva(int cant, String fecha_salida, String fecha_entrada) throws Exception{
+        ControlReserva reserva = new ControlReserva();
+        return reserva.consultarHabitacionesDisponiblesReserva(cant, fecha_salida, fecha_entrada);
+    }
+    
+    public boolean registrarReserva(String id_habitacion, String id_cliente, int cantidad, String fecha_inicio, String fecha_salida, String nombre_cliente, String telefono, String email, String apellido, String procedencia) throws Exception{
+        ControlReserva reserva = new ControlReserva();
+        return reserva.registrarReserva(new ReservaDTO(id_habitacion, id_cliente, cantidad, fecha_inicio, fecha_salida, nombre_cliente, telefono, email, apellido, procedencia));
+    }
 }
