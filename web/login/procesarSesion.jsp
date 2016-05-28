@@ -4,14 +4,23 @@
     Author     : Javier
 --%>
 
+<%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%
+    String user = request.getParameter("nombre_usuario");
+    String password= request.getParameter("password");
+    Fachada fachada = new Fachada();
+    boolean exito = fachada.iniciarSesion(user, password);
+    System.out.println("Print1: "+password);
+    String mensaje="";
+    if(exito){
+        mensaje="1";
+        session.setAttribute("usuario", user);;
+        session.setAttribute("estadoSesion", true);
+
+        session.setMaxInactiveInterval(1 * 60 * 60);
+    }else{
+        mensaje="Datos incorrectos";
+    }
+%>
+<%= mensaje%>

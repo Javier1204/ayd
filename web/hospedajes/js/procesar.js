@@ -103,7 +103,6 @@ function cargarHabitaciones() {
 }
 
 function registrarHospedaje() {
-    alert("si");
     var id_cliente = document.getElementById("txtDocumento");
     var nombre_cliente = document.getElementById("txtNombre");
     var apellido_cliente = document.getElementById("txtApellido");
@@ -114,10 +113,11 @@ function registrarHospedaje() {
     var fecha = document.getElementById("txtFecha_salida");
     var habitacion = document.getElementById("habitacion");
     ajax = nuevoAjax();
-
-    parametros = "id_cliente=" + id_cliente.value + "&nombreCliente=" + nombre_cliente.value + "&apellido=" + apellido_cliente.value + "&telefono=" + telefono.value +
-            "&email=" + email.value + "&procedencia=" + procedencia.value + "&cant=" + cant.value + "&fecha=" + fecha.value + "&habitacion=" + habitacion.value;
-    url = "procesar/registroHospedaje.jsp";
+    alert(email.value);
+    parametros = "id_cliente="+id_cliente.value+ "&nombre_cliente="+ nombre_cliente.value+"&apellido_cliente="+apellido_cliente.value+
+            "&telefono="+telefono.value+"&email="+email.value+"&procedencia="+procedencia.value+"&cant="+cant.value+"&fecha="+fecha.value+"&habitacion="+habitacion.value;
+        alert(habitacion.value);
+    url = "procesar/registrarHospedaje.jsp";
     ajax.open("POST", url, true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     ajax.send(parametros);

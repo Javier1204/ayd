@@ -37,4 +37,15 @@ public class ControlCliente {
         return cliente.consultarCliente(id);
     }
     
+    public boolean modificarCliente(String id_cliente, String nombre_cliente, String apellido, String telefono, String email, String procedencia) throws Exception{
+        ClienteDAO cliente = new ClienteDAO();
+        ClienteDTO cli = new ClienteDTO(id_cliente, nombre_cliente, apellido, telefono, email, procedencia);
+        return cliente.modificarCliente(cli);
+    }
+    
+    public boolean eliminarCliente(String id) throws Exception{
+        ClienteDAO cliente= new ClienteDAO();
+        return cliente.eliminarCliente(id);
+    }
+    
 }

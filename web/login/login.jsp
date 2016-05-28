@@ -16,21 +16,24 @@
         <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
         <link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="../public/css/general.css">
+        <script type="text/javascript" src="js/login.js"></script>
         <title>SIHYEST</title>
     </head>
     <body>
         
         <div class="jumbotron boxlogin">
             <center><h2> <image src="../images/intento2.png"/></h2></center>
-            <form method="post" action="../hospedajes/registrarHospedaje.jsp" name="login" id="login">
+            <form method="post" action="procesarSesion.jsp" name="login" id="login">
                
                 <label>Nombre de usuario</label>
                 <input type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Nombre de usuario" class="form-control" />
                 <label>Contraseña</label>
-                <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña" class="form-control" />
-                <input type="submit" class="btn  btn-primary" name="ingresar" id="ingresar" value="Ingresar" />
+                <input type="password" name="password" id="password" placeholder="Contraseña" class="form-control" />
+                <button type="button" class="btn  btn-success" onclick="validarUsuario();" name="ingresar" id="ingresar" value="Ingresar" />Ingresar</button>
             </form>
+             <label id="divError"> </label>
         </div>
 
     </body>
+    
 </html>

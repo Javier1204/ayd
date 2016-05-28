@@ -31,7 +31,7 @@
             <td> <%= dto.getId_cliente()%> </td>
             <td> <%= dto.getFecha_entrada()%> </td>
             <td> <%= dto.getFecha_salida()%></td>
-            <td> <a href="../modificarHospedaje.jsp">Modificar </a></td>
+            <td> <a href="modificarHospedaje.jsp?id_habitacion=<%=dto.getId_habitacion()%>&id_cliente=<%=dto.getId_cliente()%>">Modificar </a></td>
             <td> <a href="#">Finalizar </a></td>
         </tr>
 

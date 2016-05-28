@@ -29,11 +29,12 @@ public class HabitacionDAO implements IHabitacionDAO {
         ArrayList<String> habitaciones = new ArrayList<>();
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("SELECT DISTINCT habitacion.id_habitacion FROM habitacion LEFT JOIN reserva ON "
-                    + "habitacion.id_habitacion = reserva.id_habitacion INNER JOIN tipo ON habitacion.tipo = tipo.tipo "
-                    + "WHERE habitacion.estado = 0 AND tipo.capacidad>" + cantPersonas + " AND (reserva.fecha_inicio>CAST('" + fecha_salida
-                    + "' AS DATETIME) OR reserva.fecha_inicio IS NULL)");
-            ResultSet res = stmt.executeQuery();
+            stmt = conn.prepareStatement("SELECT habitacion.id_habitacion, tipo.capacidad FROM  habitacion, tipo WHERE habitacion.estado=0"
+                    + " AND habitacion.id_habitacion NOT IN(SELECT reserva.id_habitacion FROM reserva WHERE "+fecha_entrada+" BETWEEN reserva.fecha_inicio"
+                    + " AND fecha_salida OR "+fecha_salida+" BETWEEN reserva.fecha_inicio AND reserva.fecha_salida OR reserva.fecha_inicio BETWEEN "+fecha_entrada
+                    +" AND "+fecha_salida+" OR reserva.fecha_salida BETWEEN "+fecha_entrada+" AND "+fecha_salida+") AND tipo.capacidad>="+cantPersonas+" AND "
+                    + "habitacion.tipo=tipo.tipo");
+            ResultSet res = stmt.executeQuery(); 
             while (res.next()) {
                 String hab = res.getString(1);
                 habitaciones.add(hab);
@@ -137,6 +138,31 @@ public class HabitacionDAO implements IHabitacionDAO {
             ResultSet res = stmt.executeQuery();
             while (res.next()) {
                 String room = res.getString(1);
+                habitaciones.add(room);
+            }
+            stmt.close();
+            res.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return habitaciones;
+    }
+
+    @Override
+    public ArrayList<HabitacionDTO> obtenerHabitaciones() throws Exception {
+       conn = Conexion.conectar();
+        ArrayList<HabitacionDTO> habitaciones = new ArrayList();
+        PreparedStatement stmt = null;
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM habitacion WHERE 1");
+
+            ResultSet res = stmt.executeQuery();
+            while (res.next()) {
+                HabitacionDTO room = new HabitacionDTO(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getInt(5), true);
                 habitaciones.add(room);
             }
             stmt.close();

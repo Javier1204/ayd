@@ -11,7 +11,7 @@
     String id_cliente = request.getParameter("id_cliente");
     Fachada fachada = new Fachada();
     ClienteDTO cliente = fachada.consultarCliente(id_cliente);
-    if(cliente!=null){
+    if (cliente != null) {
 %>
 <table id="tablaAdmin" class="table table-bordered table-striped">
     <thead style="background-color: #2c3b41; color: #fff">
@@ -32,14 +32,37 @@
             <td> <%= cliente.getTelefono()%> </td>
             <td> <%= cliente.getProcedencia()%> </td>
             <td> <%= cliente.getEmail()%> </td>
-            <td> <a href="#"> Modificar</a></td>
-            <td> <a href="#"> Eliminar</a> </td>
+            <td> <a class="btn btn-info" href="modificarCliente.jsp?id_cliente=<%=cliente.getId_cliente()%>"> Modificar</a></td>
+            <td> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"> Eliminar</button> </td>
         </tr>   
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <legend>¿Está seguro de eliminar?</legend>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a type="button" href="procesar/eliminar.jsp?id_cliente=<%=cliente.getId_cliente()%>" name="si" id="si" class="btn btn-adn"> Sí</a>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1">
+                                <a type="button" name="no" id="no" data-dismiss="modal" class="btn btn-adn"> No</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </tbody>
+</tbody>
 </table>
-<% } else{ %>
-    <table id="tablaAdmin" class="table table-bordered table-striped">
+<% } else { %>
+<table id="tablaAdmin" class="table table-bordered table-striped">
     <thead style="background-color: #2c3b41; color: #fff">
         <tr>
             <th> Documento </th>
@@ -62,4 +85,4 @@
             <td> </td>
         </tr>   
     </tbody>
-</table> <%} %>
+</table> <%}%>

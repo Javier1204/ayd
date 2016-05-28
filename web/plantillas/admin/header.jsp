@@ -72,7 +72,7 @@
                                         <img src="../images/avatar.png" class="img-circle">
                                         <p>
                                             Administrador
-                                            <small><%= session.getAttribute("nombre")%></small>
+                                            <small><%= session.getAttribute("usuario")%></small>
                                         </p>
                                     </li>
                                     <!-- Menu Footer-->

@@ -22,8 +22,6 @@
             <th> Cliente a cargo </th>
             <th> Fecha entrada </th>
             <th> Fecha salida </th>
-            <th> Acción </th>
-            <th> Acción </th>
         </tr>
     </thead>
     <tbody>

@@ -70,4 +70,9 @@ public class ControlHospedaje {
         HabitacionDAO dao = new HabitacionDAO();
         return dao.consultarHabitacion(id);
     }
+    
+    public ArrayList<HabitacionDTO> obtenerHabitaciones() throws Exception{
+        HabitacionDAO dao = new HabitacionDAO();
+        return dao.obtenerHabitaciones();
+    }
 }

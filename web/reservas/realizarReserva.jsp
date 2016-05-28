@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : realizarReserva
     Created on : 02-abr-2016, 11:51:24
@@ -18,7 +19,7 @@
                                     <div id="tablaAdmin">
                                         <div id="divCambio">
                                             <table id="tablaAdmin" class="table table-bordered table-striped">
-                                                <legend><i class="fa fa-book"></i> Información de Reserva </legend>
+                                                <legend><i class="fa fa-book"></i> Informaci?n de Reserva </legend>
                                                 <tr>
                                                     <td>Cantidad personas </td>
                                                     <td><input required type="number" name="txtCantPer" id="txtCantPer" placeholder="Cantidad de personas" onchange="javascript:validarCampoFecha()" class="form-control"></td>
@@ -29,9 +30,9 @@
                                                 </tr>
                                             </table>  
                                             <table id="tablaAdmin" class="table table-bordered table-striped"> 
-                                                <legend><i class="fa fa-user"></i> Información del Cliente </legend>
+                                                <legend><i class="fa fa-user"></i> Informaci?n del Cliente </legend>
                                                 <tr> 
-                                                    <td>N° Documento </td>
+                                                    <td>N? Documento </td>
                                                     <td><input required type="text" name="txtDocumento" id="txtDocumento" placeholder="Documento cliente" class="form-control"> </td>
                                                     <td>Nombre cliente</td>
                                                     <td><input required type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
@@ -48,11 +49,11 @@
                                             </table>
                                         </div>
 
-                                        <div><legend><i class="fa fa-home"></i> Información de la Habitación </legend></div>
+                                        <div><legend><i class="fa fa-home"></i> Informaci?n de la Habitaci?n </legend></div>
                                         <div id="cargar" style="float:left">
                                             <table id="tablaAdmin" class="table table-bordered table-striped">
                                                 <tr>
-                                                    <td> Habitación</td>
+                                                    <td> Habitaci?n</td>
                                                     <td> <select required id="habitacion" name="habitacion" onchange="javascript:cargarDescripcion(this)" class="form-control">
                                                             <option value=""> -No selection-</option>
                                                         </select> </td>
@@ -63,7 +64,7 @@
                                         <div id="descripcion" style="float:left">
                                             <table id="tablaAdmin" class="table table-bordered table-striped">
                                                 <tr>
-                                                    <td> Descripción habitación</td>
+                                                    <td> Descripci?n habitaci?n</td>
                                                     <td> <textarea type="text" name="txtDescripcion" id="txtDescripcion" class="form-control"></textarea> </td>
                                                 </tr>
                                             </table>
@@ -111,3 +112,4 @@
         });
     </script>
 <jsp:include page="../plantillas/usuario/footer.jsp"></jsp:include>
+

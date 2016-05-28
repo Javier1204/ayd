@@ -52,8 +52,29 @@ public class ClienteDAO implements IClienteDAO{
     }
 
     @Override
-    public boolean modificarCliente(ClienteDTO dto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean modificarCliente(ClienteDTO dto) throws Exception{
+        conn = Conexion.conectar();
+        PreparedStatement stmt = null;
+        boolean exito = false;
+        try {
+            stmt = conn.prepareStatement("UPDATE cliente SET nombre=?,apellido=?,telefono=?,email=?,procedencia=? WHERE id_cliente='"+dto.getId_cliente()+"'");
+            stmt.setString(1, dto.getNombre_cliente());
+            stmt.setString(2, dto.getApellido());
+            stmt.setString(3, dto.getTelefono());
+            stmt.setString(4, dto.getEmail());
+            stmt.setString(5, dto.getProcedencia());
+            int total = stmt.executeUpdate();
+            if (total > 0) {
+                exito = true;
+            }
+        } catch (SQLException ex) {
+            throw ex;
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return exito;
     }
 
     @Override
@@ -105,8 +126,25 @@ public class ClienteDAO implements IClienteDAO{
     }
 
     @Override
-    public boolean eliminarCliente(String id_cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean eliminarCliente(String id_cliente) throws Exception{
+         conn = Conexion.conectar();
+        PreparedStatement stmt = null;
+        boolean exito = false;
+        
+        try{
+            stmt = conn.prepareStatement("DELETE FROM cliente WHERE id_cliente='"+id_cliente+"'");
+            int total = stmt.executeUpdate();
+            if(total > 0){
+                exito = true;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            if(conn!=null){
+                conn.close();
+            }
+        }
+        return exito;
     }
 
     @Override

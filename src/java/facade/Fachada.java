@@ -5,6 +5,7 @@
  */
 package facade;
 
+import dao.LoginDAO;
 import dto.ClienteDTO;
 import dto.HabitacionDTO;
 import dto.HospedajeDTO;
@@ -20,6 +21,11 @@ import negocio.reserva.ControlReserva;
  * @author Javier
  */
 public class Fachada {
+    
+    public boolean iniciarSesion(String user, String password) throws Exception{
+        LoginDAO dao = new LoginDAO();
+        return dao.validarUsuario(user, password);
+    }
     
     public boolean registrarHospedaje(String id_habitacion,String cantPersonas, String id_cliente, String fecha_salida) throws Exception{
         ControlHospedaje hospedaje = new ControlHospedaje();
@@ -61,6 +67,11 @@ public class Fachada {
         return hospedaje.consultarHabitacion(id);
     }
     
+    public ArrayList<HabitacionDTO> obtenerHabitaciones() throws Exception{
+        ControlHospedaje hospedaje = new ControlHospedaje();
+        return hospedaje.obtenerHabitaciones();
+    }
+    
     public boolean validarCliente(String id) throws Exception{
         ControlCliente cliente = new ControlCliente();
         return cliente.validarCliente(id);
@@ -78,6 +89,16 @@ public class Fachada {
     public ClienteDTO consultarCliente(String id)throws Exception{
         ControlCliente cliente = new ControlCliente();
         return cliente.consultarCliente(id);
+    }
+    
+    public boolean modificarCliente(String id_cliente, String nombre_cliente, String apellido, String telefono, String email, String procedencia) throws Exception{
+        ControlCliente cliente = new ControlCliente();
+        return cliente.modificarCliente(id_cliente, nombre_cliente, apellido, telefono, email, procedencia);
+    }
+    
+    public boolean eliminarCliente(String id_cliente) throws Exception{
+        ControlCliente cliente = new ControlCliente();
+        return cliente.eliminarCliente(id_cliente);
     }
     
     public ArrayList<String> consultarHabitacionesDispReserva(int cant, String fecha_salida, String fecha_entrada) throws Exception{

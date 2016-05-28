@@ -10,7 +10,6 @@
 
 <%
     String id = request.getParameter("habitacion");
-    System.out.println(id);
     Fachada fachada = new Fachada();
     HabitacionDTO h = fachada.consultarHabitacion(id);
     if (h != null) {

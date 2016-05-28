@@ -12,13 +12,19 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/quagg/Documents/NetBeansProjects/ayd/ayd/src/java/dao/ReservaDAO.java</file>
-            <file>file:/C:/Users/quagg/Documents/NetBeansProjects/ayd/ayd/web/reservas/js/procesar.js</file>
-            <file>file:/C:/Users/quagg/Documents/NetBeansProjects/ayd/ayd/web/reservas/procesar/procesarRegReserva.jsp</file>
-            <file>file:/C:/Users/quagg/Documents/NetBeansProjects/ayd/ayd/src/java/dto/ReservaDTO.java</file>
-            <file>file:/C:/Users/quagg/Documents/NetBeansProjects/ayd/ayd/src/java/interfaces/IReservaDAO.java</file>
-            <file>file:/C:/Users/quagg/Documents/NetBeansProjects/ayd/ayd/src/java/facade/Fachada.java</file>
-            <file>file:/C:/Users/quagg/Documents/NetBeansProjects/ayd/ayd/web/reservas/realizarReserva.jsp</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/facade/Fachada.java</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/hospedajes/registrarHospedaje.jsp</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/clientes/js/procesar.js</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/dao/HabitacionDAO.java</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/hospedajes/procesar/modificarHospedaje.jsp</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/hospedajes/js/procesar.js</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/hospedajes/procesar/registrarHospedaje.jsp</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/clientes/procesar/eliminar.jsp</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/clientes/procesar/modificar.jsp</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/dao/HospedajeDAO.java</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/dao/LoginDAO.java</file>
+            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/negocio/hospedajes/ControlHospedaje.java</file>
         </group>
     </open-files>
 </project-private>

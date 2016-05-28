@@ -33,6 +33,8 @@
     </tr><tr>
         <td>Teléfono </td>
         <td><input type="text" name="txtTelefono" value="<%=cliente.getTelefono()%>" id="txtTelefono"  readonly="true"placeholder="Telefono" class="form-control"> </td>
+        <td>e-mail</td>
+        <td><input required readonly="true" type="email" name="txtEmail" value="<%=cliente.getEmail()%>" id="txtEmail" placeholder="e-mail" class="form-control"></td>
         <td>Procedencia </td>
         <td><input type="text" value="<%= cliente.getProcedencia()%>" name="txtProcedencia" readonly="true" id="txtProcedencia" placeholder="Procedencia" class="form-control"> </td>
     </tr>

@@ -24,7 +24,7 @@ function nuevoAjax() {
 }
 
 function registrarCliente() {
-    alert("si");
+    
     var id_cliente = document.getElementById("txtDocumento");
     var nombre_cliente = document.getElementById("txtNombre");
     var apellido_cliente = document.getElementById("txtApellido");
@@ -35,6 +35,7 @@ function registrarCliente() {
     
     parametros = "id_cliente=" + id_cliente.value + "&nombreCliente=" + nombre_cliente.value + "&apellido=" + apellido_cliente.value + "&telefono=" + telefono.value +
             "&email="+email.value+"&procedencia=" + procedencia.value;
+    alert("si");
     url = "procesar/registrar.jsp";
     ajax.open("POST", url, true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -76,6 +77,43 @@ function consultarCliente() {
                 var rta = ajax.responseText;
 
                 document.getElementById("cambio").innerHTML = rta;
+            }
+        }
+    }
+}
+
+function modificarCliente() {
+    alert("si");
+    var id_cliente = document.getElementById("txtDocumento");
+    var nombre_cliente = document.getElementById("txtNombre");
+    var apellido_cliente = document.getElementById("txtApellido");
+    var telefono = document.getElementById("txtTelefono");
+    var email = document.getElementById("txtEmail");
+    var procedencia = document.getElementById("txtProcedencia");
+    ajax = nuevoAjax();
+    
+    parametros = "id_cliente=" + id_cliente.value + "&nombreCliente=" + nombre_cliente.value + "&apellido=" + apellido_cliente.value + "&telefono=" + telefono.value +
+            "&email="+email.value+"&procedencia=" + procedencia.value;
+    url = "procesar/modificar.jsp";
+    ajax.open("POST", url, true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    ajax.send(parametros);
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState == 4) {
+            if (ajax.status == 200) {
+                var rta = ajax.responseText;
+                if (rta.indexOf("S") > 0) {
+                    document.getElementById("divCambio").innerHTML = "Modificación exitosa!";
+                }
+                else
+                {
+                    document.getElementById("divCambio").innerHTML = "Fallo modificación!";
+                }
+            }
+            else
+            {
+                var rta = ajax.responseText;
+                document.getElementById("divCambio").innerHTML = rta;
             }
         }
     }

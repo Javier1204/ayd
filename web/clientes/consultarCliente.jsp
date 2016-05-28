@@ -9,7 +9,6 @@
 <%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
 <jsp:include page="../plantillas/admin/header.jsp"/>
 <div class="container">
     <div class="row">
@@ -25,52 +24,50 @@
                                         Buscar:
                                     </label>  
                                     <div class="input-group">
-                                    <input type="text" name="txtBusq" id="txtBusq" placeholder="Search..." class="form-control"/>
-                                    <span class="input-group-btn">
-                                        <input type="submit" name="btnBusq" id="btnBusq" value="Buscar" class="btn btn-flat"/>
-                                    </span>
+                                        <input type="text" name="txtBusq" id="txtBusq" placeholder="Search..." class="form-control"/>
+                                        <span class="input-group-btn">
+                                            <input type="submit" name="btnBusq" id="btnBusq" value="Buscar" class="btn btn-flat"/>
+                                        </span>
                                     </div>
                                     <br>
                                     <div id="cambio">
-                                    <table id="tablaAdmin" class="table table-bordered table-striped">
-                                        <thead style="background-color: #2c3b41; color: #fff">
-                                            <tr>
-                                                <th> Documento </th>
-                                                <th> Nombre </th>
-                                                <th> Teléfono </th>
-                                                <th> Procedencia </th>
-                                                <th> e-mail </th>
-                                                <th> Acción </th>
-                                                <th> Acción </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                Fachada fachada = new Fachada();
-                                                ArrayList<ClienteDTO> clientes= fachada.obtenerClientes();
-                                                for(ClienteDTO c : clientes) {
-                                            %>    
-                                            <tr>
-                                                <td> <%= c.getId_cliente() %>  </td>
-                                                <td> <%= c.getNombre_cliente() +" "+ c.getApellido() %> </td>
-                                                <td> <%= c.getTelefono() %> </td>
-                                                <td> <%= c.getProcedencia()%> </td>
-                                                <td> <%= c.getEmail()%> </td>
-                                                <td> <a href="#"> Modificar</a></td>
-                                                <td> <a href="#"> Eliminar</a> </td>
-                                            </tr>   
-                                            <% } %>
-                                        </tbody>
-                                    </table>
+                                        <table id="tablaAdmin" class="table table-bordered table-striped">
+                                            <thead style="background-color: #2c3b41; color: #fff">
+                                                <tr>
+                                                    <th> Documento </th>
+                                                    <th> Nombre </th>
+                                                    <th> Teléfono </th>
+                                                    <th> Procedencia </th>
+                                                    <th> e-mail </th>
+                                                    <th> Acción </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <%
+                                                    Fachada fachada = new Fachada();
+                                                    ArrayList<ClienteDTO> clientes = fachada.obtenerClientes();
+                                                    for (ClienteDTO c : clientes) {
+                                                %>    
+                                                <tr>
+                                                    <td> <%= c.getId_cliente()%>  </td>
+                                                    <td> <%= c.getNombre_cliente() + " " + c.getApellido()%> </td>
+                                                    <td> <%= c.getTelefono()%> </td>
+                                                    <td> <%= c.getProcedencia()%> </td>
+                                                    <td> <%= c.getEmail()%> </td>
+                                                    <td> <a class="btn btn-info" href="modificarCliente.jsp?id_cliente=<%=c.getId_cliente()%>"> Modificar</a></td>
+                                                </tr>   
+                                                <% }%>   
+                                            </tbody>
+                                        </table>
                                     </div>
-                                        </div>
+                                </div>
                             </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>             
+            </div>             
+        </div>
     </div>
-</div>
 </div>
 
 <link rel="stylesheet" href="../public/css/dataTables.bootstrap.min.css" />

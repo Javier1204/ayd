@@ -4,67 +4,44 @@
     Author     : Javier
 --%>
 
+<%@page import="dto.HabitacionDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Fachada fachada = new Fachada();
+    ArrayList<HabitacionDTO> habitaciones = fachada.obtenerHabitaciones();
+%>
 
-<jsp:include page="../plantillas/admin/header.jsp"/>
+<jsp:include page="../plantillas/usuario/header.jsp"/>
 <div class="container">
     <div class="row">
-        <div class="col-lg-offset-1 col-lg-10">
-            <div class="box">
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-md-12" style="margin-bottom: 30px;">
-                            <form name="form1" action="#" method="POST">
-                                <center><h1> Consultar Reservas </h1></center> <br>
-                                <div id="tablaAdmin">
-                                    <label> 
-                                        Buscar:
-                                    </label>  
-                                    <div class="input-group">
-                                    <input type="text" name="txtBusq" id="txtBusq" placeholder="Search..." class="form-control"/>
-                                    <span class="input-group-btn">
-                                        <input type="button" name="btnBusq" id="btnBusq" value="Buscar" class="btn btn-flat"/>
-                                    </span>
-                                    </div>
-                                    <br>
-                                    <table id="tablaAdmin" class="table table-bordered table-striped">
-                                        <thead BGCOLOR="#dc4331">
-                                            <tr>
-                                                <th> Uno </th>
-                                                <th> Dos </th>
-                                                <th> Tres </th>
-                                                <th> Acción </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td> Uno </td>
-                                                <td> Dos </td>
-                                                <td> Tres </td>
-                                                <td> <a href="../hospedajes/registrarHospedaje.jsp"> Efectuar reserva</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td> Uno </td>
-                                                <td> Dos </td>
-                                                <td> Tres </td>
-                                                <td> <a href="../hospedajes/registrarHospedaje.jsp"> Efectuar reserva</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                            </form>
-                        </div>
-                    </div>
+        <center><h1>Habitaciones </h1> </center>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 sp-col"> 
+                <div style="text-align: justify" class="textinicio">
+                   Las habitaciones del Hotel  ofrecen todos los servicios necesarios 
+                   para brindarle el máximo confort en su estadía: escritorio, sala de recibo, TV LCD, telefonía digital, 
+                   wifi, aire acondicionado... Lugares llenos de quietud y encanto rodeados por piscinas y un hermoso jardín
+                   tropical que le permiten disfrutar desde que amanece del resplandor de la naturaleza…
                 </div>
             </div>
-        </div>             
+        </div>
+        <%  for (HabitacionDTO h : habitaciones) {%>
+        <div class="col-lg-4 col-sm-6 sp-col">
+            <a href="#">
+                <div class="contenedor-img ejemplo-1">  
+                    <img src="<%=h.getUrl_imagen()%>" alt="Imagen" class="img-responsive img-rounded"/>
+                    <div class="mascara"></div>
+                    <div class="contenido">
+                        <h2>Habitación <%=h.getId()%></h2>  
+                        <a href="#" class="link">Ver habitaciones</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <% }%>
     </div>
 </div>
-</div>
 
-<link rel="stylesheet" href="../public/css/dataTables.bootstrap.min.css" />
-<script src="../public/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="../public/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script src="js/producto.js" type="text/javascript"></script>
-
-
-<jsp:include page="../plantillas/admin/footer.jsp"/>
+<jsp:include page="../plantillas/usuario/footer.jsp"/>
