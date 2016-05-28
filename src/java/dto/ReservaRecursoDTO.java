@@ -16,17 +16,24 @@ public class ReservaRecursoDTO {
     private String nombreRecurso;
     private String servicios;
     private String id_cliente;
-    private Date fecha_inicio;
-    private Date fecha_final;
+    private String fecha_inicio;
+    private String fecha_final;
     private String id;
 
-    public ReservaRecursoDTO(String nombreRecurso, String servicios, String id_cliente, Date fecha_inicio, Date fecha_final, String id) {
+    public ReservaRecursoDTO(String nombreRecurso, String servicios, String id_cliente, String fecha_inicio, String fecha_final, String id) {
         this.nombreRecurso = nombreRecurso;
         this.servicios = servicios;
         this.id_cliente = id_cliente;
         this.fecha_inicio = fecha_inicio;
         this.fecha_final = fecha_final;
         this.id = id;
+    }
+    public ReservaRecursoDTO(String nombreRecurso, String servicios, String id_cliente, String fecha_inicio, String fecha_final) {
+        this.nombreRecurso = nombreRecurso;
+        this.servicios = servicios;
+        this.id_cliente = id_cliente;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_final = fecha_final;
     }
 
     public String getNombreRecurso() {
@@ -53,19 +60,19 @@ public class ReservaRecursoDTO {
         this.id_cliente = id_cliente;
     }
 
-    public Date getFecha_inicio() {
+    public String getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public void setFecha_inicio(Date fecha_inicio) {
+    public void setFecha_inicio(String fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public Date getFecha_final() {
+    public String getFecha_final() {
         return fecha_final;
     }
 
-    public void setFecha_final(Date fecha_final) {
+    public void setFecha_final(String fecha_final) {
         this.fecha_final = fecha_final;
     }
 

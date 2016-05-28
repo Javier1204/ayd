@@ -14,51 +14,79 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-12" style="margin-bottom: 30px;">
-                                <center><h2> Reservar recurso </h2></center>
-                                <form name="registrarForm" id="registrarForm" action="#" method="post">
+                                <center><h2> Reservar recurso </h2>
+                                 <label id="registrar">  </label></center>
+                                <form name="registrarForm" id="registrarForm" action="javascript:registrarReservaRecurso()" method="post">
                                     <div id="tablaAdmin">
-                                        <table id="tablaAdmin" class="table table-bordered table-striped">
-                                            <label> Información recurso </label>
+                                        <table id="tablaAdmin" class="table table-bordered table-striped" style="float:left">
+                                            <legend><i class="fa fa-book"> Información Recurso</i></legend>
                                             <tr>
-                                                <td> Recurso</td>
-                                                <td> <select id="recurso" name="recurso" class="form-control">
-                                                        <option> -Seleccione recurso-</option>
-                                                        <option> Auditorio </option>
-                                                        <option> Piscina </option>
-                                                        <option> Cancha </option>
-                                                    </select> </td>
-                                                <td> Seleccione fecha</td>
+                                                <td> Seleccione fecha de entrada</td>
                                                 <td>
-                                                    <input type="text" name="datepicker" id="datepicker"/>
+                                                    <input type="date" name="txtFecha_entrada" id="txtFecha_entrada" class="form-control" placeholder="Fecha entrada" onchange="javascript:validarCampoFechas()"/>
                                                 </td>
-                                                <td> Seleccione servicios asistenciales: </td>
-                                                <td> <input type="checkbox" name="chkMeseros" id="chkMeseros" value="Meseros">Mesería <br>
-                                                    <input type="checkbox" name="chkChef" id="chkChef" value="Chef">Chef <br>
-                                                    <input type="checkbox" name="chkDecoracion" id="chkDecoracion" value="Decoración">Decoración<br>
-                                                    <input type="checkbox" name="chkAnimacion" id="chkAnimacion" value="Animación">Animación<br>
-                                                    <input type="checkbox" name="chkSilleteria" id="chkSilleteria" value="Silleteria">Silletería<br>
+                                                <td> Seleccione fecha de salida</td>
+                                                <td>
+                                                    <input type="date" name="txtFecha_salida" id="txtFecha_salida" class="form-control" placeholder="Fecha salida" onchange="javascript:validarCampoFechas()"/>
                                                 </td>
                                             </tr>
                                         </table>
-                                        <table id="tablaAdmin" class="table table-bordered table-striped"> 
-                                            <label> Información del cliente </label>
+                                        <div id="cargar">
+                                        <table id="tablaRecurso" class="table table-bordered table-striped">
                                             <tr>
+                                                <td> Recurso</td>
+                                                <td> <select id="recurso" name="recurso" class="form-control" onchange="javascript:validarRecurso()">
+                                                        <option> -Sin selección-</option>
+                                                    </select> </td>
+                                            </tr>
+                                        </table>
+                                        </div>
+                                            <div id="tarifa">
+                                            <table id="tablaTarifa" class="table table-bordered table-striped">
+                                                <tr>
+                                                    <td> Tarifa de Recurso</td>
+                                                    <td>
+                                                        <input type="text" name="txtTarifa" id="txtTarifa" class="form-control" readonly="true"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <table id="tableAdmin" class="table table-bordered table-striped">
+                                            <tr>
+                                            <td> Seleccione servicios asistenciales: </td>
+                                            <td> <input type="checkbox" name="servicio" id="meseria" value="Meseros">Mesería </td>
+                                                  <td>  <input type="checkbox" name="servicio" id="chef" value="Chefs">Chefs </td>
+                                                  <td>  <input type="checkbox" name="servicio" id="decoracion" value="Decoracion">Decoración</td>
+                                                 <td>   <input type="checkbox" name="servicio" id="animacion" value="Animacion">Animación</td>
+                                                 <td>   <input type="checkbox" name="servicio" id="silleteria" value="Silleteria">Silletería</td>
+                                                 <td>   <input type="checkbox" name="servicio" id="VideoBeam" value="VideoBeam">VideoBeam</td>
+                                                  <td>  <input type="checkbox" name="servicio" id="Recreacionistas" value="Recreacionistas">Recreacionistas
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div id="cambioCliente">
+                                        <table id="tablaAdmin" class="table table-bordered table-striped"> 
+                                             <legend><i class="fa fa-user"> Información Del Cliente</i></legend>
+                                            <tr>
+                                                <td>N° Documento </td>
+                                                <td><input type="text" name="txtDocumento" id="txtDocumento" placeholder="Documento cliente" class="form-control" onchange="javascript:validarInformacionCliente()"</td>
                                                 <td>Nombre cliente </td>
                                                 <td><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
                                                 <td>Apellido </td>
                                                 <td><input type="text" name="txtApellido" id="txtApellido" placeholder="Apellido usuario" class="form-control"></td>
-                                                <td>N° Documento </td>
-                                                <td><input type="text" name="txtDocumento" id="txtDocumento" placeholder="Documento cliente" class="form-control" </td>
-                                            </tr><tr>
-                                                <td>Nacionalidad </td>
-                                                <td><input type="text" name="txtNacionalidad" id="txtNacionalidad" placeholder="Nacionalidad" class="form-control" </td>
+                                        </tr><tr>
+                                            <td>Teléfono </td>
+                                                <td><input type="text" name="txtTelefono" id="txtTelefono" placeholder="Telefono" class="form-control"</td>
+                                                <td>Email </td>
+                                                <td><input type="text" name="txtEmail" id="txtEmail" placeholder="Correo electronico" class="form-control"</td>
                                                 <td>Procedencia </td>
                                                 <td><input type="text" name="txtProcedencia" id="txtProcedencia" placeholder="Procedencia" class="form-control" </td>
                                             </tr>
                                         </table>
+                                        </div>
                                     </div>
                                     <br>
-                                    <input type="button" class="btn btn-primary" action="#" value="Registrar" name="registrar" id="registrar"/>
+                                    <input type="submit" class="btn btn-primary"  value="Registrar" name="registrar" id="registrar"/>
                                 </form>
                             </div>
                         </div>
@@ -70,6 +98,6 @@
     <link rel="stylesheet" href="../public/css/dataTables.bootstrap.min.css" />
     <script src="../public/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../public/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/producto.js" type="text/javascript"></script>
+    <script src="js/recurso.js" type="text/javascript"></script>
 
 <jsp:include page="../plantillas/admin/footer.jsp"/>

@@ -10,10 +10,12 @@ import dto.ClienteDTO;
 import dto.HabitacionDTO;
 import dto.HospedajeDTO;
 import dto.ReservaDTO;
+import dto.ReservaRecursoDTO;
 import java.sql.Date;
 import java.util.ArrayList;
 import negocio.cliente.ControlCliente;
 import negocio.hospedajes.ControlHospedaje;
+import negocio.recurso.ControlRecurso;
 import negocio.reserva.ControlReserva;
 
 /**
@@ -109,5 +111,41 @@ public class Fachada {
     public boolean registrarReserva(String id_habitacion, String id_cliente, int cantidad, String fecha_inicio, String fecha_salida, String nombre_cliente, String telefono, String email, String apellido, String procedencia) throws Exception{
         ControlReserva reserva = new ControlReserva();
         return reserva.registrarReserva(new ReservaDTO(id_habitacion, id_cliente, cantidad, fecha_inicio, fecha_salida, nombre_cliente, telefono, email, apellido, procedencia));
+    }
+    
+     public ArrayList<String> obtenerRecursosDisponibles(String fecha_entrada, String fecha_salida) throws Exception{
+        ControlRecurso recurso = new ControlRecurso();
+        return recurso.obtenerRecursosDisponibles(fecha_entrada, fecha_salida);
+    }
+    
+    public boolean registrarReservaRecurso(String nombreRecurso, String servicios, String idCliente, String fechaEntrada, String fechaSalida) throws Exception{
+        ControlRecurso reservaR = new ControlRecurso();
+        return reservaR.registrarReservaRecurso(nombreRecurso, servicios, idCliente, fechaEntrada, fechaSalida);
+    }
+    
+    public ArrayList<ReservaRecursoDTO> obtenerReservasRecurso() throws Exception{
+        ControlRecurso reservaR = new ControlRecurso();
+        return reservaR.obtenerReservaRecurso();
+    }
+    
+    public ReservaRecursoDTO consultarReservaRecurso(String id_cliente, String nombre_recurso, String fecha_inicio, String fecha_fin) throws Exception{
+        ControlRecurso reservaRecurso = new ControlRecurso();
+        return reservaRecurso.consultarReservaRecurso(id_cliente, nombre_recurso, fecha_inicio, fecha_fin);
+    }
+    
+    public boolean modificarReservaRecurso(String id_cliente, String nombre_recurso, String fecha_entrada, String fecha_salida, String servicios, String nombreRecursoP, String fechaInicioP, String fechaFinP) throws Exception{
+        ControlRecurso reservaRecurso = new ControlRecurso();
+        return reservaRecurso.modificarReservaRecurso(id_cliente, nombre_recurso, fecha_entrada, fecha_salida, servicios, nombreRecursoP, fechaInicioP, fechaFinP);
+        
+    }
+    
+    public boolean cancelarReservaRecurso(String id_cliente, String nombre_recurso, String fecha_entrada, String fecha_salida, String servicios) throws Exception{
+        ControlRecurso reservaRecurso = new ControlRecurso();
+        return reservaRecurso.cancelarReservaRecurso(id_cliente, nombre_recurso, fecha_entrada, fecha_salida, servicios);
+    }
+    
+    public String obtenerTarifaRecurso(String nombre_recurso) throws Exception{
+        ControlRecurso tarifaRecurso = new ControlRecurso();
+        return tarifaRecurso.obtenerTarifaRecurso(nombre_recurso);
     }
 }

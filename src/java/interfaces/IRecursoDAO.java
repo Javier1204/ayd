@@ -14,6 +14,6 @@ import java.util.ArrayList;
  * @author Javier
  */
 public interface IRecursoDAO {
-    public ArrayList<RecursoDTO> obtenerHabitacionesDisponibles(Date fecha_salida, Date fecha_entrada);
-    
+    public ArrayList<String> obtenerRecursosDisponibles(String fecha_salida, String fecha_entrada)throws Exception;
+    public String obtenerTarifaRecurso(String nombre_recurso) throws Exception;
 }

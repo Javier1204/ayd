@@ -15,9 +15,9 @@ import java.util.ArrayList;
  */
 public interface IReservaRecurso {
     
-    public boolean registrarReservaRecurso(ReservaRecursoDTO dto);
-    public ReservaRecursoDTO consultarReservaRecurso(String nombre_recurso, String id_cliente, Date fecha_inicio);
-    public ArrayList<ReservaRecursoDTO> obtenerReservasRecurso();
-    public boolean cancelarReservaRecurso(String nombre_recurso, String id_cliente, Date fecha_inicio);
-    public ArrayList<ReservaRecursoDTO> obtenerReservasPendientes();
+    public boolean registrarReservaRecurso(ReservaRecursoDTO dto) throws Exception;
+    public ReservaRecursoDTO consultarReservaRecurso(String id_cliente, String nombre_recurso, String fecha_inicio, String fecha_fin) throws Exception;
+    public ArrayList<ReservaRecursoDTO> obtenerReservasRecurso() throws Exception;
+    public boolean cancelarReservaRecurso(ReservaRecursoDTO dto) throws Exception;
+    public boolean modificarReservaRecurso(ReservaRecursoDTO dto, String nombreRecursoP, String fechaInicioP, String fechaFinP) throws Exception;
 }
