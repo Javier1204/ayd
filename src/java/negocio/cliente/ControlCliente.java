@@ -6,7 +6,10 @@
 package negocio.cliente;
 
 import dao.ClienteDAO;
+import dao.ComentarioDAO;
 import dto.ClienteDTO;
+import dto.ComentarioDTO;
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -46,6 +49,19 @@ public class ControlCliente {
     public boolean eliminarCliente(String id) throws Exception{
         ClienteDAO cliente= new ClienteDAO();
         return cliente.eliminarCliente(id);
+    }
+    
+    public boolean registrarComentario(String nick, String comentario)throws Exception{
+        ComentarioDAO dao = new ComentarioDAO();
+        java.util.Date date = new java.util.Date();
+        Date fecha = new Date(date.getTime());
+        ComentarioDTO dto = new ComentarioDTO(nick, comentario, fecha.toString());
+        return dao.registrarComentario(dto);
+    }
+    
+    public ArrayList<ComentarioDTO> obtenerComentarios() throws Exception{
+        ComentarioDAO dao = new ComentarioDAO();
+        return dao.obtenerComentarios();
     }
     
 }

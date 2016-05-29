@@ -13,10 +13,12 @@ public class ComentarioDTO {
     
     private String nick;
     private String comentario;
-
-    public ComentarioDTO(String nick, String comentario) {
+    private String fecha;
+    
+    public ComentarioDTO(String nick, String comentario, String fecha) {
         this.nick = nick;
         this.comentario = comentario;
+        this.fecha= fecha;
     }
    
     public String getNick() {
@@ -33,6 +35,14 @@ public class ComentarioDTO {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
     
     

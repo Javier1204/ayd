@@ -6,6 +6,7 @@
 package interfaces;
 
 import dto.ComentarioDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +14,7 @@ import dto.ComentarioDTO;
  */
 public interface IComentarioDAO {
     
-    public boolean registrarComentario(ComentarioDTO comentario);
+    public boolean registrarComentario(ComentarioDTO comentario) throws Exception;
+    public ArrayList<ComentarioDTO> obtenerComentarios() throws Exception;
     
 }

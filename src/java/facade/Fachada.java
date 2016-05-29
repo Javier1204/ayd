@@ -7,6 +7,7 @@ package facade;
 
 import dao.LoginDAO;
 import dto.ClienteDTO;
+import dto.ComentarioDTO;
 import dto.HabitacionDTO;
 import dto.HospedajeDTO;
 import dto.ReservaDTO;
@@ -101,6 +102,16 @@ public class Fachada {
     public boolean eliminarCliente(String id_cliente) throws Exception{
         ControlCliente cliente = new ControlCliente();
         return cliente.eliminarCliente(id_cliente);
+    }
+    
+    public boolean registrarComentario(String nick, String comentario) throws Exception{
+        ControlCliente cliente = new ControlCliente();
+        return cliente.registrarComentario(nick, comentario);
+    }
+    
+    public ArrayList<ComentarioDTO> obtenerComentarios() throws Exception{
+        ControlCliente cliente = new ControlCliente();
+        return cliente.obtenerComentarios();
     }
     
     public ArrayList<String> consultarHabitacionesDispReserva(int cant, String fecha_salida, String fecha_entrada) throws Exception{

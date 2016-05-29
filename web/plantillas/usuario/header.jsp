@@ -43,7 +43,7 @@
                     $("div.contenedor-img").each(function (index)
                     {
                         $(this).removeClass("ejemplo-1");
-                        
+
                     })
                 }
 
@@ -53,82 +53,72 @@
     </head>
     <body>
         <div class="row top_bar">
-            <div class="col-lg-12 col-sm-12 col-xs-12 bg-azul" style="padding: 0px;">
-
-                <% if (sw) {%>
+            <div class="col-lg-12 col-sm-12 col-xs-12 bg-azul" style="padding: 0px;">s
                 <div class="pull-left nom-user">
-                    <i class="fa fa-user"></i>  <%=nombre_usuario%>
+                    <i class="fa fa-bell"></i>SIHYEST
                 </div>
-                <% } %>
-
                 <div class="pull-right login">
-                    <% if (!sw) { %>
                     <a href="../login/login.jsp" class="noline"><i class="fa fa-key"></i> Iniciar sesión</a>
-                    <% } else { %>
-                    <a href="../login/cerrarSesion.jsp" class="noline"><i class="fa fa-power-off"></i> Cerrar sesión</a>
-                    <% }%>
                 </div>               
-
             </div>
         </div>
-                  
+
         <div class="row" style="height: 30px;"> </div>
-        <div class="row bg-blanco">
-            <div class="col-lg-12 col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="col-lg-7 col-sm-7 col-xs-7 navbar-brand">
-                        <img src="../images/Product.png" class="img-responsive" />
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="../public/img/vacacional.jpg" width="100%" height="200" alt="First slide">
+                    <div class="carousel-caption">
+                        <h1>SIHYEST</h1>
+                        <p1>Sistema de información para hoteles y establecimientos turísticos</p1>
+                        <p2 class="pull-right" class="info-hotel">
+                            <i class="fa fa-mobile"></i> Línea Gratuita: 01 8000 510 765
+                        </p2>
+                        <p2 class="pull-right" class="info-hotel">
+                            Bogotá: +57 (1) 628 0000
+                        </p2>
                     </div>
-                    <div class="col-lg-5 col-sm-5 col-xs-5 info-hotel">
-                         <div class="row">
-                            <div class="col-lg-12">
-                                <p class="pull-right">
-                                    <i class="fa fa-mobile"></i> Línea Gratuita: 01 8000 510 765
-                                </p>
-                            </div>
-                            <div class="col-lg-12">
-                                <p class="pull-right">
-                                    Bogotá: +57 (1) 628 0000
-                                </p>
-                            </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
 
-        <!--SECCION DE BARRA DE MENU-->
-        <nav class="navbar navbar-default" role="navigation">
-            <!-- El logotipo y el icono que despliega el menú se agrupan
-                 para mostrarlos mejor en los dispositivos móviles -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Desplegar navegación</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+
+    <!--SECCION DE BARRA DE MENU-->
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+             para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="barra-menu">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="<%=((pagina.equals("inicio")) ? "active" : " ")%>" ><a href="../index/index.jsp"><i class="fa fa-home"></i>Inicio</a></li>
+                    <li class="<%=((pagina.equals("nosotros")) ? "active" : " ")%>" ><a href="../reservas/nosotros.jsp">Nosotros</a></li>
+                    <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="../reservas/habitaciones.jsp"> Habitaciones</a></li>
+                    <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="../reservas/realizarReserva.jsp"> Haz tu reserva ¡YA!</a></li>
+                    <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="../reservas/opiniones.jsp"> Opiniones</a></li>
+
+                </ul>
+
+                <form class="navbar-form navbar-right form-busqueda" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                    </div>
+                    <button type="submit" class="btn btn-rojo"><i class="fa fa-search"></i></button>
+                </form>
             </div>
-
-            <div class="barra-menu">
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="<%=((pagina.equals("inicio")) ? "active" : " ")%>" ><a href="../index/index.jsp"><i class="fa fa-home"></i>Inicio</a></li>
-                        <li class="<%=((pagina.equals("nosotros")) ? "active" : " ")%>" ><a href="../reservas/nosotros.jsp">Nosotros</a></li>
-                        <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="../reservas/habitaciones.jsp"> Habitaciones</a></li>
-                        <li class="<%=((pagina.equals("productos")) ? "active" : " ")%>" ><a href="../reservas/realizarReserva.jsp"> Haz tu reserva ¡YA!</a></li>
-
-                    </ul>
-
-                    <form class="navbar-form navbar-right form-busqueda" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Buscar">
-                        </div>
-                        <button type="submit" class="btn btn-rojo"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
-        </nav><!--FIN BARRA DE MENU-->
+        </div>
+    </nav><!--FIN BARRA DE MENU-->
