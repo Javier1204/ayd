@@ -53,6 +53,8 @@
     </tr><tr>
         <td>Teléfono </td>
         <td><input type="text" name="txtTelefono" value="" id="txtTelefono"  placeholder="Nacionalidad" class="form-control"> </td>
+        <td>e-mail</td>
+        <td><input required readonly="true" type="email" name="txtEmail" value="<%=cliente.getEmail()%>" id="txtEmail" placeholder="e-mail" class="form-control"></td>
         <td>Procedencia </td>
         <td><input type="text" value="" name="txtProcedencia" id="txtProcedencia" placeholder="Procedencia" class="form-control"> </td>
     </tr>

@@ -9,8 +9,8 @@
 <%
     System.out.println("Hola");
     String id_cliente = request.getParameter("id_cliente");
-    String nombre_cliente = request.getParameter("nombreCliente");
-    String apellido_cliente = request.getParameter("apellido");
+    String nombre_cliente = request.getParameter("nombre_cliente");
+    String apellido_cliente = request.getParameter("apellido_cliente");
     String telefono = request.getParameter("telefono");
     String email= request.getParameter("email");
     String procedencia = request.getParameter("procedencia");
@@ -23,6 +23,7 @@
     if(fachada.validarCliente(id_cliente)){
         exito =fachada.registrarHospedaje(habitacion, cantidad, id_cliente, fecha);
     }else{
+        System.out.println(nombre_cliente);
         fachada.registrarCliente(id_cliente, nombre_cliente, apellido_cliente, telefono, email, procedencia);
         exito= fachada.registrarHospedaje(habitacion, cantidad, id_cliente, fecha);
     }

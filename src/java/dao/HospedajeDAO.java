@@ -76,8 +76,26 @@ public class HospedajeDAO implements IHospedajeDAO{
     }
 
     @Override
-    public boolean finalizarHospedaje(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean finalizarHospedaje(String id_cliente, String idHab, String fechaNueva, String fecha_salida, String fecha_entrada) throws Exception{
+        conn = Conexion.conectar();
+        PreparedStatement stmt = null;
+        boolean exito = false;
+        try {
+            stmt = conn.prepareStatement("UPDATE hospedaje SET fecha_salida=? WHERE id_cliente='"+id_cliente
+                    +"' AND fecha_salida='"+fecha_salida+"' AND fecha_inicio='"+fecha_entrada+"'");
+            stmt.setString(1, fechaNueva);
+            int total = stmt.executeUpdate();
+            if (total > 0) {
+                exito = true;
+            }
+        } catch (SQLException ex) {
+            throw ex;
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return exito;
     }
 
     @Override

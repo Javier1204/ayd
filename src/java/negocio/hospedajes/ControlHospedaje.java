@@ -75,4 +75,14 @@ public class ControlHospedaje {
         HabitacionDAO dao = new HabitacionDAO();
         return dao.obtenerHabitaciones();
     }
+    
+    public boolean finalizarHospedaje(String id_cliente, String idHab,String fecha_salida, String fecha_entrada) throws Exception{
+        HabitacionDAO dao = new HabitacionDAO();
+        HospedajeDAO da = new HospedajeDAO();
+        java.util.Date date = new java.util.Date();
+        Date fecha = new Date(date.getTime());
+        dao.desocuparHabitacion(idHab);
+        return da.finalizarHospedaje(id_cliente, idHab, fecha.toString(), fecha_salida,fecha_entrada);
+    }
+    
 }

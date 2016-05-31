@@ -64,6 +64,11 @@ public class Fachada {
         ControlHospedaje hospedaje = new ControlHospedaje();
         return hospedaje.modificarHospedaje(id_habitacion, cantPersonas, id_cliente, fecha_salida, habAnt);
     }
+    
+    public boolean finalziarHospedaje(String id_cliente, String idHab,String fecha_salida, String fecha_entrada) throws Exception{
+        ControlHospedaje hospedaje = new ControlHospedaje();
+        return hospedaje.finalizarHospedaje(id_cliente, idHab, fecha_salida, fecha_entrada);
+    }
 
     public HabitacionDTO consultarHabitacion(String id) throws Exception {
         ControlHospedaje hospedaje = new ControlHospedaje();

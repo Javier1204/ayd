@@ -33,7 +33,7 @@
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
         <script src="../public/js/jquery-1.11.3.js" type="text/javascript"></script>
         <script src="../public/css/general.css" type="text/css" rel="stylesheet"></script>
-        <title>Hotel DAYAMAR</title>
+        <title>SIHYEST </title>
         <script type="text/javascript">
 
             $(document).ready(function () {

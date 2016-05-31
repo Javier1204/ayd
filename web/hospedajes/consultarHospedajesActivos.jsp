@@ -57,7 +57,7 @@
                                                 <td> <%= h.getFecha_entrada()%> </td>
                                                 <td> <%= h.getFecha_salida()%></td>
                                                 <td> <a href="modificarHospedaje.jsp?id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>">Modificar </a></td>
-                                                <td> <a href="#">Finalizar </a></td>
+                                                <td> <a href="procesar/finalizarHospedaje.jsp?id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>&fecha_s=<%= h.getFecha_salida()%>&fecha_e=<%= h.getFecha_entrada()%>">Finalizar </a></td>
                                             </tr>
                                             <% }%>
                                         </tbody>

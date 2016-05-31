@@ -81,8 +81,8 @@
                     <div class="col-lg-4 col-sm-6 sp-col">
                         <img class="img-circle" src="../public/img/descarga.gif" alt="Generic placeholder image" width="100" height="100">
                         <h2>Ofertas</h2>
-                        <p>Conozca todas las ofertas y promociones del Hotel City House Bolívar y obtenga increíbles descuentos. 
-                            Solo aquí, en la web oficial del Hotel City House Bolívar encontrará todas las ofertas de este hotel 
+                        <p>Conozca todas las ofertas y promociones del Hotel y obtenga increíbles descuentos. 
+                            Solo aquí, en la web oficial del Hotel encontrará todas las ofertas de este hotel 
                             4 estrellas en Cúcuta, y podrá conseguir el mejor precio online y máximas garantías.</p>
                         <p><a class="btn btn-info" href="../reservas/realizarReserva.jsp" role="button">Ver</a></p>
                     </div><!-- /.col-lg-4 -->

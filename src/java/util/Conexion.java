@@ -14,10 +14,10 @@ import java.sql.ResultSet;
  * @author Javier
  */
 public class Conexion {
-    private static String bd = "sihyest";
-    private static String login = "root";
-    private static String password = "";
-    private static String url = "jdbc:mysql://localhost/";
+    private static String bd = "ufps_73";
+    private static String login = "ufps_73";
+    private static String password = "ufps_82";
+    private static String url = "jdbc:mysql://sandbox2.ufps.edu.co:3306/";
     private static String DRIVER = "org.gjt.mm.mysql.Driver";
     private static JDBCMiddler jdbc;
 

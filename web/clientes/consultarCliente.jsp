@@ -8,7 +8,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%
+    if(session.getAttribute("usuario")!=null){
+%>
 <jsp:include page="../plantillas/admin/header.jsp"/>
 <div class="container">
     <div class="row">
@@ -78,3 +80,7 @@
 
 <jsp:include page="../plantillas/admin/footer.jsp"/>
 
+<% }else{
+        response.sendRedirect("../index/index.jsp");
+    }
+%>
