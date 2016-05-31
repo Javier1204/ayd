@@ -19,7 +19,7 @@
                                     <div id="tablaAdmin">
                                         <div id="divCambio">
                                             <table id="tablaAdmin" class="table table-bordered table-striped">
-                                                <legend><i class="fa fa-book"></i> Informaci?n de Reserva </legend>
+                                                <legend><i class="fa fa-book"></i> Información de Reserva </legend>
                                                 <tr>
                                                     <td>Cantidad personas </td>
                                                     <td><input required type="number" name="txtCantPer" id="txtCantPer" placeholder="Cantidad de personas" onchange="javascript:validarCampoFecha()" class="form-control"></td>
@@ -30,9 +30,9 @@
                                                 </tr>
                                             </table>  
                                             <table id="tablaAdmin" class="table table-bordered table-striped"> 
-                                                <legend><i class="fa fa-user"></i> Informaci?n del Cliente </legend>
+                                                <legend><i class="fa fa-user"></i> Información del Cliente </legend>
                                                 <tr> 
-                                                    <td>N? Documento </td>
+                                                    <td>N# Documento </td>
                                                     <td><input required type="text" name="txtDocumento" id="txtDocumento" placeholder="Documento cliente" class="form-control"> </td>
                                                     <td>Nombre cliente</td>
                                                     <td><input required type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
@@ -43,17 +43,15 @@
                                                     <td><input required type="tel" name="txtTelefono" id="txtTelefono" placeholder="Telefono" class="form-control"> </td>
                                                     <td>E-mail</td>
                                                     <td><input required type="email" name="txtEmail" id="txtEmail" placeholder="e-mail" class="form-control"></td>
-                                                    <td>Procedencia </td>
-                                                    <td><input required type="text" name="txtProcedencia" id="txtProcedencia" placeholder="Procedencia" class="form-control"> </td>
                                                 </tr>
                                             </table>
                                         </div>
 
-                                        <div><legend><i class="fa fa-home"></i> Informaci?n de la Habitaci?n </legend></div>
+                                        <div><legend><i class="fa fa-home"></i> Información de la Habitación </legend></div>
                                         <div id="cargar" style="float:left">
                                             <table id="tablaAdmin" class="table table-bordered table-striped">
                                                 <tr>
-                                                    <td> Habitaci?n</td>
+                                                    <td> Habitación</td>
                                                     <td> <select required id="habitacion" name="habitacion" onchange="javascript:cargarDescripcion(this)" class="form-control">
                                                             <option value=""> -No selection-</option>
                                                         </select> </td>
@@ -61,10 +59,10 @@
                                                 <tr> </tr>
                                             </table>
                                         </div>
-                                        <div id="descripcion" style="float:left">
+                                        <div id="descripcion" style="float:right">
                                             <table id="tablaAdmin" class="table table-bordered table-striped">
                                                 <tr>
-                                                    <td> Descripci?n habitaci?n</td>
+                                                    <td> Descripción habitación</td>
                                                     <td> <textarea type="text" name="txtDescripcion" id="txtDescripcion" class="form-control"></textarea> </td>
                                                 </tr>
                                             </table>
@@ -92,24 +90,24 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script>
-        $(function () {
-            $("#from").datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 1,
-                onClose: function (selectedDate) {
-                    $("#to").datepicker("option", "minDate", selectedDate);
-                }
-                });
-            $("#to").datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 1,
-                onClose: function (selectedDate) {
-                    $("#from").datepicker("option", "maxDate", selectedDate);
-                }
-                });
-        });
+                                                        $(function () {
+                                                            $("#from").datepicker({
+                                                                defaultDate: "+1w",
+                                                                changeMonth: true,
+                                                                numberOfMonths: 1,
+                                                                onClose: function (selectedDate) {
+                                                                    $("#to").datepicker("option", "minDate", selectedDate);
+                                                                }
+                                                            });
+                                                            $("#to").datepicker({
+                                                                defaultDate: "+1w",
+                                                                changeMonth: true,
+                                                                numberOfMonths: 1,
+                                                                onClose: function (selectedDate) {
+                                                                    $("#from").datepicker("option", "maxDate", selectedDate);
+                                                                }
+                                                            });
+                                                        });
     </script>
 <jsp:include page="../plantillas/usuario/footer.jsp"></jsp:include>
 

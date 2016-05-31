@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public interface IReservaDAO {
     
     public boolean registrarReserva(ReservaDTO dto) throws Exception;
-    public ReservaDTO consultarReserva(int id) throws Exception;
+    public ReservaDTO consultarReserva(String id) throws Exception;
     public ArrayList<ReservaDTO> obtenerReservas() throws Exception;
-    public boolean cancelarReserva(int id) throws Exception;
+    public boolean cancelarReserva(String id_reserva) throws Exception;
     public ArrayList<ReservaDTO> obtenerReservasPendientes() throws Exception;
-    public boolean pagarReserva(int id) throws Exception;
+    public boolean pagarReserva(String id) throws Exception;
     
 }

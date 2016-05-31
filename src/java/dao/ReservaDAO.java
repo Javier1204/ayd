@@ -29,9 +29,8 @@ public class ReservaDAO implements IReservaDAO {
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement("INSERT INTO `reserva` (`id_habitacion`, `id_cliente`, `cantPersonas`, `fecha_inicio`, "
-                    + "`fecha_salida`, `nombre_cliente`, `telefono`, `email`, `apellido_cliente`, `procedencia_cliente`, "
-                    + "`id_reserva`) VALUES (?,?,?,?,?,?,?,?,?,?,NULL)");
-            System.out.println("obtuvo datos");
+                    + "`fecha_salida`, `nombre_cliente`, `telefono`, `email`, `apellido_cliente`, `id_reserva`) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, dto.getId_habitacion());
             stmt.setString(2, dto.getId_cliente());
             stmt.setInt(3, dto.getCantPersonas());
@@ -40,9 +39,8 @@ public class ReservaDAO implements IReservaDAO {
             stmt.setString(6, dto.getNombreCliente());
             stmt.setString(7, dto.getTelefono());
             stmt.setString(8, dto.getEmail());
-            stmt.setString(9, dto.getApellido());
-            stmt.setString(10, dto.getProcedencia());
-            System.out.println(dto.getProcedencia() + "procedencia prro");
+            stmt.setString(9, dto.getApellido_Cliente());
+            stmt.setString(10, dto.getId_reserva());
             int total = stmt.executeUpdate();
             if (total > 0) {
                 stmt.close();
@@ -62,17 +60,19 @@ public class ReservaDAO implements IReservaDAO {
     }
 
     @Override
-    public ReservaDTO consultarReserva(int id) throws Exception {
+    public ReservaDTO consultarReserva(String id) throws Exception {
         ReservaDTO dto = null;
         conn = Conexion.conectar();
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("SELECT * FROM `reserva` WHERE id_reserva = " + id);
+            stmt = conn.prepareStatement("SELECT * FROM `reserva` WHERE id_cliente = " + id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 dto = new ReservaDTO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
                         rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
             }
+            stmt.close();
+            rs.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -106,12 +106,12 @@ public class ReservaDAO implements IReservaDAO {
     }
 
     @Override
-    public boolean cancelarReserva(int id) throws Exception {
+    public boolean cancelarReserva(String id_reserva) throws Exception {
         conn = Conexion.conectar();
         boolean exito = false;
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("DELETE FROM `reserva` WHERE `reserva`.`id_reserva` = '" + id + "'");
+            stmt = conn.prepareStatement("DELETE FROM `reserva` WHERE `reserva`.`id_reserva` = '"+ id_reserva +"'");
 
             int total = stmt.executeUpdate();
             if (total > 0) {
@@ -135,8 +135,7 @@ public class ReservaDAO implements IReservaDAO {
     }
 
     @Override
-    public boolean pagarReserva(int id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean pagarReserva(String id) throws Exception{
+        return false;
     }
-
 }

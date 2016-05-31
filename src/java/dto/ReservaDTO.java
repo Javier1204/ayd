@@ -20,10 +20,10 @@ public class ReservaDTO {
     private String nombreCliente;
     private String telefono;
     private String email;
-    private String apellido;
-    private String procedencia;
+    private String apellido_cliente;
+    private String id_reserva;
 
-    public ReservaDTO(String id_habitacion, String id_cliente, int cantPersonas, String fecha_inicio, String fecha_salida, String nombreCliente, String telefono, String email, String apellido, String procedencia) {
+    public ReservaDTO(String id_habitacion, String id_cliente, int cantPersonas, String fecha_inicio, String fecha_salida, String nombreCliente, String telefono, String email, String apellido_cliente) {
         this.id_habitacion = id_habitacion;
         this.id_cliente = id_cliente;
         this.cantPersonas = cantPersonas;
@@ -32,8 +32,21 @@ public class ReservaDTO {
         this.nombreCliente = nombreCliente;
         this.telefono = telefono;
         this.email = email;
-        this.apellido = apellido;
-        this.procedencia = procedencia;
+        this.apellido_cliente = apellido_cliente;
+        this.id_reserva = "";
+    }
+    
+    public ReservaDTO(String id_habitacion, String id_cliente, int cantPersonas, String fecha_inicio, String fecha_salida, String nombreCliente, String telefono, String email, String apellido_cliente, String id_reserva) {
+        this.id_habitacion = id_habitacion;
+        this.id_cliente = id_cliente;
+        this.cantPersonas = cantPersonas;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_salida = fecha_salida;
+        this.nombreCliente = nombreCliente;
+        this.telefono = telefono;
+        this.email = email;
+        this.apellido_cliente = apellido_cliente;
+        this.id_reserva = id_reserva;
     }
 
     public String getId_habitacion() {
@@ -100,20 +113,21 @@ public class ReservaDTO {
         this.email = email;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellido_Cliente() {
+        return apellido_cliente;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellido_Cliente(String apellido_cliente) {
+        this.apellido_cliente = apellido_cliente;
     }
 
-    public String getProcedencia() {
-        return procedencia;
+    public String getId_reserva() {
+        return id_reserva;
     }
 
-    public void setProcedencia(String procedencia) {
-        this.procedencia = procedencia;
+    public void setId_reserva(String id_reserva) {
+        this.id_reserva = id_reserva;
     }
+
     
 }

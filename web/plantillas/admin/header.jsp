@@ -130,7 +130,7 @@
                          <li class="treeview <%=((pagina.equals("reservas")) ? "active" : " ")%>">
                             <a href="#"><i class="fa fa-book"></i> <span>Reservas</span></a>
                             <ul class="treeview-menu">
-                                <li><a href="../reservas/habitaciones.jsp"><span>Ver reservas</span></a></li>
+                                <li><a href="../reservas/verReservas.jsp"><span>Ver reservas</span></a></li>
                             </ul>
                         </li>  
                         
