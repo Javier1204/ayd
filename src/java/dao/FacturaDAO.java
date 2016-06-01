@@ -41,7 +41,6 @@ public class FacturaDAO implements IFacturaDAO {
                     + "id = '" + dto.getId_servicio() + "'");
             ResultSet re = stmt2.executeQuery();
             while (re.next()) {
-               
 
                 String idHabi = re.getString(1);
                 String fechaInicio = re.getString(3);
@@ -67,20 +66,17 @@ public class FacturaDAO implements IFacturaDAO {
 
                 final long MILLSECS_PER_DAY = 24 * 60 * 60 * 1000;
                 diferencia = (dateSal.getTime() - dateIni.getTime()) / MILLSECS_PER_DAY;
-                
-      
 
                 stmt3 = conn.prepareStatement("SELECT tarifa FROM habitacion WHERE id_habitacion = '" + idHabi + "'");
             }
             re = stmt3.executeQuery();
             while (re.next()) {
-                
-               
+
                 dias = (int) diferencia;
                 if (dias == 0) {
                     dias = 1;
                 }
-                
+
                 dto.setPrecio(re.getInt(1) * dias);
             }
             stmt = conn.prepareStatement("INSERT INTO factura (id_cliente, id_hospedaje, tipo_servicio, precio, fecha,descripcion) "
@@ -91,7 +87,7 @@ public class FacturaDAO implements IFacturaDAO {
             stmt.setInt(4, dto.getPrecio());
             stmt.setString(5, dto.getFecha_factura());
             stmt.setString(6, dto.getDescripcion());
-        
+
             int total = stmt.executeUpdate();
             if (total > 0) {
                 stmt.close();
@@ -140,9 +136,13 @@ public class FacturaDAO implements IFacturaDAO {
                 String nombreRec = re.getString(1);
                 String fechaInicio = re.getString(3);
                 String fechaSalida = re.getString(4);
-
-                dto.setDescripcion("Reserva recurso " + nombreRec + " desde la fecha " + fechaInicio + " hasta " + fechaSalida
-                        + " con los servicios adicionales de " + re.getString(2));
+                if (!re.getString(2).equals("")) {
+                    dto.setDescripcion("Reserva recurso " + nombreRec + " desde la fecha " + fechaInicio + " hasta " + fechaSalida
+                            + " con los servicios adicionales de " + re.getString(2));
+                } else {
+                    dto.setDescripcion("Reserva recurso " + nombreRec + " desde la fecha " + fechaInicio + " hasta " + fechaSalida
+                            + " sin servicios adicioneles");
+                }
 
                 String[] partsIni = fechaInicio.split("-");
                 int añoIni = Integer.parseInt(partsIni[0]);
@@ -253,7 +253,7 @@ public class FacturaDAO implements IFacturaDAO {
         ArrayList<FacturaDTO> facturas = new ArrayList<>();
         PreparedStatement stmt = null;
         FacturaDTO factura = null;
-  
+
         try {
             if (id_recurso != null) {
                 stmt = conn.prepareStatement("SELECT * FROM factura WHERE id_res_recurso = '" + id_recurso + "' AND tipo_servicio = '" + "Recurso" + "'");
@@ -340,6 +340,102 @@ public class FacturaDAO implements IFacturaDAO {
             }
         }
         return facturas;
+    }
+
+    @Override
+    public FacturaDTO modificarFacturaRecurso(FacturaDTO dto) throws Exception {
+        conn = Conexion.conectar();
+        ArrayList<String> recursos = new ArrayList<>();
+        PreparedStatement stmt = null;
+        PreparedStatement stmt1 = null;
+        PreparedStatement stmt2 = null;
+        PreparedStatement stmt3 = null;
+        FacturaDTO factura = null;
+        int dias = 0;
+        long diferencia = 0;
+
+        try {
+
+            stmt3 = conn.prepareStatement("SELECT nombre_recurso, servicios ,fecha_inicio, fecha_salida FROM reserva_recurso WHERE id = '" + dto.getId_servicio() + "'");
+            ResultSet re = stmt3.executeQuery();
+            while (re.next()) {
+                String nombreRec = re.getString(1);
+                String fechaInicio = re.getString(3);
+                String fechaSalida = re.getString(4);
+                if (!re.getString(2).equals("")) {
+                    dto.setDescripcion("Reserva recurso " + nombreRec + " desde la fecha " + fechaInicio + " hasta " + fechaSalida
+                            + " con los servicios adicionales de " + re.getString(2));
+                } else {
+                    dto.setDescripcion("Reserva recurso " + nombreRec + " desde la fecha " + fechaInicio + " hasta " + fechaSalida
+                            + " sin servicios adicioneles");
+                }
+
+                String[] partsIni = fechaInicio.split("-");
+                int añoIni = Integer.parseInt(partsIni[0]);
+                int mesIni = Integer.parseInt(partsIni[1]);
+                int diaIni = Integer.parseInt(partsIni[2]);
+
+                String[] partsSal = fechaSalida.split("-");
+                int añoSal = Integer.parseInt(partsSal[0]);
+                int mesSal = Integer.parseInt(partsSal[1]);
+                int diaSal = Integer.parseInt(partsSal[2]);
+
+                Calendar dateInicio = new GregorianCalendar(añoIni, mesIni - 1, diaIni);
+                java.sql.Date dateIni = new java.sql.Date(dateInicio.getTimeInMillis());
+
+                Calendar dateSalida = new GregorianCalendar(añoSal, mesSal - 1, diaSal);
+                java.sql.Date dateSal = new java.sql.Date(dateSalida.getTimeInMillis());
+
+                final long MILLSECS_PER_DAY = 24 * 60 * 60 * 1000;
+                diferencia = (dateSal.getTime() - dateIni.getTime()) / MILLSECS_PER_DAY;
+
+                stmt2 = conn.prepareStatement("SELECT tarifa FROM recurso WHERE nombre = '" + nombreRec + "'");
+            }
+            re = stmt2.executeQuery();
+            while (re.next()) {
+                dias = (int) diferencia;
+                if (dias == 0) {
+                    dias = 1;
+                }
+                dto.setPrecio(re.getInt(1) * dias);
+            }
+
+            stmt = conn.prepareStatement("UPDATE factura SET precio = ? , descripcion = ? WHERE id_res_recurso = ? AND tipo_servicio = ?");
+            stmt.setInt(1, dto.getPrecio());
+            stmt.setString(2, dto.getDescripcion());
+            stmt.setString(3, dto.getId_servicio());
+            stmt.setString(4, dto.getTipo_servicio());
+           stmt.executeUpdate();
+        
+            
+            
+            stmt1 = conn.prepareStatement("SELECT num_factura FROM factura WHERE id_res_recurso = '" + dto.getId_servicio() + "' AND tipo_servicio = '" + "Recurso" + "'");
+            re = stmt1.executeQuery();
+            while (re.next()) {
+                dto.setNum_factura(re.getInt(1));
+            }
+            re.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt3 != null) {
+                stmt3.close();
+            }
+            if (stmt2 != null) {
+                stmt2.close();
+            }
+            if (stmt1 != null) {
+                stmt1.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return dto;
     }
 
 }

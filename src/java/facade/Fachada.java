@@ -233,6 +233,11 @@ public class Fachada {
         ControlFactura control = new ControlFactura();
         return control.mostrarFacturas();
     }
+    
+    public FacturaDTO actualizarFacturaRecurso(FacturaDTO dto) throws Exception{
+        ControlFactura control = new ControlFactura();
+        return control.actualizarFacturaRecurso(dto);
+    }
 
 //    public void generarPdf(String id_servicio, String tipo_servicio) throws Exception {
 //        ControlFactura control = new ControlFactura();

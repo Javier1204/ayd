@@ -17,6 +17,7 @@ public interface IFacturaDAO {
     
     public FacturaDTO generarFacturaHospedaje(FacturaDTO dto)throws Exception;
     public FacturaDTO generarFacturaRecurso(FacturaDTO dto)throws Exception;
+    public FacturaDTO modificarFacturaRecurso(FacturaDTO dto)throws Exception;
     public ArrayList<FacturaDTO> consultarFacturaHospedaje(String id_hospedaje)throws Exception;
     public ArrayList<FacturaDTO> consultarFacturaResRecurso(String id_recurso)throws Exception;
     public ArrayList<FacturaDTO> consultarFacturaCliente(String id_cliente)throws Exception;

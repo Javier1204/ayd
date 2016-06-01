@@ -51,4 +51,9 @@ public class ControlFactura {
         FacturaDAO factura = new FacturaDAO();
         return factura.mostrarFacturas();
     }
+    
+    public FacturaDTO actualizarFacturaRecurso(FacturaDTO dto)throws Exception{
+        FacturaDAO factura =new FacturaDAO();
+        return factura.modificarFacturaRecurso(dto);
+    }
 }

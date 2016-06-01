@@ -29,19 +29,17 @@
         fachada.registrarCliente(id_cliente, nombre_cliente, apellido_cliente, telefono, email, procedencia);
         exito = fachada.registrarReservaRecurso(nombre_recurso, servicio, id_cliente, fecha_entrada, fecha_salida);
     }
+    String resp = "";
     if (exito) {
         ReservaRecursoDTO resRec = fachada.consultarReservaRecurso(id_cliente, nombre_recurso, fecha_entrada, fecha_salida);
         FacturaDTO factDTO = fachada.registrarFacturaRecurso(id_cliente, "" + resRec.getId());
-        response.sendRedirect("../../facturas/consultarFacturasRecurso.jsp?id_recurso="+factDTO.getId_servicio());
-    }
+        response.sendRedirect("../../facturas/consultarFacturasRecurso.jsp?id_recurso=" + factDTO.getId_servicio());
 
-    String resp = "";
-    if (exito) {
-        resp = "Si";
     } else {
         resp = "No";
-    }
-
-
 %>
 <%= resp%>
+<%}%>
+
+
+

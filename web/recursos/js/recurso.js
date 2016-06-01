@@ -121,8 +121,10 @@ function registrarReservaRecurso() {
     ajax.send(parametros);
     ajax.onreadystatechange = function () {
         if (ajax.readyState == 4) {
+
             if (ajax.status == 200) {
                 var rta = ajax.responseText;
+
                 if (rta.indexOf("Si")) {
                     document.getElementById("registrar").innerHTML = "¡¡Registro Exitoso!!";
                     $("registrarFrom")[0].reset();
@@ -130,6 +132,7 @@ function registrarReservaRecurso() {
                 {
                     var rta = ajax.responseText;
                     document.getElementById("registrar").innerHTML = "¡¡Registro Fallido!!";
+
                     $("registrarFrom")[0].reset();
                 }
             } else
@@ -139,6 +142,8 @@ function registrarReservaRecurso() {
             }
         }
     }
+
+
 }
 
 function consultarReservaRecurso() {

@@ -12,19 +12,27 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/interfaces/IComentarioDAO.java</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/util/Conexion.java</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/reservas/procesar/registrarComentario.jsp</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/index/index.jsp</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/facade/Fachada.java</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/dao/HabitacionDAO.java</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/reservas/opiniones.jsp</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/index.jsp</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/plantillas/usuario/header.jsp</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/reservas/habitaciones.jsp</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/dao/ComentarioDAO.java</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/web/clientes/consultarCliente.jsp</file>
-            <file>file:/C:/Users/Javier/Documents/NetBeansProjects/hotel/src/java/negocio/hospedajes/ControlHospedaje.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/hospedajes/procesar/finalizarHospedaje.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dao/ReservaRecursoDAO.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dao/FacturaDAO.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/hospedajes/consultarHospedajesActivos.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/admin/header.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/modificarReserva.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/facade/Fachada.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/public/jsp/factura.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/registrarReserva.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/procesar/registrarReservaR.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/procesar/cancelarReservaR.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dto/FacturaDTO.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/consultarReservas.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dao/HospedajeDAO.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/negocio/factura/ControlFactura.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dto/ReservaRecursoDTO.java</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/facturas/consultarFacturasHospedaje.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/admin/footer.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/facturas/consultarFacturasRecurso.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/facturas/consultarFacturasCliente.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/js/recurso.js</file>
         </group>
     </open-files>
 </project-private>
