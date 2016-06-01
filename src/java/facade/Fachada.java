@@ -62,9 +62,9 @@ public class Fachada {
         return hospedaje.consultarHospedajeActivo(id_cliente, id_habitacion);
     }
 
-    public boolean modificarHospedaje(String id_habitacion, String cantPersonas, String id_cliente, String fecha_salida, String habAnt) throws Exception {
+    public boolean modificarHospedaje(String id_habitacion, String cantPersonas, String id_cliente, String fecha_salida, String habAnt, String id) throws Exception {
         ControlHospedaje hospedaje = new ControlHospedaje();
-        return hospedaje.modificarHospedaje(id_habitacion, cantPersonas, id_cliente, fecha_salida, habAnt);
+        return hospedaje.modificarHospedaje(id_habitacion, cantPersonas, id_cliente, fecha_salida, habAnt, id);
     }
     
     public boolean finalziarHospedaje(String id_cliente, String idHab,String fecha_salida, String fecha_entrada) throws Exception{

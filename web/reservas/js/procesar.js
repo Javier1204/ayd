@@ -46,13 +46,13 @@ function registrarReserva() {
         if (ajax.readyState == 4) {
             if (ajax.status == 200) {
                 var rta = ajax.responseText;
-//                if (rta.indexOf("S") > 0) {
-//                    document.getElementById("divResultado").innerHTML = "Registro exitoso!";
-//                    $("#registrarForm")[0].reset();
-//                } else
-//                {
-//                    document.getElementById("divResultado").innerHTML = "Fallo registro!";
-//                }
+                if (rta.indexOf("S") > 0) {
+                    document.getElementById("divResultado").innerHTML = "Registro exitoso!";
+                    $("#registrarForm")[0].reset();
+                } else
+                {
+                    document.getElementById("divResultado").innerHTML = "Fallo registro!";
+                }
             } else
             {
                 var rta = ajax.responseText;
@@ -79,7 +79,6 @@ function validarCampoPersonas() {
 }
 
 function cargarHabitaciones() {
-    alert("Mostrando habitaciones disponibles");
     var cant = document.getElementById("txtCantPer");
     var fechaE = document.getElementById("from");
     var fechaS = document.getElementById("to");

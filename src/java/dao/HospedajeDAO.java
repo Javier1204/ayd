@@ -52,12 +52,12 @@ public class HospedajeDAO implements IHospedajeDAO{
     }
 
     @Override
-    public boolean modificarHospedaje(HospedajeDTO dto, String id_habAnterior) throws Exception{
+    public boolean modificarHospedaje(HospedajeDTO dto, String id_habAnterior, int id) throws Exception{
         conn = Conexion.conectar();
         PreparedStatement stmt = null;
         boolean exito = false;
         try {
-            stmt = conn.prepareStatement("UPDATE hospedaje SET id_habitacion=?, fecha_salida=?, cantPersonas=? WHERE id_habitacion="+id_habAnterior);
+            stmt = conn.prepareStatement("UPDATE hospedaje SET id_habitacion=?, fecha_salida=?, cantPersonas=? WHERE id_habitacion="+id_habAnterior+" AND id= '"+id+"'");
             stmt.setString(1, dto.getId_habitacion());
             stmt.setString(2, dto.getFecha_salida());
             stmt.setInt(3, dto.getCantPersonas());
@@ -133,7 +133,7 @@ public class HospedajeDAO implements IHospedajeDAO{
                     +"' AND id_habitacion='"+id_habitacion+"' AND fecha_salida > (CURRENT_TIMESTAMP)");
             ResultSet res = stmt.executeQuery();
             while(res.next()){
-                hospedaje = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6));
+                hospedaje = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6),res.getInt(5));
                 
             }
             stmt.close();
@@ -157,7 +157,7 @@ public class HospedajeDAO implements IHospedajeDAO{
             stmt = conn.prepareStatement("SELECT * FROM hospedaje WHERE 1");
             ResultSet res = stmt.executeQuery();
             while(res.next()){
-                HospedajeDTO dto = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6));
+                HospedajeDTO dto = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6),res.getInt(5));
                 hospedajes.add(dto);
             }
             stmt.close();
@@ -181,7 +181,7 @@ public class HospedajeDAO implements IHospedajeDAO{
             stmt = conn.prepareStatement("SELECT * FROM hospedaje WHERE fecha_salida > (CURRENT_TIMESTAMP)");
             ResultSet res = stmt.executeQuery();
             while(res.next()){
-                HospedajeDTO dto = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6));
+                HospedajeDTO dto = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6),res.getInt(5));
                 hospedajes.add(dto);
             }
             stmt.close();

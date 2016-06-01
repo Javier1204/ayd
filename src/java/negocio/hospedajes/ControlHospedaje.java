@@ -56,14 +56,15 @@ public class ControlHospedaje {
         return dao.consultarHospedajeActivo(id_cliente, id_habitacion);
     }
     
-    public boolean modificarHospedaje(String id_habitacion,String cantPersonas, String id_cliente, String fecha_salida, String habAnt) throws Exception{
+    public boolean modificarHospedaje(String id_habitacion,String cantPersonas, String id_cliente, String fecha_salida, String habAnt, String id) throws Exception{
         HospedajeDAO dao = new HospedajeDAO();
         HabitacionDAO hab = new HabitacionDAO();
         int cant = Integer.parseInt(cantPersonas);
+        int id_h= Integer.parseInt(id);
         HospedajeDTO dto = new HospedajeDTO(id_habitacion, cant, id_cliente, fecha_salida, fecha_salida);
         hab.desocuparHabitacion(habAnt);
         hab.ocuparHabitacion(id_habitacion);
-        return dao.modificarHospedaje(dto, habAnt);
+        return dao.modificarHospedaje(dto, habAnt, id_h);
     }
     
     public HabitacionDTO consultarHabitacion(String id) throws Exception{

@@ -40,6 +40,7 @@
                                     <table id="tablaAdmin" class="table table-bordered table-striped">
                                         <thead style="background-color: #2c3b41; color: #fff">
                                             <tr>
+                                                <th> Id. </th>
                                                 <th> Habitación </th>
                                                 <th> Cliente a cargo </th>
                                                 <th> Fecha entrada </th>
@@ -54,6 +55,7 @@
                                                 for (HospedajeDTO h : hospedajes) {
                                             %>
                                             <tr>
+                                                <td> <%=h.getId()%></td>
                                                 <td> <%= h.getId_habitacion()%></td>
                                                 <td> <%= h.getId_cliente()%> </td>
                                                 <td> <%= h.getFecha_entrada()%> </td>

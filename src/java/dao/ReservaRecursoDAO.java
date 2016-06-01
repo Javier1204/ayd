@@ -29,35 +29,43 @@ public class ReservaRecursoDAO implements IReservaRecurso {
         conn = Conexion.conectar();
         boolean exito = false;
         PreparedStatement stmt = null;
-        try {
-            
-            
-            stmt = conn.prepareStatement("INSERT INTO reserva_recurso (nombre_recurso, servicios, id_cliente, fecha_inicio, fecha_salida)"
-                    + "VALUES(?,?,?,?,?)");
+        PreparedStatement stmt1 = null;
+        ResultSet re = null;
+        try{
+            conn.setAutoCommit(false);
+            stmt1 = conn.prepareStatement("SELECT `AUTO_INCREMENT`FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'sihyest' AND   TABLE_NAME   = 'reserva_recurso'");
+            int id = 0;
+            re = stmt1.executeQuery();
+            while(re.next()){
+                id = re.getInt(1);
+            }
+            stmt = conn.prepareStatement("INSERT INTO reserva_recurso (nombre_recurso, servicios, id_cliente, fecha_inicio, fecha_salida, id)"
+                           +"VALUES(?,?,?,?,?,?)");
             stmt.setString(1, dto.getNombreRecurso());
             stmt.setString(2, dto.getServicios());
             stmt.setString(3, dto.getId_cliente());
             stmt.setString(4, dto.getFecha_inicio());
             stmt.setString(5, dto.getFecha_final());
+            stmt.setInt(6, id);
             int total = stmt.executeUpdate();
-            if(total>0){
-                stmt.close();
-                exito = true;
+            conn.commit();
+        }catch(SQLException e){
+            if(conn!=null){
+                System.out.println("error en la transacion, revirtiendo cambios");
+                conn.rollback();
             }
-        } catch (SQLException e) {
-        
-//////            if (conn != null) {
-//////                System.out.println("error en la transacion, revirtiendo cambios");
-//////                conn.rollback();
-            
             e.printStackTrace();
-        } finally {
-          
-            if (stmt != null) {
+        }finally{
+            if(stmt1!=null){
+                stmt1.close();
+            }
+            if(stmt!=null){
                 stmt.close();
             }
-         
-            if (conn != null) {
+            if(re!=null){
+                re.close();
+            }
+            if(conn!=null){
                 conn.close();
             }
         }

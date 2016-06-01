@@ -17,6 +17,7 @@
 %>  <table id="tablaAdmin" class="table table-bordered table-striped">
     <thead style="background-color: #2c3b41; color: #fff">
         <tr>
+            <th> Id.</th>
             <th> Habitación </th>
             <th> Cliente a cargo </th>
             <th> Fecha entrada </th>
@@ -27,12 +28,13 @@
     </thead>
     <tbody>
         <tr>
+            <td> <%= dto.getId()%></td>
             <td> <%= dto.getId_habitacion()%></td>
             <td> <%= dto.getId_cliente()%> </td>
             <td> <%= dto.getFecha_entrada()%> </td>
             <td> <%= dto.getFecha_salida()%></td>
-            <td> <a href="modificarHospedaje.jsp?id_habitacion=<%=dto.getId_habitacion()%>&id_cliente=<%=dto.getId_cliente()%>">Modificar </a></td>
-            <td> <a href="procesar/finalizarHospedaje.jsp?id_habitacion=<%=dto.getId_habitacion()%>&id_cliente=<%=dto.getId_cliente()%>&fecha_s=<%= dto.getFecha_salida()%>&fecha_e=<%= dto.getFecha_entrada()%>">Finalizar </a></td>
+            <td> <a class="btn btn-info" href="modificarHospedaje.jsp?id_habitacion=<%=dto.getId_habitacion()%>&id_cliente=<%=dto.getId_cliente()%>">Modificar </a></td>
+            <td> <a class="btn btn-danger" href="procesar/finalizarHospedaje.jsp?id=<%=dto.getId()%>&id_habitacion=<%=dto.getId_habitacion()%>&id_cliente=<%=dto.getId_cliente()%>&fecha_s=<%= dto.getFecha_salida()%>&fecha_e=<%= dto.getFecha_entrada()%>">Finalizar </a></td>
         </tr>
 
     </tbody>

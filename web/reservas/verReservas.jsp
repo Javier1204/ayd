@@ -25,7 +25,7 @@
                                     </label>  
                                     <div class="input-group">
                                         <input type="text" name="txtBusq" id="txtBusq" placeholder="Documento cliente..." class="form-control"/> 
-                                        <span class="input-group-addon">-</span>
+                                        <span class="input-group-btn">
                                             <input type="submit" name="btnBusq" id="btnBusq" value="Buscar" class="btn btn-flat"/>
                                         </span>
                                     </div>
@@ -54,7 +54,7 @@
                                                 <td> <%= d.getFecha_inicio() %> </td>
                                                 <td> <%= d.getFecha_salida() %></td>
                                                 <td>
-                                                    <a class="btn btn-rojo" href="procesar/procesarCancelacion.jsp?id_reserva=<%=d.getId_reserva()%>">Cancelar</a>
+                                                    <a class="btn btn-danger" href="procesar/procesarCancelacion.jsp?id_reserva=<%=d.getId_reserva()%>">Cancelar</a>
                                                 </td>
                                                 <td>
                                                     <a class="btn btn-info" href="procesar/procesarConversion.jsp?id_habitacion=<%=d.getId_habitacion()%>

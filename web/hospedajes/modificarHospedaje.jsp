@@ -14,6 +14,7 @@
     Fachada fachada = new Fachada();
     String id_habitacion = request.getParameter("id_habitacion");
     String id_cliente = request.getParameter("id_cliente");
+    String id = request.getParameter("id");
     HospedajeDTO h = fachada.consultarHospedajeActivo(id_cliente, id_habitacion);
     ClienteDTO c = fachada.consultarCliente(id_cliente);
     ArrayList<String> habitaciones = fachada.obtenerHabitacionesDisponibles(h.getCantPersonas(), h.getFecha_salida());
@@ -54,6 +55,8 @@
                                     <table id="tablaAdmin" class="table table-bordered table-striped">
                                         <legend><i class="fa fa-book"></i> Información hospedaje </legend>
                                         <tr>
+                                            <td> Id.</td>
+                                            <td> <input required type="text" readonly="true" value="<%=h.getId()%>" name="txtId" id="txtId" class="form-control" onchange="javascript:validarCampoPersonas()"> </td>
                                             <td> Habitación actual</td>
                                             <td> <input required type="text" readonly="true" value="<%=h.getId_habitacion()%>" name="txtHabAnt" id="txtHabAnt" class="form-control" onchange="javascript:validarCampoPersonas()"> </td>
                                             <td>Cantidad personas </td>

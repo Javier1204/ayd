@@ -9,6 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     System.out.println("Hola");
+    String id= request.getParameter("id");
     String id_cliente = request.getParameter("id_cliente");
     String cantidad = request.getParameter("cant");
     String fecha = request.getParameter("fecha");;
@@ -17,9 +18,9 @@
     System.out.println(habAnt);
     boolean exito=false;
     Fachada fachada = new Fachada();
-    HospedajeDTO dto = fachada.consultarHospedajeActivo(id_cliente, habitacion);
     
-    exito= fachada.modificarHospedaje(habitacion, cantidad, id_cliente, fecha,habAnt);
+    
+    exito= fachada.modificarHospedaje(habitacion, cantidad, id_cliente, fecha,habAnt, id);
     
     String resp="";
     if(exito){

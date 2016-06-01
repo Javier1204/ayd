@@ -36,6 +36,7 @@
                                     <table id="tablaAdmin" class="table table-bordered table-striped">
                                         <thead style="background-color: #2c3b41; color: #fff">
                                             <tr>
+                                                <th> Id. </th>
                                                 <th> Habitación </th>
                                                 <th> Cliente a cargo </th>
                                                 <th> Fecha entrada </th>
@@ -52,12 +53,13 @@
                                                 for (HospedajeDTO h : hospedajes) {
                                             %>
                                             <tr>
+                                                <td> <%=h.getId()%></td>
                                                 <td> <%= h.getId_habitacion()%></td>
                                                 <td> <%= h.getId_cliente()%> </td>
                                                 <td> <%= h.getFecha_entrada()%> </td>
                                                 <td> <%= h.getFecha_salida()%></td>
-                                                <td> <a href="modificarHospedaje.jsp?id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>">Modificar </a></td>
-                                                <td> <a href="procesar/finalizarHospedaje.jsp?id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>&fecha_s=<%= h.getFecha_salida()%>&fecha_e=<%= h.getFecha_entrada()%>">Finalizar </a></td>
+                                                <td> <a class="btn btn-info" href="modificarHospedaje.jsp?id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>">Modificar </a></td>
+                                                <td> <a class="btn btn-danger" href="procesar/finalizarHospedaje.jsp?id=<%=h.getId()%>&id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>&fecha_s=<%= h.getFecha_salida()%>&fecha_e=<%= h.getFecha_entrada()%>">Finalizar </a></td>
                                             </tr>
                                             <% }%>
                                         </tbody>

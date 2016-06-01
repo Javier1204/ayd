@@ -21,11 +21,12 @@
     String fecha_salida = fecha_salidaA[2] + "-" + fecha_salidaA[0] + "-" + fecha_salidaA[1];
     String answer = "";
     boolean exito = fachada.registrarReserva(id_habitacion, id_cliente, Integer.parseInt(cantidad), fecha_inicio, fecha_salida, nombre_cliente, telefono, email, apellido_cliente);
-
+    
+    String msj = "";
     if (!exito) {
-        answer = "error";
+        msj = "N";
     } else {
-        response.sendRedirect("../verReservas.jsp");
+        msj = "S";
     }
 %>
-<%=answer%>
+<%=msj%>

@@ -55,8 +55,8 @@ public class testHospedaje {
     public static void modificarHospedaje(){
         HospedajeDAO hospedaje = new HospedajeDAO();
         try{
-            HospedajeDTO dto = new HospedajeDTO("103", 4, "1090", "2016-05-26", "2016-05-20");
-            boolean exito =hospedaje.modificarHospedaje(dto, "210");
+            HospedajeDTO dto = new HospedajeDTO("205", 4, "1090", "2016-05-26", "2016-05-20");
+            boolean exito =hospedaje.modificarHospedaje(dto, "103", 24);
             System.out.println(exito);
         }catch(Exception ex){
             Logger.getLogger(testHospedaje.class.getName()).log(Level.SEVERE, null, ex);

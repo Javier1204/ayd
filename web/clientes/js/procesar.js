@@ -35,7 +35,6 @@ function registrarCliente() {
     
     parametros = "id_cliente=" + id_cliente.value + "&nombreCliente=" + nombre_cliente.value + "&apellido=" + apellido_cliente.value + "&telefono=" + telefono.value +
             "&email="+email.value+"&procedencia=" + procedencia.value;
-    alert("si");
     url = "procesar/registrar.jsp";
     ajax.open("POST", url, true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -64,7 +63,6 @@ function registrarCliente() {
 
 function consultarCliente() {
     var id_cliente = document.getElementById("txtBusq");
-    alert("sí");
     ajax = nuevoAjax();
     parametros = "id_cliente=" + id_cliente.value;
     url = "procesar/procesarConsulta.jsp";
@@ -83,7 +81,6 @@ function consultarCliente() {
 }
 
 function modificarCliente() {
-    alert("si");
     var id_cliente = document.getElementById("txtDocumento");
     var nombre_cliente = document.getElementById("txtNombre");
     var apellido_cliente = document.getElementById("txtApellido");
