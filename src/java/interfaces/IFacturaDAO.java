@@ -15,12 +15,13 @@ import java.util.ArrayList;
  */
 public interface IFacturaDAO {
     
-    public FacturaDTO generarFacturaHospedaje(String id_hospedaje);
-    public void generarPdf(FacturaDTO dto);
-    public FacturaDTO generarFacturaRecurso(String id_recurso, String id_cliente, Date fecha_inicio);
-    public boolean registrarFactura(FacturaDTO dto);
-    public FacturaDTO consultarFacturaHospedaje(String id_hospedaje, String fecha, String id_cliente);
-    public FacturaDTO consultarFacturaRecurso(String id_recurso, String fecha, String id_cliente);
-    public ArrayList<FacturaDTO> obtenerFacturas();
+    public FacturaDTO generarFacturaHospedaje(FacturaDTO dto)throws Exception;
+    public FacturaDTO generarFacturaRecurso(FacturaDTO dto)throws Exception;
+    public ArrayList<FacturaDTO> consultarFacturaHospedaje(String id_hospedaje)throws Exception;
+    public ArrayList<FacturaDTO> consultarFacturaResRecurso(String id_recurso)throws Exception;
+    public ArrayList<FacturaDTO> consultarFacturaCliente(String id_cliente)throws Exception;
+    public ArrayList<FacturaDTO> mostrarFacturas()throws Exception;
+
+    
     
 }

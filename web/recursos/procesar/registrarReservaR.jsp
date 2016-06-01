@@ -4,6 +4,8 @@
     Author     : FARID SANTIAGO
 --%>
 
+<%@page import="dto.ReservaRecursoDTO"%>
+<%@page import="dto.FacturaDTO"%>
 <%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -20,22 +22,28 @@
     String servicio = request.getParameter("servicio");
     boolean exito = false;
     Fachada fachada = new Fachada();
-    
-    if(fachada.validarCliente(id_cliente)){
+
+    if (fachada.validarCliente(id_cliente)) {
         exito = fachada.registrarReservaRecurso(nombre_recurso, servicio, id_cliente, fecha_entrada, fecha_salida);
-    }else{
+    } else {
         fachada.registrarCliente(id_cliente, nombre_cliente, apellido_cliente, telefono, email, procedencia);
         exito = fachada.registrarReservaRecurso(nombre_recurso, servicio, id_cliente, fecha_entrada, fecha_salida);
     }
+    if (exito) {
+        ReservaRecursoDTO resRec = fachada.consultarReservaRecurso(id_cliente, nombre_recurso, fecha_entrada, fecha_salida);
+        FacturaDTO factDTO = fachada.registrarFacturaRecurso(id_cliente, "" + resRec.getId());
+%>
+<a target="_blank" href="../public/jsp/factura.jsp?tipo_servicio=<%="Recurso"%>&id_servicio=<%= factDTO.getId_servicio()%>">Generar PDF</a>
+<%
+    }
 
     String resp = "";
-    if(exito){
+    if (exito) {
         resp = "Si";
-    }else{
+    } else {
         resp = "No";
     }
 
 
-
 %>
-<%= resp %>
+<%= resp%>

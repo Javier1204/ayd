@@ -8,6 +8,7 @@ package facade;
 import dao.LoginDAO;
 import dto.ClienteDTO;
 import dto.ComentarioDTO;
+import dto.FacturaDTO;
 import dto.HabitacionDTO;
 import dto.HospedajeDTO;
 import dto.ReservaDTO;
@@ -15,6 +16,7 @@ import dto.ReservaRecursoDTO;
 import java.sql.Date;
 import java.util.ArrayList;
 import negocio.cliente.ControlCliente;
+import negocio.factura.ControlFactura;
 import negocio.hospedajes.ControlHospedaje;
 import negocio.recurso.ControlRecurso;
 import negocio.reserva.ControlReserva;
@@ -201,4 +203,49 @@ public class Fachada {
         ControlRecurso tarifaRecurso = new ControlRecurso();
         return tarifaRecurso.obtenerTarifaRecurso(nombre_recurso);
     }
+    
+    public FacturaDTO registrarFacturaHospedaje(String id_cliente, String id_servicio) throws Exception {
+        ControlFactura control = new ControlFactura();
+        return control.registrarFacturaHospedaje(id_cliente, id_servicio);
+    }
+
+    public FacturaDTO registrarFacturaRecurso(String id_cliente, String id_servicio) throws Exception {
+        ControlFactura control = new ControlFactura();
+        return control.registrarFacturaRecurso(id_cliente, id_servicio);
+    }
+
+    public ArrayList<FacturaDTO> consultarFacturaHospedaje(String id_hospedaje) throws Exception {
+        ControlFactura control = new ControlFactura();
+        return control.consultarFacturaHospedaje(id_hospedaje);
+    }
+
+    public ArrayList<FacturaDTO> consultarFacturaResRecurso(String id_res_recurso) throws Exception {
+        ControlFactura control = new ControlFactura();
+        return control.consultarFacturaResRecurso(id_res_recurso);
+    }
+
+    public ArrayList<FacturaDTO> consultarFacturaCliente(String id_cliente) throws Exception {
+        ControlFactura control = new ControlFactura();
+        return control.consultarFacturaCliente(id_cliente);
+    }
+
+    public ArrayList<FacturaDTO> mostrarFacturas() throws Exception {
+        ControlFactura control = new ControlFactura();
+        return control.mostrarFacturas();
+    }
+
+//    public void generarPdf(String id_servicio, String tipo_servicio) throws Exception {
+//        ControlFactura control = new ControlFactura();
+//        PDF pdf = new PDF();
+//        FacturaDTO factura = null;
+//        if (tipo_servicio.equals("Hospedaje")) {
+//            factura = control.consultarFacturaHospedaje(id_servicio);
+//        } else if (tipo_servicio.equals("Recurso")) {
+//            factura = control.consultarFacturaResRecurso(id_servicio);
+//        }
+//        pdf.crearPDF(factura);
+//    }
+
 }
+
+

@@ -18,9 +18,9 @@ public class ReservaRecursoDTO {
     private String id_cliente;
     private String fecha_inicio;
     private String fecha_final;
-    private String id;
+    private int id;
 
-    public ReservaRecursoDTO(String nombreRecurso, String servicios, String id_cliente, String fecha_inicio, String fecha_final, String id) {
+    public ReservaRecursoDTO(String nombreRecurso, String servicios, String id_cliente, String fecha_inicio, String fecha_final, int id) {
         this.nombreRecurso = nombreRecurso;
         this.servicios = servicios;
         this.id_cliente = id_cliente;
@@ -76,11 +76,11 @@ public class ReservaRecursoDTO {
         this.fecha_final = fecha_final;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

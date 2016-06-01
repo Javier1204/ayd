@@ -19,7 +19,7 @@
         <script src="../public/js/jquery-1.11.3.js" type="text/javascript"></script>
         <link href="../public/css/bootstrap.css" type="text/css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>    
-        
+
         <link rel="stylesheet" href="../plantillas/admin/css/AdminLTE.css">
         <link rel="stylesheet" href="../plantillas/admin/css/skin.css">
 
@@ -108,9 +108,9 @@
                     <!-- /.search form -->
 
                     <!-- (Menu vertical izquierda)-->
-                   <ul class="sidebar-menu">
+                    <ul class="sidebar-menu">
                         <li class="header">Menú</li>
-                        
+
                         <li class="treeview <%=((pagina.equals("hospedajes")) ? "active" : " ")%>">
                             <a href="#"><i class="fa fa-home"></i> <span>Hospedajes</span></a>
                             <ul class="treeview-menu">
@@ -119,28 +119,32 @@
                                 <li><a href="../hospedajes/consultarHospedajesActivos.jsp"><i class="fa fa-search"></i><span>Consultar hospedajes activos</span></a></li>
                             </ul>
                         </li>
-                         <li class="treeview <%=((pagina.equals("clientes")) ? "active" : " ")%>">
+                        <li class="treeview <%=((pagina.equals("clientes")) ? "active" : " ")%>">
                             <a href="#"><i class="fa fa-user"></i> <span>Clientes</span></a>
                             <ul class="treeview-menu">
                                 <li><a href="../clientes/registrarCliente.jsp"><i class="fa fa-pencil"></i><span>Registrar cliente</span></a></li>
                                 <li><a href="../clientes/consultarCliente.jsp"><i class="fa fa-search"></i><span>Consultar cliente</span></a></li>
                             </ul>
                         </li>
-                        
-                         <li class="treeview <%=((pagina.equals("reservas")) ? "active" : " ")%>">
+
+                        <li class="treeview <%=((pagina.equals("reservas")) ? "active" : " ")%>">
                             <a href="#"><i class="fa fa-book"></i> <span>Reservas</span></a>
                             <ul class="treeview-menu">
                                 <li><a href="../reservas/verReservas.jsp"><span>Ver reservas</span></a></li>
                             </ul>
                         </li>  
-                        
+
                         <li class="treeview <%=((pagina.equals("facturas")) ? "active" : " ")%>">
                             <a href="#"><i class="fa fa-money"></i> <span>Facturas</span></a>
                             <ul class="treeview-menu">
-                                <li><a href="../facturas/verHospedajes.jsp"><span>Facturar hospedaje</span></a></li>
+                                <li><a href="../facturas/consultarFacturasCliente.jsp"><span>Consultar factura cliente</span></a></li>
+                                <li><a href="../facturas/consultarFacturasHospedaje.jsp"><span>Consultar factura hospedaje</span></a></li>
+                                <li><a href="../facturas/consultarFacturasRecurso.jsp"><span>Consultar factura reserva recurso</span></a></li>
                             </ul>
+
+
                         </li>   
-                        
+
                         <li class="treeview <%=((pagina.equals("recursos")) ? "active" : " ")%>">
                             <a href="#"><i class="fa fa-building-o"></i> <span>Recursos</span></a>
                             <ul class="treeview-menu">
@@ -148,7 +152,7 @@
                                 <li><a href="../recursos/consultarReservas.jsp"><span>Consultar recursos reservados</span></a></li>
                             </ul>
                         </li> 
-                        </ul>
+                    </ul>
 
                     <!-- /.sidebar-menu -->
                 </section>

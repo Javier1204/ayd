@@ -108,7 +108,7 @@ public class HospedajeDAO implements IHospedajeDAO{
                     +"' AND fecha_salida='"+fecha_salida+"' AND fecha_inicio='"+fecha_entrada+"'");
             ResultSet res = stmt.executeQuery();
             while(res.next()){
-                hospedaje = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6));
+                hospedaje = new HospedajeDTO(res.getString(1), res.getInt(2), res.getString(3), res.getString(4),res.getString(6),res.getInt(5));
                 
             }
             stmt.close();

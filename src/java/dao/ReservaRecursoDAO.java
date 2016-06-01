@@ -19,53 +19,44 @@ import util.Conexion;
  *
  * @author Javier
  */
-public class ReservaRecursoDAO implements IReservaRecurso{
+public class ReservaRecursoDAO implements IReservaRecurso {
 
-   private Connection conn;
-    
+    private Connection conn;
+
     @Override
     public boolean registrarReservaRecurso(ReservaRecursoDTO dto) throws Exception {
-    
+
         conn = Conexion.conectar();
         boolean exito = false;
         PreparedStatement stmt = null;
-        PreparedStatement stmt1 = null;
-        ResultSet re = null;
-        try{
-            conn.setAutoCommit(false);
-            stmt1 = conn.prepareStatement("SELECT `AUTO_INCREMENT`FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'sihyest' AND   TABLE_NAME   = 'reserva_recurso'");
-            int id = 0;
-            re = stmt1.executeQuery();
-            while(re.next()){
-                id = re.getInt(1);
-            }
-            stmt = conn.prepareStatement("INSERT INTO reserva_recurso (nombre_recurso, servicios, id_cliente, fecha_inicio, fecha_salida, id)"
-                           +"VALUES(?,?,?,?,?,?)");
+        try {
+            
+            
+            stmt = conn.prepareStatement("INSERT INTO reserva_recurso (nombre_recurso, servicios, id_cliente, fecha_inicio, fecha_salida)"
+                    + "VALUES(?,?,?,?,?)");
             stmt.setString(1, dto.getNombreRecurso());
             stmt.setString(2, dto.getServicios());
             stmt.setString(3, dto.getId_cliente());
             stmt.setString(4, dto.getFecha_inicio());
             stmt.setString(5, dto.getFecha_final());
-            stmt.setInt(6, id);
             int total = stmt.executeUpdate();
-            conn.commit();
-        }catch(SQLException e){
-            if(conn!=null){
+            if(total>0){
+                stmt.close();
+                exito = true;
+            }
+        } catch (SQLException e) {
+            if (conn != null) {
                 System.out.println("error en la transacion, revirtiendo cambios");
                 conn.rollback();
             }
             e.printStackTrace();
-        }finally{
-            if(stmt1!=null){
-                stmt1.close();
-            }
-            if(stmt!=null){
+        } finally {
+          
+            if (stmt != null) {
                 stmt.close();
             }
-            if(re!=null){
-                re.close();
-            }
-            if(conn!=null){
+         
+            if (conn != null) {
                 conn.close();
             }
         }
@@ -73,54 +64,54 @@ public class ReservaRecursoDAO implements IReservaRecurso{
     }
 
     @Override
-    public ReservaRecursoDTO consultarReservaRecurso(String id_cliente, String nombre_recurso, String fecha_inicio, String fecha_fin) throws Exception{
-       conn = Conexion.conectar();
-       PreparedStatement stmt = null;
-       ReservaRecursoDTO reserva = null;
-       
-       try{
-           stmt = conn.prepareStatement("SELECT * FROM reserva_recurso WHERE id_cliente = '"+id_cliente
-                    +"' AND nombre_recurso = '"+nombre_recurso+"' AND fecha_inicio = '"+fecha_inicio+"' AND fecha_salida = '"+fecha_fin+"'");
-           ResultSet re = stmt.executeQuery();
-           while(re.next()){
-               reserva = new ReservaRecursoDTO(re.getString(1), re.getString(2), re.getString(3), re.getString(4), re.getString(5));
-           }
-           stmt.close();
-           re.close();
-       }catch(SQLException e){
-           e.printStackTrace();
-       }finally{
-           if(conn!=null){
-               conn.close();
-           }
-       }
-       return reserva;
+    public ReservaRecursoDTO consultarReservaRecurso(String id_cliente, String nombre_recurso, String fecha_inicio, String fecha_fin) throws Exception {
+        conn = Conexion.conectar();
+        PreparedStatement stmt = null;
+        ReservaRecursoDTO reserva = null;
+
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM reserva_recurso WHERE id_cliente = '" + id_cliente
+                    + "' AND nombre_recurso = '" + nombre_recurso + "' AND fecha_inicio = '" + fecha_inicio + "' AND fecha_salida = '" + fecha_fin + "'");
+            ResultSet re = stmt.executeQuery();
+            while (re.next()) {
+                reserva = new ReservaRecursoDTO(re.getString(1), re.getString(2), re.getString(3), re.getString(4), re.getString(5), re.getInt(6));
+            }
+            stmt.close();
+            re.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return reserva;
     }
 
     @Override
     public ArrayList<ReservaRecursoDTO> obtenerReservasRecurso() throws Exception {
-       conn = Conexion.conectar();
-       PreparedStatement stmt = null;
-       ArrayList<ReservaRecursoDTO> reserva = new ArrayList<>();
-       
-       try{
-           stmt = conn.prepareStatement("SELECT * FROM reserva_recurso WHERE 1");
-           ResultSet re = stmt.executeQuery();
-           
-           while(re.next()){
-               ReservaRecursoDTO dto = new ReservaRecursoDTO(re.getString(1), re.getString(2), re.getString(3), re.getString(4), re.getString(5));
-               reserva.add(dto);
-           }
-           stmt.close();
-           re.close();
-       }catch(SQLException e){
-           e.printStackTrace();
-       }finally{
-           if(conn!=null){
-               conn.close();
-           }
-       }
-       return reserva;
+        conn = Conexion.conectar();
+        PreparedStatement stmt = null;
+        ArrayList<ReservaRecursoDTO> reserva = new ArrayList<>();
+
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM reserva_recurso WHERE 1");
+            ResultSet re = stmt.executeQuery();
+
+            while (re.next()) {
+                ReservaRecursoDTO dto = new ReservaRecursoDTO(re.getString(1), re.getString(2), re.getString(3), re.getString(4), re.getString(5));
+                reserva.add(dto);
+            }
+            stmt.close();
+            re.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return reserva;
     }
 
     @Override
@@ -128,17 +119,17 @@ public class ReservaRecursoDAO implements IReservaRecurso{
         conn = Conexion.conectar();
         PreparedStatement stmt = null;
         boolean exito = false;
-        
-        try{
-            stmt = conn.prepareStatement("DELETE FROM reserva_recurso WHERE nombre_recurso='"+dto.getNombreRecurso()+"' AND id_cliente= "+dto.getId_cliente()+" AND fecha_inicio='"+dto.getFecha_inicio()+"' AND fecha_salida='"+dto.getFecha_final()+"'");
+
+        try {
+            stmt = conn.prepareStatement("DELETE FROM reserva_recurso WHERE nombre_recurso='" + dto.getNombreRecurso() + "' AND id_cliente= " + dto.getId_cliente() + " AND fecha_inicio='" + dto.getFecha_inicio() + "' AND fecha_salida='" + dto.getFecha_final() + "'");
             int total = stmt.executeUpdate();
-            if(total > 0){
+            if (total > 0) {
                 exito = true;
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally{
-            if(conn!=null){
+        } finally {
+            if (conn != null) {
                 conn.close();
             }
         }
@@ -147,29 +138,29 @@ public class ReservaRecursoDAO implements IReservaRecurso{
 
     @Override
     public boolean modificarReservaRecurso(ReservaRecursoDTO dto, String nombreRecursoP, String fechaInicioP, String fechaFinP) throws Exception {
-       conn = Conexion.conectar();
-       PreparedStatement stmt = null;
-       boolean exito = false;
-       
-       try{
- 
-           stmt = conn.prepareStatement("UPDATE reserva_recurso SET nombre_recurso=?, servicios=?, fecha_inicio=?, fecha_salida=? WHERE nombre_recurso = '"+nombreRecursoP+"' AND fecha_inicio = '"+fechaInicioP+"' AND fecha_salida = '"+fechaFinP +"'");
-           stmt.setString(1, dto.getNombreRecurso());
-           stmt.setString(2, dto.getServicios());
-           stmt.setString(3, dto.getFecha_inicio());
-           stmt.setString(4, dto.getFecha_final());
-           int total = stmt.executeUpdate();
-           if(total > 0){
-               exito = true;
-           }
-       }catch(SQLException e){
-           e.printStackTrace();
-       }finally{
-           if(conn!=null){
-               conn.close();
-           }
-       }
-       return exito;
+        conn = Conexion.conectar();
+        PreparedStatement stmt = null;
+        boolean exito = false;
+
+        try {
+
+            stmt = conn.prepareStatement("UPDATE reserva_recurso SET nombre_recurso=?, servicios=?, fecha_inicio=?, fecha_salida=? WHERE nombre_recurso = '" + nombreRecursoP + "' AND fecha_inicio = '" + fechaInicioP + "' AND fecha_salida = '" + fechaFinP + "'");
+            stmt.setString(1, dto.getNombreRecurso());
+            stmt.setString(2, dto.getServicios());
+            stmt.setString(3, dto.getFecha_inicio());
+            stmt.setString(4, dto.getFecha_final());
+            int total = stmt.executeUpdate();
+            if (total > 0) {
+                exito = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return exito;
     }
-    
+
 }
