@@ -94,7 +94,7 @@
         parrafo.add(new Phrase(Chunk.NEWLINE));
         // Obtenemos el logo de datojava
 
-        Image image = Image.getInstance("http://localhost:8080/ayd/public/jsp/sihyest.png");
+        Image image = Image.getInstance("http://sandbox1.ufps.edu.co:8080/ufps_73-hotel/public/jsp/sihyest.png");
 
         image.scaleAbsolute(80f, 60f);
         // Creacion de una tabla
