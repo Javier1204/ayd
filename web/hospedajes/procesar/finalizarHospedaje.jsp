@@ -16,6 +16,7 @@
     String fecha_s = request.getParameter("fecha_s");
     Fachada fachada = new Fachada();
     boolean exito = fachada.finalziarHospedaje(id_cliente, id_hab, fecha_s, fecha_e);
+    FacturaDTO factDTO =null;
     if (exito) {
   
         Calendar c1 = Calendar.getInstance();
@@ -23,9 +24,10 @@
   
         HospedajeDTO hosDto = fachada.consultarHospedaje(id_cliente, fecha, fecha_e);
        
-        FacturaDTO factDTO = fachada.registrarFacturaHospedaje(id_cliente, "" + hosDto.getId());
+        factDTO = fachada.registrarFacturaHospedaje(id_cliente, "" + hosDto.getId());
         
     }
     
-    response.sendRedirect("../consultarHospedajesActivos.jsp");
+    response.sendRedirect("../../facturas/consultarFacturasHospedaje.jsp?id_recurso="+factDTO.getId_servicio());
+    
 %>

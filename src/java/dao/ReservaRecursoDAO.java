@@ -45,10 +45,11 @@ public class ReservaRecursoDAO implements IReservaRecurso {
                 exito = true;
             }
         } catch (SQLException e) {
-            if (conn != null) {
-                System.out.println("error en la transacion, revirtiendo cambios");
-                conn.rollback();
-            }
+        
+//////            if (conn != null) {
+//////                System.out.println("error en la transacion, revirtiendo cambios");
+//////                conn.rollback();
+            
             e.printStackTrace();
         } finally {
           

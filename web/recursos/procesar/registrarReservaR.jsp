@@ -20,6 +20,7 @@
     String fecha_entrada = request.getParameter("fechaEntrada");
     String fecha_salida = request.getParameter("fechaSalida");
     String servicio = request.getParameter("servicio");
+    String resp = "";
     boolean exito = false;
     Fachada fachada = new Fachada();
 
@@ -32,14 +33,8 @@
     if (exito) {
         ReservaRecursoDTO resRec = fachada.consultarReservaRecurso(id_cliente, nombre_recurso, fecha_entrada, fecha_salida);
         FacturaDTO factDTO = fachada.registrarFacturaRecurso(id_cliente, "" + resRec.getId());
-%>
-<a target="_blank" href="../public/jsp/factura.jsp?tipo_servicio=<%="Recurso"%>&id_servicio=<%= factDTO.getId_servicio()%>">Generar PDF</a>
-<%
-    }
-
-    String resp = "";
-    if (exito) {
-        resp = "Si";
+//        response.sendRedirect("../../facturas/consultarFacturasRecurso.jsp?id_recurso=" + factDTO.getId_servicio());
+        resp = factDTO.getId_servicio();
     } else {
         resp = "No";
     }
