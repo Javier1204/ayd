@@ -26,11 +26,13 @@ public class LoginDAO implements ILoginDAO{
         boolean exito= false;
         PreparedStatement stmt=null;
         try{
-          stmt = conn.prepareStatement("SELECT * FROM admin WHERE nombreUsuario='"+user+"' AND password='"+password+"'");
+          stmt = conn.prepareStatement("SELECT * FROM admin WHERE admin_id='"+user+"' AND admin_pw='"+password+"'");
             ResultSet res = stmt.executeQuery();
             while(res.next()){
                 String u = res.getString(1);
-                String p = res.getString(3);
+                
+                String p = res.getString(2);
+                
                 if(u.equalsIgnoreCase(user) && p.equalsIgnoreCase(password)){
                     exito = true;
                 }

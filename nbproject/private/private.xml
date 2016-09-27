@@ -12,27 +12,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/hospedajes/procesar/finalizarHospedaje.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dao/ReservaRecursoDAO.java</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dao/FacturaDAO.java</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/hospedajes/consultarHospedajesActivos.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/admin/header.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/modificarReserva.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/facade/Fachada.java</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/public/jsp/factura.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/registrarReserva.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/procesar/registrarReservaR.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/procesar/cancelarReservaR.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dto/FacturaDTO.java</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/consultarReservas.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dao/HospedajeDAO.java</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/negocio/factura/ControlFactura.java</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/src/java/dto/ReservaRecursoDTO.java</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/facturas/consultarFacturasHospedaje.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/admin/footer.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/facturas/consultarFacturasRecurso.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/facturas/consultarFacturasCliente.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/recursos/js/recurso.js</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/procesarSesion.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/login.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/cerrarSesion.jsp</file>
         </group>
     </open-files>
 </project-private>
