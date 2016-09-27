@@ -64,14 +64,14 @@
                                     <!-- The user image in the navbar-->
                                     <img src="../images/avatar.png" class="user-image" alt="U">
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                    <span class="hidden-xs">Administrador</span>
+                                    <span class="hidden-xs">Recepcionista</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- The user image in the menu -->
                                     <li class="user-header">
                                         <img src="../images/avatar.png" class="img-circle">
                                         <p>
-                                            Administrador
+                                            Recepcionista
                                             <small><%= session.getAttribute("usuario")%></small>
                                         </p>
                                     </li>

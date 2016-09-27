@@ -70,7 +70,7 @@
                                     <select id="tipo_usuario" name="tipo_usuario">
                                         <option value="" disable selected>--Seleccione una opción--</option>
                                         <option value="administrador">Administrador</option>
-                                        <option value="empleado">Empleado</option>
+                                        <option value="empleado">Recepcionista</option>
 
                                     </select>
                                     <label for="tipo_usuario">Tipo usuario</label>
