@@ -36,6 +36,11 @@ public class Fachada {
         ControlHospedaje hospedaje = new ControlHospedaje();
         return hospedaje.registrarHospedaje(id_habitacion, cantPersonas, id_cliente, fecha_salida);
     }
+    
+    public boolean registrarHabitacion(String id, String tipo, String descripcion, String url, double tarifa) throws Exception{
+        ControlHospedaje hospedaje = new ControlHospedaje();
+        return hospedaje.registrarHabitacion(id, tipo, descripcion, url, tarifa);
+    }
 
     public ArrayList<String> obtenerHabitacionesDisponibles(int cantPersonas, String fecha_salida) throws Exception {
         ControlHospedaje hospedaje = new ControlHospedaje();

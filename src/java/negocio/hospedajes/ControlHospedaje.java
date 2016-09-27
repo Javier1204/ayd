@@ -29,6 +29,12 @@ public class ControlHospedaje {
         return dao.registrarHospedaje(dto);
     }
     
+    public boolean registrarHabitacion(String id, String tipo, String descripcion, String url, double tarifa) throws Exception{
+        HabitacionDAO dao = new HabitacionDAO();
+        HabitacionDTO dto = new HabitacionDTO(id, tipo, descripcion, url, tarifa, false);
+        return dao.registrarHabitacion(dto);
+    }
+    
     public ArrayList<String> obtenerHabitacionesDisponibles(int cantPersonas, String fecha_salida) throws Exception{
         HabitacionDAO dao = new HabitacionDAO();
         java.util.Date date = new java.util.Date();

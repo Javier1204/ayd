@@ -24,6 +24,36 @@ public class HabitacionDAO implements IHabitacionDAO {
     private Connection conn;
 
     @Override
+    public boolean registrarHabitacion(HabitacionDTO dto) throws Exception {
+         conn = Conexion.conectar();
+        boolean exito=false;
+        PreparedStatement stmt = null;
+        try{
+            stmt = conn.prepareStatement("INSERT INTO habitacion(id_habitacion, tipo, descripcion, url_imagen, tarifa, estado)"
+                    + " VALUES(?,?,?,?,?)");
+            stmt.setString(1, dto.getId());
+            stmt.setString(2, dto.getTipo());
+            stmt.setString(3, dto.getDescripcion());
+            stmt.setString(4, dto.getUrl_imagen());
+            stmt.setDouble(5, dto.getTarifa());
+            stmt.setBoolean(6, false);
+            int total = stmt.executeUpdate();
+            if (total > 0) {
+                stmt.close();
+                exito = true;
+            }
+             stmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            if(conn != null){
+                conn.close();
+            }
+        }
+        return exito;
+    }
+    
+    @Override
     public ArrayList<String> obtenerHabitacionesDisponibles(int cantPersonas, String fecha_salida, Date fecha_entrada) throws Exception {
         conn = Conexion.conectar();
         ArrayList<String> habitaciones = new ArrayList<>();
@@ -176,4 +206,6 @@ public class HabitacionDAO implements IHabitacionDAO {
         }
         return habitaciones;
     }
+
+    
 }

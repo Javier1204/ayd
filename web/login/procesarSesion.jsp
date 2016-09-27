@@ -11,10 +11,9 @@
     String password= request.getParameter("password");
     Fachada fachada = new Fachada();
     boolean exito = fachada.iniciarSesion(user, password);
-    System.out.println("Print1: "+password);
     String mensaje="";
     if(exito){
-        mensaje="1";
+        mensaje="S";
         session.setAttribute("usuario", user);;
         session.setAttribute("estadoSesion", true);
 

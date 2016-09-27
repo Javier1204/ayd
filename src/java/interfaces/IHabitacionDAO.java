@@ -15,6 +15,7 @@ import java.util.ArrayList;
  */
 public interface IHabitacionDAO {
     
+    public boolean registrarHabitacion(HabitacionDTO dto) throws Exception;
     public HabitacionDTO consultarHabitacion(String id) throws Exception;
     public ArrayList<String> obtenerHabitacionesDisponiblesreserva(int cantPersonas, String fecha_salida, String fecha_entrada) throws Exception;
     public ArrayList<String> obtenerHabitacionesDisponibles(int cantPersonas, String fecha_salida, Date fecha_entrada) throws Exception;
