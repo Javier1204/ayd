@@ -21,6 +21,21 @@
         <script type="text/javascript" src="../materialize/js/jquery-3.1.0.js"></script>
         <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
         <script type="text/javascript" src="js/login.js"></script>
+        <script language="javascript">
+
+            $(document).ready(function () {
+                
+
+                $('select').material_select();
+
+                
+
+            });
+
+
+
+
+        </script> 
         <title>SIHYEST</title>
     </head>
 
@@ -50,6 +65,18 @@
                                     <label for="password">Contraseña</label>
 
                                 </div>
+                                <div class="input-field col s12">
+                                     <i class="material-icons prefix">supervisor_account</i>
+                                    <select id="tipo_usuario" name="tipo_usuario">
+                                        <option value="" disable selected>--Seleccione una opción--</option>
+                                        <option value="administrador">Administrador</option>
+                                        <option value="empleado">Empleado</option>
+
+                                    </select>
+                                    <label for="tipo_usuario">Tipo usuario</label>
+
+                                </div>
+
                                 <div class="input-field col s12 ">
                                     <button type="button" class="btn  btn-success" onclick="validarUsuario();"
                                             name="ingresar" id="ingresar" value="Ingresar" />Ingresar</button>
