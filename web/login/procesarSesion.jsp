@@ -18,6 +18,7 @@
         session.setAttribute("estadoSesion", true);
 
         session.setMaxInactiveInterval(1 * 60 * 60);
+        response.sendRedirect("../hospedajes/registrarHospedaje.jsp");
     }else{
         mensaje="Datos incorrectos";
     }
