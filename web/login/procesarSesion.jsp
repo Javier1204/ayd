@@ -8,19 +8,24 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     String user = request.getParameter("nombre_usuario");
-    String password= request.getParameter("password");
+    String password = request.getParameter("password");
+    String tipo = request.getParameter("tipo");
     Fachada fachada = new Fachada();
     boolean exito = fachada.iniciarSesion(user, password);
-    String mensaje="";
-    if(exito){
-        mensaje="S";
+    String mensaje = "";
+    if (exito) {
+        mensaje = "S";
         session.setAttribute("usuario", user);;
         session.setAttribute("estadoSesion", true);
 
         session.setMaxInactiveInterval(1 * 60 * 60);
-        response.sendRedirect("../hospedajes/registrarHospedaje.jsp");
-    }else{
-        mensaje="Datos incorrectos";
+        if (tipo.equals("administrador")) {
+            response.sendRedirect("../habitaciones/registrarHabitacion.jsp");
+        } else if(tipo.equals("empleado")) {
+            response.sendRedirect("../hospedajes/registrarHospedaje.jsp");
+        }
+    } else {
+        mensaje = "Datos incorrectos";
     }
 %>
 <%= mensaje%>

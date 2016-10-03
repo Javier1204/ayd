@@ -34,11 +34,11 @@ function validarUsuario(){
 }
 
 
-function validarUsuarioAjax(nombre_usuario, password, campo){
+function validarUsuarioAjax(nombre_usuario, password, campo,tipo_usuario){
     aleatorio = Math.random();
     ajax = nuevoAjax();
 
-    parametros = "nombre_usuario=" + nombre_usuario + "&password=" + password + "&aleatorio=" + aleatorio;
+    parametros = "nombre_usuario=" + nombre_usuario + "&password=" + password + "&aleatorio=" + aleatorio + "&tipo="+tipo_usuario;
     url = "procesarSesion.jsp";
     ajax.open("POST", url, true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
