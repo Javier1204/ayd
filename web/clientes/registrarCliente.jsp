@@ -6,63 +6,85 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<jsp:include page="../plantillas/admin/header.jsp"></jsp:include>
-    <div class="container">
+<jsp:include page="../plantillas/recepcionista/header.jsp"></jsp:include>
+
+    <div class="card-panel  white z-depth-5">
         <div class="row">
-            <div class="col-lg-offset-1 col-lg-10">
-                <div class="box">
-                    <div class="box-body">
+            <div class="col s12 m12 l12">
+                <div id="form_reg_habitacion">
+                    <form name="registrarForm" id="registrarForm" action="javascript:registrarCliente()" method="post" class="s12">
+
+
                         <div class="row">
-                            <div class="col-md-12" style="margin-bottom: 30px;">
-                                <center><h2> Registrar cliente </h2></center>
-                                <form name="registrarForm" id="registrarForm" action="javascript:registrarCliente()" method="post">
-                                    <div class="form-group">
-                                        <legend><i class="fa fa-user"></i> Información del cliente </legend><br>
-                                        <center><label id="divCambio"></label></center>
-                                        <div class="col-lg-offset-2 col-md-7">
-                                            <table class="table table-bordered table-striped">   
-                                                <tr>
-                                                    <td> <label>Documento</label></td>
-                                                    <td><input type="text" name="txtDocumento" required id="txtDocumento" placeholder="Documento" class="form-control" />     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> <label>Nombre cliente</label></td>
-                                                    <td><input type="text" name="txtNombre" required id="txtNombre" placeholder="Nombre cliente" class="form-control" />     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> <label>Apellido cliente</label></td>
-                                                    <td><input type="text" name="txtApellido" required id="txtApellido" placeholder="Apellido cliente" class="form-control" />     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> <label>Teléfono</label></td>
-                                                    <td> <input type="phone" name="txtTelefono" id="txtTelefono" required placeholder="Telefono" class="form-control" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> <label>e-mail</label></td>
-                                                    <td><input type="email" name="txtEmail" id="txtEmail" required placeholder="e-mail" class="form-control" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> <label>Procedencia</label></td>
-                                                    <td><input type="ext" name="txtProcedencia" id="txtProcedencia" required placeholder="procedencia" class="form-control" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><input type="submit" class="btn btn-primary" value="Registrar" name="registrar" id="registrar"/> </td>
-                                                </tr>                
-                                            </table>
-                                        </div>
-                                    </div>
-                                </form>
+
+                            <i class="material-icons left grey-text">queue</i><h5>Registar cliente</h5>
+                            <li class="divider"></li>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="s12" id="divCambio">
+                                <legend><i class="material-icons left grey-text">perm_identity</i> Información del cliente </legend>
+                                <li class="divider"></li>
                             </div>
                         </div>
-                    </div>
+                        <div class="container ">
+                            <div class="row">
+
+                                <div class="input-field	col s12" class="validate">
+                                    <label for="txtDocuemnto">Documento cliente</label>
+                                    <input type="text" name="txtDocumento" id="txtDocumento" class="validate" onchange="javascript:validarCliente()">
+                                </div>
+
+                                <div class="input-field	col s12" class="validate">
+                                    <label for="txtNombre">Nombres cliente</label>
+                                    <input type="text" name="txtNombre" id="txtNombre" class="validate" >
+                                </div>
+
+                                <div class="input-field	col s12" class="validate">
+                                    <label for="txtApellido">Apellidos cliente</label>
+                                    <input type="text" name="txtApellido" id="txtApellido" class="validate" >
+                                </div>
+
+                                <div class="input-field	col s12" class="validate">
+                                    <label for="txtTelefono">Telefono cliente</label>
+                                    <input type="tel" name="txtTelefono" id="txtTelefono" class="validate" >
+                                </div>
+
+                                <div class="input-field	col s12" class="validate">
+                                    <label for="txtEmail">Email cliente</label>
+                                    <input type="email" name="txtEmail" id="txtEmail" class="validate" >
+                                </div>
+
+                                <div class="input-field	col s12" class="validate">
+                                    <label for="txtProcedencia">Procedencia cliente</label>
+                                    <input type="text" name="txtProcedencia" id="txtProcedencia" class="validate" >
+                                </div>
+                            </div>  
+
+
+
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <input type="submit" class="btn center-align grey darken-3 right" value="Registrar" name="registrar" id="registrar">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+    
     <link rel="stylesheet" href="../public/css/dataTables.bootstrap.min.css" />
     <script src="../public/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../public/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="js/procesar.js" type="text/javascript"></script>
 
 
-<jsp:include page="../plantillas/admin/footer.jsp"/>
+<jsp:include page="../plantillas/recepcionista/footer.jsp"/>
