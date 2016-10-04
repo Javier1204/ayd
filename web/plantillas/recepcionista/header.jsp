@@ -129,8 +129,9 @@
                 <nav>
 
                     <div class="nav-wrapper grey darken-3 z-depth-2">
-
-                        <a href="../inicio/principal.jsp" class="brand-logo thin right">RECEPCIONISTA<i class="material-icons left"></i></a>
+                        <a href="../login/cerrarSesion.jsp" class="brand-logo thin right">Recepcionista<i class="material-icons left">play_for_work</i></a>
+                        
+                        <a href="#" class="button-collapse" data-activates="nav-mobile"><i class="material-icons">menu</i></a>
                         <ul class="left hide-on-med-and-down"> 
 
                             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Hospedajes
@@ -147,6 +148,20 @@
 
                             <li><a class="dropdown-button" href="#!" data-activates="dropdown5">Facturas
                                     <i class="material-icons right">payment</i></a></li>
+
+
+                        </ul>
+                        <ul id="nav-mobile" class="side-nav"> 
+
+                            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Hospedajes</a></li>
+
+                            <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Clientes</a></li>
+
+                            <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Reservas</a></li>
+
+                            <li><a class="dropdown-button" href="#!" data-activates="dropdown4">Recursos</a></li>
+
+                            <li><a class="dropdown-button" href="#!" data-activates="dropdown5">Facturas</a></li>
 
 
                         </ul>
