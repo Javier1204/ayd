@@ -72,13 +72,13 @@
 
 
 
-    <body background="">
+    <body background="../images/fondo_sc.jpg">
 
 
         <header>
             <div class="imagen" style="width:100%;" style="position: relative; display:block; overflow: hidden; margin: auto;"> 
                 <a href="#">
-                    <img src="../images/bannerB.jpg" alt="" style="max-width:100%;" alt='' >
+                    <img src="../images/banner_sihyest.jpg" alt="" style="max-width:100%;" alt='' >
                 </a>
                 <%--
               <a href="../index.jsp">
