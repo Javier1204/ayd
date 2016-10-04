@@ -14,14 +14,11 @@
     HabitacionDTO h = fachada.consultarHabitacion(id);
     if (h != null) {
 %>
-<table id="tablaAdmin" class="table table-bordered table-striped">
-    <tr>
-        <td> Descripción habitación</td>
-        <td> <textarea readonly="true" name="txtDescripcion" id="txtDescripcion" class="form-control">
-Habitación: <%= h.getDescripcion()%>
-Tarifa: <%= h.getTarifa()%>
-            </textarea>
-        </td>
-    </tr>
-</table>
-<% } %>
+<div class="input-field col s6">
+    <textarea readonly="true" placeholder=" nnn" id="txtDescripcion" name="txtDescripcion" class="materialize-textarea validate" >
+        Tipo: <%= h.getTipo() %>
+        Descripción: <%= h.getDescripcion() %>
+    </textarea>
+    <label class="active" for="txtDescripcion">Descripcion</label>
+</div>
+<% }%>

@@ -25,6 +25,7 @@ function nuevoAjax() {
 
 function validarCliente() {
     var id = document.getElementById("txtDocumento");
+    alert(id.value);
     ajax = nuevoAjax();
 
     parametros = "id=" + id.value;
@@ -84,7 +85,7 @@ function cargarHabitaciones() {
             if (ajax.status == 200) {
                 var rta = ajax.responseText;
                 document.getElementById("cargar").innerHTML = rta;
-
+                $('#habitacion').material_select();
             }
             else
             {
@@ -111,8 +112,8 @@ function registrarHospedaje() {
     var fecha = document.getElementById("txtFecha_salida");
     var habitacion = document.getElementById("habitacion");
     ajax = nuevoAjax();
-    parametros = "id_cliente="+id_cliente.value+ "&nombre_cliente="+ nombre_cliente.value+"&apellido_cliente="+apellido_cliente.value+
-            "&telefono="+telefono.value+"&email="+email.value+"&procedencia="+procedencia.value+"&cant="+cant.value+"&fecha="+fecha.value+"&habitacion="+habitacion.value;
+    parametros = "id_cliente=" + id_cliente.value + "&nombre_cliente=" + nombre_cliente.value + "&apellido_cliente=" + apellido_cliente.value +
+            "&telefono=" + telefono.value + "&email=" + email.value + "&procedencia=" + procedencia.value + "&cant=" + cant.value + "&fecha=" + fecha.value + "&habitacion=" + habitacion.value;
     url = "procesar/registrarHospedaje.jsp";
     ajax.open("POST", url, true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -122,12 +123,13 @@ function registrarHospedaje() {
             if (ajax.status == 200) {
                 var rta = ajax.responseText;
                 if (rta.indexOf("S") > 0) {
-                    document.getElementById("divResultado").innerHTML = "Registro exitoso!";
-                    $("#registrarForm")[0].reset();
+                    document.getElementById("resultado").innerHTML = "Registro exitoso!";
+                    $('#habitacion').reset();
+                    document.getElementById("registrarForm").reset();
                 }
                 else
                 {
-                    document.getElementById("divResultado").innerHTML = "Fallo registro!";
+                    document.getElementById("resultado").innerHTML = "Fallo registro!";
                 }
             }
             else
@@ -189,7 +191,7 @@ function modificarHospedaje() {
     var habAnt = document.getElementById("txtHabAnt");
     ajax = nuevoAjax();
 
-    parametros = "id="+id.value+"&id_cliente=" + id_cliente.value + "&cant=" + cant.value + "&fecha=" + fecha.value + "&habitacion=" + habitacion.value + "&habAnt=" + habAnt.value;
+    parametros = "id=" + id.value + "&id_cliente=" + id_cliente.value + "&cant=" + cant.value + "&fecha=" + fecha.value + "&habitacion=" + habitacion.value + "&habAnt=" + habAnt.value;
     url = "procesar/modificarHospedaje.jsp";
     ajax.open("POST", url, true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

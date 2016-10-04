@@ -79,9 +79,12 @@ function validarCampoPersonas() {
 }
 
 function cargarHabitaciones() {
+    alert("paso");
     var cant = document.getElementById("txtCantPer");
     var fechaE = document.getElementById("from");
     var fechaS = document.getElementById("to");
+    var select = document.getElementById("habitacion");
+    alert(select);
     ajax = nuevoAjax();
 
     parametros = "cant=" + cant.value + "&fechaE=" + fechaE.value + "&fechaS=" + fechaS.value;
@@ -94,7 +97,7 @@ function cargarHabitaciones() {
             if (ajax.status == 200) {
                 var rta = ajax.responseText;
                 document.getElementById("cargar").innerHTML = rta;
-
+                
             } else
             {
                 var rta = ajax.responseText;

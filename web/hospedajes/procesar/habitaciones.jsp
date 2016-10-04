@@ -13,28 +13,23 @@
     String fecha_salida = request.getParameter("fecha");
     Fachada fachada = new Fachada();
     ArrayList<String> habitaciones = fachada.obtenerHabitacionesDisponibles(Integer.parseInt(cantPersonas), fecha_salida);
+    System.out.println("SS");
 %>
-<% if (habitaciones.size() > 0 && habitaciones!=null) {%>
-<table id="tablaAdmin" class="table table-bordered table-striped">
-    <tr>
-        <td> Habitación</td>
-        <td> <select id="habitacion" onchange="javascript:cargarDescripcion(this)" name="habitacion" class="form-control">
-                <option value="">-Seleccione una opción- </option>
-                <% for(String hab : habitaciones){%>
-                <option value="<%= hab %>"> <%= hab %></option>
-                <% } %>
-            </select> </td>
-    </tr>
-    <tr> </tr>
-</table>
-<% }else{ %>
-<table id="tablaAdmin" class="table table-bordered table-striped">
-    <tr>
-        <td> Habitación</td>
-        <td> <select required id="habitacion" onchange="javascript:cargarDescripcion(this)" name="habitacion" class="form-control">
-                <option value="">-Sin habitaciones disponibles-</option>
-            </select> </td>
-    </tr>
-    <tr> </tr>
-</table>
-<% } %>
+<% if (habitaciones.size() > 0 && habitaciones != null) {%>
+<div class="input-field col s6">
+    <select id="habitacion" class="validate" name="habitacion" onchange="javascript:cargarDescripcion(this)">
+        <option value="" disabled selected>--Seleccione una opción--</option>
+        <% for (String hab : habitaciones) { %>
+        <option value="<%= hab%>"> <%= hab%> </option>
+        <% } %>
+    </select>
+    <label for="tipo">Tipo habitacion</label>
+</div>
+<% } else { %>
+ <div class="input-field col s6">
+    <select id="habitacion" class="validate" name="habitacion" onchange="javascript:cargarDescripcion(this)">
+        <option value="" disabled selected>Sin habitaciones disponibles</option>
+    </select>
+    <label for="tipo">Tipo habitacion</label>
+</div>
+<% }%>
