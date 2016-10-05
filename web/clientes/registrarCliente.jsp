@@ -5,7 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%
+    session.setAttribute("pagina", "clientes");
+    if (session.getAttribute("usuario") == null) {
+        response.sendRedirect("../index.jsp");
+    } else {
+        String tipo = session.getAttribute("usuario").toString();
+        if (!tipo.equals("empleado") || tipo.isEmpty()) {
+            response.sendRedirect("../login/login.jsp");
+        } else {
+%>
 <jsp:include page="../plantillas/recepcionista/header.jsp"></jsp:include>
 
     <div class="card-panel  white z-depth-5">
@@ -56,10 +65,6 @@
                                     <input type="text" name="txtProcedencia" id="txtProcedencia" class="validate" >
                                 </div>
                             </div>  
-
-
-
-
                             <div class="row">
                                 <div class="col s12">
                                     <input type="submit" class="btn center-align grey darken-3 right" value="Registrar" name="registrar" id="registrar">
@@ -75,7 +80,7 @@
 
 
 
-    
+
     <link rel="stylesheet" href="../public/css/dataTables.bootstrap.min.css" />
     <script src="../public/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../public/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
@@ -83,3 +88,5 @@
 
 
 <jsp:include page="../plantillas/recepcionista/footer.jsp"/>
+<% }
+    }%>

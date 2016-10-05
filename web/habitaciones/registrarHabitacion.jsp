@@ -6,6 +6,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<% session.setAttribute("pagina", "habitaciones");
+    if (session.getAttribute("usuario") == null) {
+        response.sendRedirect("../index.jsp");
+    } else {
+        String tipo = session.getAttribute("usuario").toString();
+        if (!tipo.equals("administrador") || tipo.isEmpty()) {
+            response.sendRedirect("../login/login.jsp");
+        } else {
+%>
 <jsp:include page="../plantillas/adminis/header.jsp"/>
 
 <div class="card-panel  white z-depth-5">
@@ -75,3 +84,4 @@
 
 
 <jsp:include page="../plantillas/adminis/footer.jsp"/>
+<% }} %>

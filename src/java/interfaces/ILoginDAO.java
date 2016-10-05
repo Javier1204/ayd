@@ -11,6 +11,6 @@ package interfaces;
  */
 public interface ILoginDAO {
     
-    public boolean validarUsuario(String user, String password) throws Exception;
+    public boolean validarUsuario(String user, String password, String tipo_usuario) throws Exception;
     
 }

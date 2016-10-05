@@ -30,14 +30,14 @@ function nuevoAjax()
 function validarUsuario(){
     var nombre_usuario = login.nombre_usuario.value;
     var password = login.password.value;
-    validarUsuarioAjax(nombre_usuario, password, "divError");
+    var tipo_usuario = login.tipo_usuario.value;
+    validarUsuarioAjax(nombre_usuario, password, tipo_usuario);
 }
 
 
-function validarUsuarioAjax(nombre_usuario, password, campo,tipo_usuario){
+function validarUsuarioAjax(nombre_usuario, password,tipo_usuario){
     aleatorio = Math.random();
     ajax = nuevoAjax();
-
     parametros = "nombre_usuario=" + nombre_usuario + "&password=" + password + "&aleatorio=" + aleatorio + "&tipo="+tipo_usuario;
     url = "procesarSesion.jsp";
     ajax.open("POST", url, true);
@@ -48,13 +48,16 @@ function validarUsuarioAjax(nombre_usuario, password, campo,tipo_usuario){
         if (ajax.readyState == 4){
             if (ajax.status == 200){
                 var rta = ajax.responseText;
-                if (rta.indexOf("1") < 0) {
+                if (rta.indexOf("1") < 0 && rta.indexOf("2") < 0) {
 
-                    document.getElementById(campo).innerHTML = ajax.responseText;
+                    document.getElementById("divError").innerHTML = ajax.responseText;
 
                 }
                 else {
                     if (rta.indexOf("1") >= 0) {
+                        login.action = "../habitaciones/registrarHabitacion.jsp";
+                        login.submit();
+                    } else if (rta.indexOf("2") >= 0) {
                         login.action = "../hospedajes/registrarHospedaje.jsp";
                         login.submit();
                     } 
@@ -62,20 +65,23 @@ function validarUsuarioAjax(nombre_usuario, password, campo,tipo_usuario){
             }
             else{
                 var rta = ajax.responseText;
-                if (rta.indexOf("1") < 0) {
-                    document.getElementById(campo).innerHTML = ajax.responseText;
+                if (rta.indexOf("1") < 0 && rta.indexOf("2") < 0) {
+                    document.getElementById("divError").innerHTML = ajax.responseText;
                 }
                 else {
                     if (rta.indexOf("1") >= 0) {
+                        login.action = "../habitaciones/registrarHabitacion.jsp";
+                        login.submit();
+                    } else if (rta.indexOf("2") >= 0) {
                         login.action = "../hospedajes/registrarHospedaje.jsp";
                         login.submit();
-                    }
+                    } 
                 }
             }
         }
         else
         {
-            document.getElementById(campo).value = "Verificando Usuario...";
+            document.getElementById("divError").value = "Verificando Usuario...";
         }
     }
 }

@@ -27,9 +27,9 @@ import negocio.reserva.ControlReserva;
  */
 public class Fachada {
 
-    public boolean iniciarSesion(String user, String password) throws Exception {
+    public boolean iniciarSesion(String user, String password, String tipo_usuario) throws Exception {
         LoginDAO dao = new LoginDAO();
-        return dao.validarUsuario(user, password);
+        return dao.validarUsuario(user, password, tipo_usuario);
     }
 
     public boolean registrarHospedaje(String id_habitacion, String cantPersonas, String id_cliente, String fecha_salida) throws Exception {

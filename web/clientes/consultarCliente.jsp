@@ -9,7 +9,14 @@
 <%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if(session.getAttribute("usuario")!=null){
+    session.setAttribute("pagina", "clientes");
+    if (session.getAttribute("usuario") == null) {
+        response.sendRedirect("../index.jsp");
+    } else {
+        String tipo = session.getAttribute("usuario").toString();
+        if (!tipo.equals("empleado") || tipo.isEmpty()) {
+            response.sendRedirect("../login/login.jsp");
+        } else {
 %>
 <jsp:include page="../plantillas/admin/header.jsp"/>
 <div class="container">
@@ -80,7 +87,5 @@
 
 <jsp:include page="../plantillas/admin/footer.jsp"/>
 
-<% }else{
-        response.sendRedirect("../index/index.jsp");
-    }
+<% } }
 %>

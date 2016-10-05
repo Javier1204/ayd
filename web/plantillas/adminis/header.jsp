@@ -115,7 +115,7 @@
 
                     <div class="nav-wrapper grey darken-3">
 
-                        <a href="../inicio/principal.jsp" class="brand-logo thin right" >ADMINISTRADOR<i class="material-icons left"></i></a>
+                         <a href="../login/cerrarSesion.jsp" class="brand-logo thin right">Admin<i class="material-icons left">play_for_work</i></a>
                         <ul class="left hide-on-med-and-down"> 
 
                             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Habitaciones

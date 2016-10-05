@@ -11,19 +11,20 @@
     String password = request.getParameter("password");
     String tipo = request.getParameter("tipo");
     Fachada fachada = new Fachada();
-    boolean exito = fachada.iniciarSesion(user, password);
+    boolean exito = fachada.iniciarSesion(user, password, tipo);
     String mensaje = "";
     if (exito) {
-        mensaje = "S";
-        session.setAttribute("usuario", user);;
+        if (tipo.equals("administrador")) {
+            System.out.println("Entro");
+            mensaje = "1";
+        } else if(tipo.equals("empleado")) {
+            System.out.println("yo igual");
+            mensaje= "2";
+        }
+        session.setAttribute("usuario", tipo);;
         session.setAttribute("estadoSesion", true);
 
         session.setMaxInactiveInterval(1 * 60 * 60);
-        if (tipo.equals("administrador")) {
-            response.sendRedirect("../habitaciones/registrarHabitacion.jsp");
-        } else if(tipo.equals("empleado")) {
-            response.sendRedirect("../hospedajes/registrarHospedaje.jsp");
-        }
     } else {
         mensaje = "Datos incorrectos";
     }

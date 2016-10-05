@@ -11,14 +11,22 @@
 <%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Fachada fachada = new Fachada();
-    String id_habitacion = request.getParameter("id_habitacion");
-    String id_cliente = request.getParameter("id_cliente");
-    String id = request.getParameter("id");
-    HospedajeDTO h = fachada.consultarHospedajeActivo(id_cliente, id_habitacion);
-    ClienteDTO c = fachada.consultarCliente(id_cliente);
-    ArrayList<String> habitaciones = fachada.obtenerHabitacionesDisponibles(h.getCantPersonas(), h.getFecha_salida());
-    
+    session.setAttribute("pagina", "hospedajes");
+    if (session.getAttribute("usuario") == null) {
+        response.sendRedirect("../index.jsp");
+    } else {
+        String tipo = session.getAttribute("usuario").toString();
+        if (!tipo.equals("empleado") || tipo.isEmpty()) {
+            response.sendRedirect("../login/login.jsp");
+        } else {
+            Fachada fachada = new Fachada();
+            String id_habitacion = request.getParameter("id_habitacion");
+            String id_cliente = request.getParameter("id_cliente");
+            String id = request.getParameter("id");
+            HospedajeDTO h = fachada.consultarHospedajeActivo(id_cliente, id_habitacion);
+            ClienteDTO c = fachada.consultarCliente(id_cliente);
+            ArrayList<String> habitaciones = fachada.obtenerHabitacionesDisponibles(h.getCantPersonas(), h.getFecha_salida());
+
 %>   
 <jsp:include page="../plantillas/admin/header.jsp"></jsp:include>
     <div class="container">
@@ -119,3 +127,5 @@
 
 
 <jsp:include page="../plantillas/admin/footer.jsp"/>
+<% }
+    }%>

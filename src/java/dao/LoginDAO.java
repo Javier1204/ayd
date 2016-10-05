@@ -21,19 +21,20 @@ public class LoginDAO implements ILoginDAO{
     Connection conn = null;    
     
     @Override
-    public boolean validarUsuario(String user, String password) throws Exception {
+    public boolean validarUsuario(String user, String password, String tipoUsuario) throws Exception {
         conn = Conexion.conectar();
         boolean exito= false;
         PreparedStatement stmt=null;
         try{
-          stmt = conn.prepareStatement("SELECT * FROM admin WHERE nombreUsuario='"+user+"' AND password='"+password+"'");
+          stmt = conn.prepareStatement("SELECT * FROM admin WHERE nombreUsuario='"+user+"' AND password='"+password+"' AND rol='"+tipoUsuario+"'");
             ResultSet res = stmt.executeQuery();
             while(res.next()){
                 String u = res.getString(1);
                 System.out.println(u);
+                String r = res.getString(2);
                 String p = res.getString(3);
                 System.out.println(p);
-                if(u.equalsIgnoreCase(user) && p.equalsIgnoreCase(password)){
+                if(u.equalsIgnoreCase(user) && r.equalsIgnoreCase(tipoUsuario) && p.equalsIgnoreCase(password)){
                     exito = true;
                 }
             }
