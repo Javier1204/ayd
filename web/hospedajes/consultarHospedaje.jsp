@@ -20,75 +20,77 @@
             response.sendRedirect("../login/login.jsp");
         } else {
 %>
-<jsp:include page="../plantillas/admin/header.jsp"/>
-<div class="container">
+<%-- Nuevo --%>
+<jsp:include page="../plantillas/recepcionista/header.jsp"/>
+<div class="card-panel  white z-depth-5" >
     <div class="row">
-        <div class="col-lg-offset-1 col-lg-10">
-            <div class="box">
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-md-12" style="margin-bottom: 30px;">
-                            <form name="form1" action="javascript:consultarHospedaje()" method="POST">
-                                <center><h1> Consultar Hospedajes </h1></center> <br>
-                                <div id="tablaAdmin">
-                                    <label> 
-                                        Buscar:
-                                    </label>  
-                                    <div class="input-group">
-                                        <input required type="text" name="txtBusq" id="txtBusq" placeholder="Documento cliente..." class="form-control"/> 
-                                        <span class="input-group-addon">-</span>
-                                        <input required type="date" name="txtFsalida" id="txtFsalida" placeholder="Fecha de salida..." class="form-control"/>
-                                        <span class="input-group-addon">-</span>
-                                        <input required type="date" name="txtFentrada" id="txtFentrada" placeholder="Fecha de entrada..." class="form-control"/>
-                                        <span class="input-group-btn">
-                                            <input type="submit" name="btnBusq" id="btnBusq" value="Buscar" class="btn btn-flat"/>
-                                        </span>
-                                    </div>
-                                    <br>
-                                    <div id="cambio">
-                                    <table id="tablaAdmin" class="table table-bordered table-striped">
-                                        <thead style="background-color: #2c3b41; color: #fff">
-                                            <tr>
-                                                <th> Id. </th>
-                                                <th> Habitación </th>
-                                                <th> Cliente a cargo </th>
-                                                <th> Fecha entrada </th>
-                                                <th> Fecha salida </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                Fachada fachada = new Fachada();
-                                                ArrayList<HospedajeDTO> hospedajes = fachada.obtenerHospedajes();
-                                                System.out.println(hospedajes);
-                                                for (HospedajeDTO h : hospedajes) {
-                                            %>
-                                            <tr>
-                                                <td> <%=h.getId()%></td>
-                                                <td> <%= h.getId_habitacion()%></td>
-                                                <td> <%= h.getId_cliente()%> </td>
-                                                <td> <%= h.getFecha_entrada()%> </td>
-                                                <td> <%= h.getFecha_salida()%></td>
-                                            </tr>
-                                            <% }%>
-                                        </tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                            </form>
-                    </div>
+        <i class="material-icons left grey-text">search</i><h5>Buscar hospedaje</h5>
+        <li class="divider"></li>
+    </div>
+    <div class="row">
+        <div class=" s12">
+            <label for=""> <h5>Ingrese información</h5></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <form name="formBuscar" id="formBuscar" method="post" action="javascript:consultarHospedaje()">                 
+                <div class="input-field col s3">
+                    <input type="text" name="id_cliente" id="id_cliente" class="validate" required/>
+                    <label for="id_cliente"><i class="material-icons left">search</i> Id cliente</label>
                 </div>
-            </div>
-        </div>             
+                <div class="input-field col s3">
+                    <label for="txtFecha_entrada">Fecha entrada</label>
+                    <input type="text" name="txtFecha_entrada" id="txtFecha_entrada" class="datepicker">
+                </div>
+                <div class="input-field col s3">
+                    <label for="txtFecha_salida">Fecha salida</label>
+                    <input type="text" name="txtFecha_salida" id="txtFecha_salida" class="datepicker">
+                </div>
+                <div class="input-field col s2">
+                    <input type="submit" class="btn center-align grey darken-3 right" id="buscar" name="buscar" value="Buscar"/>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+<div class="card-panel  white z-depth-5">
+    <div id="cambio">
+        <table class="striped highlight" bgcolor="white">
+            <thead>
+                <tr class="grey darken-2 white-text">
+                    <th data-field="id">Id</th>
+                    <th data-field="tipo">Habitación</th>
+                    <th data-field="tarifa">Cliente</th>
+                    <th data-field="descripcion">Fecha entrada</th>
+                    <th data-field="imagen">Fecha salida</th>
+                    <th data-field="editar">Acción</th>
+                    <th data-field="editar">Acción</th>
+                </tr>
+            </thead>
+            <%
+                Fachada fachada = new Fachada();
+                ArrayList<HospedajeDTO> hospedajes = fachada.obtenerHospedajes();
+                System.out.println(hospedajes);
+                for (HospedajeDTO h : hospedajes) {
+            %>
+            <tr>
+                <td> <%=h.getId()%></td>
+                <td> <%= h.getId_habitacion()%></td>
+                <td> <%= h.getId_cliente()%> </td>
+                <td> <%= h.getFecha_entrada()%> </td>
+                <td> <%= h.getFecha_salida()%></td>
+                <td> <a  href="modificarHospedaje.jsp?id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>">Modificar </a></td>
+                <td> <a  href="procesar/finalizarHospedaje.jsp?id=<%=h.getId()%>&id_habitacion=<%=h.getId_habitacion()%>&id_cliente=<%=h.getId_cliente()%>&fecha_s=<%= h.getFecha_salida()%>&fecha_e=<%= h.getFecha_entrada()%>">Finalizar </a></td>
+            </tr>
+            <% }%>
+        </table>
+    </div>
 </div>
-
 <link rel="stylesheet" href="../public/css/dataTables.bootstrap.min.css" />
 <script src="../public/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="../public/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <script src="js/procesar.js" type="text/javascript"></script>
-
-
-<jsp:include page="../plantillas/admin/footer.jsp"/>
-<% } } %>
+<jsp:include page="../plantillas/adminis/footer.jsp"/>
+<% }
+    }%>

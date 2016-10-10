@@ -9,25 +9,20 @@
 <%
     String tarifa = request.getParameter("tarifa");
     Fachada fachada = new Fachada();
-    
     String tar = fachada.obtenerTarifaRecurso(tarifa);
 %>
-<% if(tar!=null){ %>
-    <table id="tablaTarifa" class="table table-bordered table-striped">
-           <tr>
-              <td> Tarifa de Recurso</td>
-              <td>
-                  <input type="text" name="txtTarifa" value="<%=tar%>"id="txtTarifa" class="form-control" readonly="true"/>
-              </td>
-           </tr>
- </table>
+<% if (tar != null) {%>
+<div class="input-field col s6">
+    <input id="txtTarifa" value="<%= tar%>" readonly="true" name="txtTarifa" class="validate" />
+    <label class="active" for="txtTarifa">Tarifa</label>
+</div>
 <% } else { %>
-     <table id="tablaTarifa" class="table table-bordered table-striped">
-           <tr>
-              <td> Tarifa de Recurso</td>
-              <td>
-                  <input type="text" name="txtTarifa" id="txtTarifa" class="form-control" readonly="true"/>
-              </td>
-           </tr>
- </table>
-<% } %>
+<table id="tablaTarifa" class="table table-bordered table-striped">
+    <tr>
+        <td> Tarifa de Recurso</td>
+        <td>
+            <input type="text" name="txtTarifa" id="txtTarifa" class="form-control" readonly="true"/>
+        </td>
+    </tr>
+</table>
+<% }%>

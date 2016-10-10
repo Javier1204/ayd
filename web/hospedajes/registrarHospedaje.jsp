@@ -15,8 +15,6 @@
         } else {
 %>
 <jsp:include page="../plantillas/recepcionista/header.jsp"></jsp:include>
-
-
     <div class="card-panel  white z-depth-5">
         <div class="row">
             <div class="col s12 m12 l12">

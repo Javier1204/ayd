@@ -77,6 +77,7 @@ function cargarRecursos() {
             if (ajax.status == 200) {
                 var rta = ajax.responseText;
                 document.getElementById("cargar").innerHTML = rta;
+                $('#servicio').material_select();
 
             } else
             {
@@ -98,7 +99,7 @@ function registrarReservaRecurso() {
     var telefono = document.getElementById("txtTelefono");
     var email = document.getElementById("txtEmail");
     var procedencia = document.getElementById("txtProcedencia");
-    var nombre_recurso = document.getElementById("recurso");
+    var nombre_recurso = document.getElementById("servicio");
     var fecha_entrada = document.getElementById("txtFecha_entrada");
     var fecha_salida = document.getElementById("txtFecha_salida");
     var checkboxes = document.getElementById("registrarForm");
@@ -217,9 +218,8 @@ function modificarReservaRecurso() {
 }
 
 function validarRecurso() {
-    var tarifa = document.getElementById("recurso");
+    var tarifa = document.getElementById("servicio");
     ajax = nuevoAjax();
-
     parametros = "tarifa=" + tarifa.value;
     url = "procesar/obtenerTarifa.jsp";
     ajax.open("POST", url, true);

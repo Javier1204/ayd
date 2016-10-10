@@ -8,56 +8,79 @@
 <%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<% 
-   System.out.println("Entro");
-  String id_cliente = request.getParameter("id");
+<%
+    System.out.println("Entro");
+    String id_cliente = request.getParameter("id");
     Fachada fachada = new Fachada();
     boolean exito = false;
     exito = fachada.validarCliente(id_cliente);
-    ClienteDTO cliente= null;
+    ClienteDTO cliente = null;
     if (exito) {
-         cliente = fachada.consultarCliente(id_cliente);
-    }   
+        cliente = fachada.consultarCliente(id_cliente);
+    }
+    System.out.println(exito);
 %>
-<% if(exito){%>
-<table id="tabRec" class="table table-bordered table-striped"> 
-    <label><i class="fa fa-user"></i> Información del cliente </label>
-    <tr> 
-        <td>N° Documento </td>
-        <td><input type="text" name="txtDocumento" value="<%= cliente.getId_cliente()%>" id="txtDocumento" placeholder="Documento cliente" class="form-control" onchange="javascript:validarInformacionCliente()"> </td>
-        <td>Nombre cliente</td>
-        <td><input type="text" name="txtNombre" value="<%= cliente.getNombre_cliente()%>" readonly="true" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
-        <td>Apellido </td>
-        <td><input type="text" name="txtApellido" value="<%= cliente.getApellido()%>" id="txtApellido" readonly="true" placeholder="Apellido usuario" class="form-control"></td>    
-    </tr><tr>
-        <td>Teléfono </td>
-        <td><input type="text" name="txtTelefono" value="<%=cliente.getTelefono()%>" id="txtTelefono"  readonly="true"placeholder="Telefono" class="form-control"> </td>
-        <td>Email </td>
-        <td><input type="text" name="txtEmail" value="<%=cliente.getEmail()%>" id="txtEmail"  readonly="true"placeholder="Email" class="form-control"> </td>
-        <td>Procedencia </td>
-        <td><input type="text" value="<%= cliente.getProcedencia()%>" name="txtProcedencia" readonly="true" id="txtProcedencia" placeholder="Procedencia" class="form-control"> </td>
-    </tr>
-</table>
+<% if (exito) {%>
+<div class="input-field	col s4" class="validate">
+    <label class="active" for="txtDocuemnto">Documento cliente</label>
+    <input type="text" name="txtDocumento" id="txtDocumento" class="validate" value="<%=cliente.getId_cliente()%>" onchange="javascript:validarInformacionCliente()">
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label class="active" for="txtNombre">Nombres cliente</label>
+    <input type="text" value="<%=cliente.getNombre_cliente()%>" readonly="true" name="txtNombre" id="txtNombre" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label class="active" for="txtApellido">Apellidos cliente</label>
+    <input type="text" value="<%= cliente.getApellido()%>" readonly="true" name="txtApellido" id="txtApellido" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label class="active" for="txtTelefono">Telefono cliente</label>
+    <input type="tel" value="<%= cliente.getTelefono()%>" readonly="true" name="txtTelefono" id="txtTelefono" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label class="active" for="txtEmail">Email cliente</label>
+    <input type="email" value="<%=cliente.getEmail()%>" readonly="true" name="txtEmail" id="txtEmail" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label class="active" for="txtProcedencia">Procedencia cliente</label>
+    <input type="text" value="<%=cliente.getProcedencia()%>" readonly="true" name="txtProcedencia" id="txtProcedencia" class="validate" >
+</div>
 <%
-    }else{
-%><table id="tablaAdmin" class="table table-bordered table-striped"> 
-    <label><i class="fa fa-user"></i> Información del cliente </label>
-    <tr> 
-        <td>N° Documento </td>
-        <td><input type="text" name="txtDocumento" value="<%= id_cliente%>" id="txtDocumento" placeholder="Documento cliente" class="form-control" onchange="javascript:validarInformacionCliente()"> </td>
-        <td>Nombre cliente</td>
-        <td><input type="text" name="txtNombre" value="" id="txtNombre" placeholder="Nombre de usuario" class="form-control"></td>
-        <td>Apellido </td>
-        <td><input type="text" name="txtApellido" value="" id="txtApellido"  placeholder="Apellido usuario" class="form-control"></td>
-    </tr><tr>
-        <td>Teléfono </td>
-        <td><input type="text" name="txtTelefono" value="" id="txtTelefono"  placeholder="Telefono" class="form-control"> </td>
-        <td>Email </td>
-        <td><input type="text" name="txtEmail" value="" id="txtEmail"  placeholder="Email" class="form-control"> </td>
-        <td>Procedencia </td>
-        <td><input type="text" value="" name="txtProcedencia" id="txtProcedencia" placeholder="Procedencia" class="form-control"> </td>
-    </tr>
-</table>
-    <% 
-        }
+} else {
+%><div class="input-field	col s4" class="validate">
+    <label class="active" for="txtDocuemnto">Documento cliente</label>
+    <input type="text" name="txtDocumento" value="<%= id_cliente%>" id="txtDocumento" class="validate" onchange="javascript:validarCliente()">
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label for="txtNombre">Nombres cliente</label>
+    <input type="text" name="txtNombre" id="txtNombre" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label for="txtApellido">Apellidos cliente</label>
+    <input type="text" name="txtApellido" id="txtApellido" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label for="txtTelefono">Telefono cliente</label>
+    <input type="tel" name="txtTelefono" id="txtTelefono" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label for="txtEmail">Email cliente</label>
+    <input type="email" name="txtEmail" id="txtEmail" class="validate" >
+</div>
+
+<div class="input-field	col s4" class="validate">
+    <label for="txtProcedencia">Procedencia cliente</label>
+    <input type="text" name="txtProcedencia" id="txtProcedencia" class="validate" >
+</div>
+<%
+    }
 %>

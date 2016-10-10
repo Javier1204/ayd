@@ -142,9 +142,9 @@ function registrarHospedaje() {
 }
 
 function consultarHospedaje() {
-    var id_cliente = document.getElementById("txtBusq");
-    var f_salida = document.getElementById("txtFsalida");
-    var f_entrada = document.getElementById("txtFentrada");
+    var id_cliente = document.getElementById("id_cliente");
+    var f_salida = document.getElementById("txtFecha_salida");
+    var f_entrada = document.getElementById("txtFecha_entrada");
     ajax = nuevoAjax();
     parametros = "id_cliente=" + id_cliente.value + "&f_salida=" + f_salida.value + "&f_entrada=" + f_entrada.value;
     url = "procesar/procesarConsulta.jsp";
@@ -163,8 +163,9 @@ function consultarHospedaje() {
 }
 
 function consultarHospedajeActivo() {
-    var id_cliente = document.getElementById("txtBusq");
-    var habitacion = document.getElementById("txtHabitacion");
+    var id_cliente = document.getElementById("id_cliente");
+    var habitacion = document.getElementById("id_hab");
+    alert(id_cliente.value);
     ajax = nuevoAjax();
     parametros = "id_cliente=" + id_cliente.value + "&habitacion=" + habitacion.value;
     url = "procesar/procesarConsultaA.jsp";

@@ -115,7 +115,7 @@
     <div class="slider">
         <ul class="slides">
             <li>
-                <img src="../images/img0.JPG"> <!-- random image -->
+                <img src="../images/img0.jpg"> <!-- random image -->
                 <div class="caption center-align">
                     <h3>Bienvenidos</h3>
                     <h5 class="light grey-text text-lighten-3"></h5>
