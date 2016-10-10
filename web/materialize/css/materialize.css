@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -5204,6 +5205,7 @@ button.btn-floating {
 }
 
 .waves-effect.waves-red .waves-ripple {
+    
   background-color: rgba(244, 67, 54, 0.7);
 }
 

@@ -21,6 +21,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script type="text/javascript" src="../materialize/js/jquery-3.1.0.js"></script>
         <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+        
         <script type="text/javascript" src="js/login.js"></script>
         <script language="javascript">
 
@@ -82,7 +83,7 @@
 
             <div class="container ">
 
-                <ul id="dropdown1" class="dropdown-content grey darken-4" >
+                <ul id="dropdown1"  class="dropdown-content grey darken-4" >
                     <li><a href="../hospedajes/registrarHospedaje.jsp"><i class="tiny material-icons white-text">library_add</i></i><span class="white-text" >Registrar hospedaje</span></a></li>
                     <li class="divider"></li>
                     <li><a href="../hospedajes/consultarHospedaje.jsp"><i class="tiny material-icons white-text">search</i></i><span class="white-text" >Consultar hospedajes</span></a></li>
@@ -97,7 +98,7 @@
                     <li><a href="../clientes/consultarCliente.jsp"><i class="tiny material-icons white-text">search</i><span class="white-text" >Cosultar cliente</span></a></li>
                 </ul>
 
-                <ul id="dropdown3" class="dropdown-content grey darken-4" >
+                <ul id="dropdown3"  class="dropdown-content grey darken-4" >
                     <li><a href="../reservas/verReservas.jsp"><i class="tiny material-icons white-text">loyalty</i><span class="white-text" >Ver reservas</span></a></li>
                 </ul>
 
@@ -122,19 +123,19 @@
                     <div class="nav-wrapper grey darken-3 z-depth-2">
                         <a href="../login/cerrarSesion.jsp" class="brand-logo thin right">Recepcionista<i class="material-icons left">play_for_work</i></a>
                         <ul class="left hide-on-med-and-down"> 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Hospedajes
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown1">Hospedajes
                                     <i class="material-icons right">store</i></a></li>
 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Clientes
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown2">Clientes
                                     <i class="material-icons right">perm_identity</i></a></li>
 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Reservas
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown3">Reservas
                                     <i class="material-icons right">class</i></a></li>
 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown4">Recursos
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown4">Recursos
                                     <i class="material-icons right">business</i></a></li>
 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown5">Facturas
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown5">Facturas
                                     <i class="material-icons right">payment</i></a></li>
                         </ul>
                     </div>

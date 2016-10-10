@@ -12,18 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/habitaciones/registrarHabitacion.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/procesarSesion.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/habitaciones/consultarHabitacion.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/admin/header.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/login.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/adminis/header.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/adminis/footer.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/hospedajes/registrarHospedaje.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/clientes/registrarCliente.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/cerrarSesion.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/index/index.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/materialize/css/materialize.css</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/public/css/linea.css</file>
             <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/recepcionista/header.jsp</file>
-            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/js/login.js</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/usuario/header.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/principal/inicio.jsp</file>
         </group>
     </open-files>
 </project-private>

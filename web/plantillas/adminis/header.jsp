@@ -61,6 +61,8 @@
                 $('input#input_text, textarea#descrip').characterCounter();
 
 
+                
+
             });
 
 
@@ -115,16 +117,16 @@
 
                     <div class="nav-wrapper grey darken-3">
 
-                         <a href="../login/cerrarSesion.jsp" class="brand-logo thin right">Admin<i class="material-icons left">play_for_work</i></a>
+                        <a href="../login/cerrarSesion.jsp" class="brand-logo thin right">Admin<i class="material-icons left">play_for_work</i></a>
                         <ul class="left hide-on-med-and-down"> 
 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Habitaciones
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown1">Habitaciones
                                     <i class="material-icons right">loyalty</i></a></li>
 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Empleados
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown2">Empleados
                                     <i class="material-icons right">perm_identity</i></a></li>
 
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Nosotros
+                            <li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown3">Nosotros
                                     <i class="material-icons right">web</i></a></li>
                         </ul>
                     </div>

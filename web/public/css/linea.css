@@ -1,0 +1,40 @@
+.heading-lined {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  max-width: 100%;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.heading-lined span {
+  position: relative;
+  z-index: 5;
+  padding: 0 20px;
+}
+
+.heading-lined span:before, .heading-lined span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-top: 1px solid #e1e1e1;
+  top: 50%;
+  margin-top: 1px;
+  width: 1200px;
+  /* SHORTER LINES
+  max-width: 35px;
+  margin: 0 -10px;*/
+}
+
+.heading-lined span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.heading-lined span:after {
+  left: 100%;
+  margin-right: 15px;
+}
