@@ -100,15 +100,15 @@
                 <ul id="dropdown2" class="dropdown-content grey darken-4" >
                     <li><a href="../empleados/registrarEmpleado.jsp"><i class="tiny material-icons white-text">library_add</i><span class="white-text" >Registrar</span></a></li>
                     <li class="divider"></li>
-                    <li><a href="../consultar/consultarEmpleado.jsp"><i class="tiny material-icons white-text">search</i><span class="white-text" >Cosultar</span></a></li>
+                    <li><a href="../empleados/consultarEmpleado.jsp"><i class="tiny material-icons white-text">search</i><span class="white-text" >Cosultar</span></a></li>
                 </ul>
 
                 <ul id="dropdown3" class="dropdown-content grey darken-4" >
-                    <li><a href="../hotel/mision.jsp"><i class="tiny material-icons white-text">settings_backup_restore</i><span class="white-text" >Actualizar mision</span></a></li>
+                    <li><a href="../informacion/modificarMision.jsp"><i class="tiny material-icons white-text">settings_backup_restore</i><span class="white-text" >Actualizar mision</span></a></li>
                     <li class="divider"></li>
-                    <li><a href="../hotel/vision.jsp"><i class="tiny material-icons white-text">settings_backup_restore</i><span class="white-text" >Actualizar vision</span></a></li>
+                    <li><a href="../informacion/modificarVision.jsp"><i class="tiny material-icons white-text">settings_backup_restore</i><span class="white-text" >Actualizar vision</span></a></li>
                     <li class="divider"></li>
-                    <li><a href="../hotel/informacion.jsp"><i class="tiny material-icons white-text">store</i><span class="white-text" >Actualizar informacion hotel</span></a></li>
+                    <li><a href="../informacion/modificarHistoria.jsp"><i class="tiny material-icons white-text">store</i><span class="white-text" >Actualizar Historia hotel</span></a></li>
                 </ul>
 
 

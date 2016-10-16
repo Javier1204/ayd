@@ -24,11 +24,11 @@
         <script language="javascript">
 
             $(document).ready(function () {
-                
+
 
                 $('select').material_select();
 
-                
+
 
             });
 
@@ -66,7 +66,7 @@
 
                                 </div>
                                 <div class="input-field col s12">
-                                     <i class="material-icons prefix">supervisor_account</i>
+                                    <i class="material-icons prefix">supervisor_account</i>
                                     <select id="tipo_usuario" name="tipo_usuario">
                                         <option value="" disable selected>--Seleccione una opción--</option>
                                         <option value="administrador">Administrador</option>
@@ -77,6 +77,7 @@
 
                                 </div>
 
+
                                 <div class="input-field col s12 ">
                                     <button type="button" class="btn  btn-success" onclick="validarUsuario();"
                                             name="ingresar" id="ingresar" value="Ingresar" />Ingresar</button>
@@ -85,7 +86,9 @@
                                 </div>
                             </div>
                         </form>
-                        <label id="divError"></label>
+                        <div id="divError">
+                            
+                        </div>
 
                     </div>
                 </div>

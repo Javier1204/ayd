@@ -8,6 +8,7 @@ package facade;
 import dao.LoginDAO;
 import dto.ClienteDTO;
 import dto.ComentarioDTO;
+import dto.EmpleadoDTO;
 import dto.FacturaDTO;
 import dto.HabitacionDTO;
 import dto.HospedajeDTO;
@@ -16,6 +17,7 @@ import dto.ReservaRecursoDTO;
 import java.sql.Date;
 import java.util.ArrayList;
 import negocio.cliente.ControlCliente;
+import negocio.empleado.controlEmpleado;
 import negocio.factura.ControlFactura;
 import negocio.hospedajes.ControlHospedaje;
 import negocio.recurso.ControlRecurso;
@@ -242,6 +244,11 @@ public class Fachada {
     public FacturaDTO actualizarFacturaRecurso(FacturaDTO dto) throws Exception{
         ControlFactura control = new ControlFactura();
         return control.actualizarFacturaRecurso(dto);
+    }
+    
+    public boolean registrarEmpleado(String nombres, String apellidos, String cc, String cargo, String lugar_nacimiento, String fecha_nacimiento, String nivel_estudio, String direccion, String celular, String fijo, String email, String genero, int anio_experiencia) throws Exception{
+        controlEmpleado control = new controlEmpleado();
+        return control.registrarEmpleado(nombres, apellidos, cc, cargo, lugar_nacimiento, fecha_nacimiento, nivel_estudio, direccion,  celular,  fijo,  email,  genero,  anio_experiencia);
     }
 
 //    public void generarPdf(String id_servicio, String tipo_servicio) throws Exception {

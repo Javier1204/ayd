@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <% session.setAttribute("pagina", "habitaciones");
     if (session.getAttribute("usuario") == null) {
@@ -16,17 +17,18 @@
         } else {
 %>
 <jsp:include page="../plantillas/adminis/header.jsp"/>
-
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
 <div class="card-panel  white z-depth-5">
     <div class="row">
         <div class="col s12 m12 l12">
             <div id="form_reg_habitacion">
-                <form action="procesar/registro.jsp" class="col s12" method="post">
+                <form enctype="multipart/form-data" action="javascript:registrarHabitacion()" class="col s12" method="post">
                     <div class="row">
-                        
-                            <i class="material-icons left grey-text">queue</i><h5>Registar habitacion</h5>
-                            <li class="divider"></li>
-                        
+
+                        <i class="material-icons left grey-text">queue</i><h5>Registar habitacion</h5>
+                        <li class="divider"></li>
+
                     </div>
 
                     <div class="row">
@@ -45,7 +47,7 @@
                         </div>
                         <div class="input-field	col s4" class="validate">
                             <label for="tarifa">Tarifa habitacion</label>
-                            <input type="text" name="tarifa" id="tarifa" class="validate">
+                            <input type="number" min="0" name="tarifa" id="tarifa" class="validate">
                         </div>
                     </div>
 
@@ -61,10 +63,10 @@
                     <div class="file-field input-field">
                         <div class="btn grey darken-3">
                             <span>File</span>
-                            <input type="file">
+                            <input type="file" id="file1" name="file1">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input class="file-path validate" type="text" id="file1" name="file1">
                         </div>
                     </div>
 
@@ -73,7 +75,12 @@
 
                     <div class="row">
                         <div class="col s12">
-                            <input type="submit" class="btn center-align grey darken-3 right" value="Registrar">
+                            <input type="submit" class="waves-effect waves-light btn modal-trigger" href="#modal1" value="Registrar">
+                        </div>
+                    </div>
+                    <div id="modal1" class="modal">
+                        <div id="mostrarRegistro">
+
                         </div>
                     </div>
                 </form>
@@ -84,4 +91,5 @@
 
 
 <jsp:include page="../plantillas/adminis/footer.jsp"/>
-<% }} %>
+<% }
+    }%>
