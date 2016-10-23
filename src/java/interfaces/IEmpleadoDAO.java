@@ -6,6 +6,7 @@
 package interfaces;
 
 import dto.EmpleadoDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,5 +16,5 @@ public interface IEmpleadoDAO {
     
     public boolean registrarEmpleado(EmpleadoDTO dto) throws Exception;
     public boolean modificarEmpleado(EmpleadoDTO dto) throws Exception;
-    public EmpleadoDTO consultarEmpleado(String tipo, String dato) throws Exception;
+    public ArrayList<EmpleadoDTO> consultarEmpleado(String tipo, String dato) throws Exception;
 }

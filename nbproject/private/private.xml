@@ -11,42 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/empleados/procesar/procesarModificacion.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/empleados/consultarEmpleado.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/plantillas/adminis/footer.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/dao/InformacionDAO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/empleados/procesar/procesarConsulta.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/informacion/procesar/procesarVision.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/interfaces/IClienteDAO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/plantillas/adminis/header.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/empleados/js/js.js</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/empleados/procesar/procesarRegistro.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/empleados/registrarEmpleado.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/dto/EmpleadoDTO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/interfaces/IEmpleadoDAO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/informacion/modificarVision.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/informacion/procesar/procesarHistoria.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/principal/inicio.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/dao/EmpleadoDAO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/negocio/informacion/controlInformacion.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/dao/ComentarioDAO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/informacion/js/js.js</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/informacion/modificarMision.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/index/index.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/dto/InformacionDTO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/login/js/login.js</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/informacion/modificarHistoria.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/login/login.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/index.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/interfaces/IInformacionDAO.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/src/java/negocio/empleado/controlEmpleado.java</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/empleados/modificarEmpleado.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/habitaciones/registrarHabitacion.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/informacion/procesar/procesarMision.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/login/procesarSesion.jsp</file>
-            <file>file:/C:/Users/FARID%20SANTIAGO/Documents/NetBeansProjects/hotel/ayd/web/plantillas/admin/header.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

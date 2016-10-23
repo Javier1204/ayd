@@ -86,4 +86,85 @@ function registrarEmpleado(){
             document.getElementById(div).value = "Cargando";
         }
     }
+    
+}
+
+function consultarEmpleado(){
+    var div = "tablaF";
+    var radios = document.getElementById("tipo");
+    var dato = document.getElementById("buscar_empleado");
+    ajax = nuevoAjax();
+
+
+    parametros = "tipo="+radios.value+"&dato="+dato.value;
+    url = "procesar/procesarConsulta.jsp";
+    ajax.open("POST", url, true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    ajax.send(parametros);
+    ajax.onreadystatechange = function ()
+    {
+        if (ajax.readyState == 4)
+        {
+            if (ajax.status == 200)
+            {
+
+                document.getElementById(div).innerHTML = ajax.responseText;
+
+            } else
+            {
+
+                document.getElementById(div).innerHTML = ajax.responseText;
+
+            }
+        } else
+        {
+            document.getElementById(div).value = "Cargando";
+        }
+    }
+}
+function modificarEmpleado(){
+    var div = "modificar";
+    var nombre = document.getElementById("nombre");
+    var apellidos = document.getElementById("apellido");
+    var cc = document.getElementById("cc");
+    var cargo = document.getElementById("cargo");  
+    var nivel_estudio = document.getElementById("niv_estud");
+    var direccion = document.getElementById("direccion");
+    var celular = document.getElementById("tel_cel");
+    var fijo = document.getElementById("tel_fijo");
+    var email = document.getElementById("email");
+    var experiencia = document.getElementById("anos_experiencia");
+    
+    ajax = nuevoAjax();
+
+    parametros = "nombres=" + nombre.value + "&apellidos=" + apellidos.value + "&cc=" + cc.value + "&cargo=" + cargo.value + 
+            "&nivel_estudio=" + nivel_estudio.value + "&direccion=" + direccion.value + "&celular=" + celular.value + "&fijo=" + fijo.value + "&email=" + email.value + "&antiguedad=" + experiencia.value;
+    url = "procesar/procesarModificacion.jsp";
+    ajax.open("POST", url, true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    ajax.send(parametros);
+     ajax.onreadystatechange = function ()
+    {
+        if (ajax.readyState == 4)
+        {
+            if (ajax.status == 200)
+            {
+                $(document).ready(function () {
+                    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+                    $('.modal-trigger').leanModal();
+                });
+                 $('#modal1').openModal();
+                document.getElementById(div).innerHTML = ajax.responseText;
+
+            } else
+            {
+
+                document.getElementById(div).innerHTML = ajax.responseText;
+
+            }
+        } else
+        {
+            document.getElementById(div).value = "Cargando";
+        }
+    }
 }

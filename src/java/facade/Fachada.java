@@ -5,6 +5,7 @@
  */
 package facade;
 
+import dao.InformacionDAO;
 import dao.LoginDAO;
 import dto.ClienteDTO;
 import dto.ComentarioDTO;
@@ -20,6 +21,7 @@ import negocio.cliente.ControlCliente;
 import negocio.empleado.controlEmpleado;
 import negocio.factura.ControlFactura;
 import negocio.hospedajes.ControlHospedaje;
+import negocio.informacion.controlInformacion;
 import negocio.recurso.ControlRecurso;
 import negocio.reserva.ControlReserva;
 
@@ -249,6 +251,44 @@ public class Fachada {
     public boolean registrarEmpleado(String nombres, String apellidos, String cc, String cargo, String lugar_nacimiento, String fecha_nacimiento, String nivel_estudio, String direccion, String celular, String fijo, String email, String genero, int anio_experiencia) throws Exception{
         controlEmpleado control = new controlEmpleado();
         return control.registrarEmpleado(nombres, apellidos, cc, cargo, lugar_nacimiento, fecha_nacimiento, nivel_estudio, direccion,  celular,  fijo,  email,  genero,  anio_experiencia);
+    }
+    
+    public ArrayList<EmpleadoDTO> consultarEmpleado(String tipo, String dato) throws Exception{
+        controlEmpleado con = new controlEmpleado();
+        return con.consultarEmpleado(tipo, dato);
+    }
+    
+    public boolean modificarEmpleado(String nombres, String apellidos, String cc, String cargo, String nivel_estudio, String direccion, String fijo, String celular, String email, int anio_experiencia) throws Exception{
+        controlEmpleado control = new controlEmpleado();
+        return control.actualizarEmpleado(nombres, apellidos, cc, cargo, nivel_estudio, direccion, celular, fijo, email, anio_experiencia);
+    }
+    
+    public boolean modifcarMision(String mision) throws Exception{
+        controlInformacion control = new controlInformacion();
+        return control.actualizarMision(mision);
+    }
+     public boolean modifcarVision(String vision) throws Exception{
+        controlInformacion control = new controlInformacion();
+        return control.actualizarVision(vision);
+    }
+      public boolean modifcarHistoria(String historia) throws Exception{
+        controlInformacion control = new controlInformacion();
+        return control.actualizarHistoria(historia);
+    }
+      
+      public String mostrarMision() throws Exception{
+        controlInformacion control = new controlInformacion();
+        return control.mostrarMision();
+    }
+      
+        public String mostrarVision() throws Exception{
+        controlInformacion control = new controlInformacion();
+        return control.mostrarVision();
+    }
+        
+          public String mostrarHistoria() throws Exception{
+        controlInformacion control = new controlInformacion();
+        return control.mostrarHistoria();
     }
 
 //    public void generarPdf(String id_servicio, String tipo_servicio) throws Exception {

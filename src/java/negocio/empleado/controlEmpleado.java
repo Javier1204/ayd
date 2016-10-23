@@ -7,6 +7,7 @@ package negocio.empleado;
 
 import dao.EmpleadoDAO;
 import dto.EmpleadoDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,5 +20,16 @@ public class controlEmpleado {
         EmpleadoDAO empleado = new EmpleadoDAO();
         EmpleadoDTO dto = new EmpleadoDTO(nombres, apellidos, cc, cargo, lugar_nacimiento, fecha_nacimiento, nivel_estudio, direccion, celular, fijo, email, genero, anio_experiencia);
         return empleado.registrarEmpleado(dto);
+    }
+    
+    public ArrayList<EmpleadoDTO> consultarEmpleado(String tipo, String dato) throws Exception{
+        EmpleadoDAO control = new EmpleadoDAO();
+        return control.consultarEmpleado(tipo, dato);
+    }
+    
+    public boolean actualizarEmpleado(String nombres, String apellidos, String cc, String cargo, String nivel_estudio, String direccion, String celular, String fijo, String email, int anio_experiencia) throws Exception{
+        EmpleadoDAO empleado = new EmpleadoDAO();
+        EmpleadoDTO dto = new EmpleadoDTO(nombres, apellidos, cc, cargo, nivel_estudio, direccion, celular, fijo, email, anio_experiencia);
+        return empleado.modificarEmpleado(dto);
     }
 }

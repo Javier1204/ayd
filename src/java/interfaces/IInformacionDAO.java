@@ -5,7 +5,7 @@
  */
 package interfaces;
 
-import dto.InformacionDTO;
+
 
 /**
  *
@@ -14,7 +14,10 @@ import dto.InformacionDTO;
 public interface IInformacionDAO {
     
    
-    public boolean modificarMision(InformacionDTO dto) throws Exception;
-    public boolean modificarVision(InformacionDTO dto) throws Exception;
-    public boolean modificarHistoria(InformacionDTO dto) throws Exception;
+    public boolean modificarMision(String mision) throws Exception;
+    public boolean modificarVision(String vision) throws Exception;
+    public boolean modificarHistoria(String historia) throws Exception;
+    public String mostrarMision() throws Exception;
+    public String mostrarVision() throws Exception;
+    public String mostrarHistoria() throws Exception;
 }

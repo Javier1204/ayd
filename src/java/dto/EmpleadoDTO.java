@@ -30,6 +30,33 @@ public class EmpleadoDTO {
         this.anio_experiencia = anio_experiencia;
     }
 
+    public EmpleadoDTO(String nombres, String apellidos, String cc, String cargo, String direccion, String celular, String fijo, String email, int anio_experiencia) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.cc = cc;
+        this.cargo = cargo;
+        this.direccion = direccion;
+        this.celular = celular;
+        this.fijo = fijo;
+        this.email = email;
+        this.anio_experiencia = anio_experiencia;
+    }
+
+    public EmpleadoDTO(String nombres, String apellidos, String cc, String cargo, String nivel_estudio, String direccion, String celular, String fijo, String email, int anio_experiencia) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.cc = cc;
+        this.cargo = cargo;
+        this.nivel_estudio = nivel_estudio;
+        this.direccion = direccion;
+        this.celular = celular;
+        this.fijo = fijo;
+        this.email = email;
+        this.anio_experiencia = anio_experiencia;
+    }
+    
+    
+
     public EmpleadoDTO() {
     }
 

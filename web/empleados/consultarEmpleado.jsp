@@ -18,13 +18,12 @@
             response.sendRedirect("../login/login.jsp");
         } else {
 %>
-<script type="text/javascript">
+<jsp:include page="../plantillas/adminis/header.jsp"/>
+<script lenguaje="javascript">
     $(document).ready(function () {
 
-
-        $('#radios').click(function() {
-            
-            var var_name = $("input[name='group2']:checked").val();
+        $('#radios4').click(function() {
+            var var_name = $("input[name=group4]:checked").val();
             $('#tipo').val(var_name);
             
         });
@@ -32,31 +31,25 @@
         
     });
 </script>
-<jsp:include page="../plantillas/adminis/header.jsp"/>
-
 <div class="card-panel  white z-depth-5" >
 
-    <div class="row">
-
+    <div class="row" id="radios4">
         <i class="material-icons left grey-text">search</i><h5>Consultar empleados</h5>
         <li class="divider"></li>
-
-    </div>
-
-    <div class="row" id="radios">
+        
         <div class="input-field col s4">
 
             <label for=""><h5>Buscar por</h5></label> 
         </div>
         <div class="input-field col s4">
             <p>
-                <input name="group2" type="radio" id="nombre_contacto" value="nombre"/>
-                <label for="nombre_contacto">Nombre de empleado</label>
+                <input name="group4" type="radio" id="nombre_empleado" value="nombre"/>
+                <label for="nombre_empleado">Nombre de empleado</label>
             </p> 
         </div>
         <div class="input-field col s4">
             <p>
-                <input name="group2" type="radio" id="cedula" value="cc"/>
+                <input name="group4" type="radio" id="cedula" value="cc"/>
                 <label for="cedula">Cedula del empleado</label>
             </p> 
         </div>
@@ -66,18 +59,19 @@
 
     <nav>
         <div class="nav-wrapper">
-            <form name="busq" id="busq" action="javascript:consultarContacto()" method="post">
+            <form name="busq" id="busq" action="javascript:consultarEmpleado()" method="post">
                 <div class="input-field grey darken-2">
-                    <input id="buscar_contacto" type="search" required>
-                    <label for="buscar_contacto"><i class="material-icons left">search</i></label>
+                    <input id="buscar_empleado" type="search" required>
+                    <label for="buscar_empleado"><i class="material-icons left">search</i></label>
                     <i class="material-icons">close</i>
                 </div>
             </form>
             <script>
-                $(document).ready(function ()) {
-                    $("#busq").addEventListener('keypress', function (event) {
+                $(document).ready(function () {
+                    $("#buscar_empleado").on('keypress', function (event) {
                         if (event.keyCode === 13) {
                             event.preventDefault();
+                            consultarEmpleado();
                         }
                     });
                 });
@@ -90,21 +84,20 @@
     <table class="striped highlight" bgcolor="white">
         <thead>
             <tr class="grey darken-2 white-text">
-                <th data-field="nombre">Cedula</th>
-                <th data-field="apellido">Nombre</th>
-                <th data-field="cedula">Apellido</th>
+                <th data-field="cedula">Cedula</th>
+                <th data-field="nombre">Nombre</th>
+                <th data-field="apellido">Apellido</th>
                 <th data-field="direccion">Direccion</th>
-                <th data-field="ciudad">Celular</th>
-                <th data-field="telefono">Fijo</th>
+                <th data-field="celular">Celular</th>
                 <th data-field="email">E-mail</th>
-                <th data-field="experiencia">Experiencia</th>
+                <th data-field="experiencia">Años Experiencia</th>
                 <th data-field="cargo">Cargo</th>
                 <th data-field="editar">Editar</th>
 
             </tr>
         </thead>
         <tr>
-            <td colspan ="10" ><center>No se encuentran datos con la busqueda digitada</center></td>
+            <td colspan ="9" ><center>No se encuentran datos con la busqueda digitada</center></td>
         </tr>
     </table>
 </div>

@@ -4,6 +4,7 @@
     Author     : FARID SANTIAGO
 --%>
 
+<%@page import="facade.Fachada"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% session.setAttribute("pagina", "informacion");
@@ -18,6 +19,10 @@
 <jsp:include page="../plantillas/adminis/header.jsp"/>
 <script type="text/javascript" src="js/js.js"></script>
 <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+<%
+            Fachada fachada = new Fachada();
+            String historia = fachada.mostrarHistoria();
+%>
 
 <div class="card-panel  white z-depth-5">
     <div class="row">
@@ -33,12 +38,13 @@
                     <div class="row">
                         <div class="form-group">
                             <div class="input-field col s12">
-                                <textarea id="textareaMision" class="materialize-textarea"></textarea>
+                                <textarea id="textareaHistoria" class="materialize-textarea"><%=historia%></textarea>
                                 <label for="textarea1">Actualizar historia del hotel</label>
                             </div>
-                            <input type="submit" class="waves-effect waves-light btn modal-trigger" name="btnHistoria" id="btnHistoria" href="#modal1" value="Actualizar"/>
+                           
                         </div>
                     </div>
+                     <input type="submit" class="waves-effect waves-light btn modal-trigger" name="btnHistoria" id="btnHistoria" href="#modal1" value="Actualizar"/>
                     <div id="modal1" class="modal">
                         <div id="actualizarHistoria">
 
