@@ -4,6 +4,8 @@
     Author     : tuto2
 --%>
 
+<%@page import="dto.ComentarioDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="facade.Fachada"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -242,65 +244,98 @@
         </div>
 
         <center><HR align="CENTER" size="2" width="800" color="Grey" noshade><h4>
-                <span class="grey-text text-darken-3">Comentarios cleintes</span></h4></center>
+                <span class="grey-text text-darken-3">Nuestros clientes dijeron</span></h4></center>
 
         <div class="row">
 
+            <%
+                ArrayList<ComentarioDTO> comentarios = fachada.obtenerComentarios();
+            %>   
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-offset-3 col-lg-6">
+                        <div class="row">
+                            <div class="col-md-12" style="margin-bottom: 30px;">
+                                <div class="form-group">
+                                    <div class="col-lg-offset-0">
+                                        <table class="table table-responsive table-condensed">
+                                            <% for (ComentarioDTO c : comentarios) {%>
+                                            <tr>
+                                                <td> <label><%=c.getNick()%></label></td>
+                                                <td> <%=c.getComentario()%></td>
+                                                <td> <%=c.getFecha()%></td>
+                                            </tr> 
+                                            <% }%>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-8">
+                        <div class="box">
+                            <div class="box-pane">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12" style="margin-bottom: 30px;">
+                                        <form name="registrarForm" id="registrarForm" action="procesar/registrarComentario.jsp" method="post">
+                                            <legend><i class="fa fa-comment"></i> Comenta </legend><br>
+                                            <div class="col-lg-4 col-md-4">
+                                                <label>Nick</label>
+                                                <input type="text" name="txtNick" required id="txtNick" placeholder="Nick" class="form-control" />    
+                                            </div>
+                                            <div class="col-lg-6 col-md-4">
+                                                <label> Comentario</label>
+                                                <textarea type="text" name="txtComentario" id="txtComentario" required placeholder="Comentario" class="form-control"> </textarea>
+                                            </div>  
+                                            <div class="col-md-12 col-lg-12" style="margin-bottom: 30px;">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <input type="submit" class="btn btn-primary" value="Registrar" name="registrar" id="registrar"/> 
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+        <footer class="page-footer grey darken-3">
             <div class="container">
-                <div class="row 12">
-                    <ul class="collection">
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle blue">comment</i>
-                            <span class="title" style="font-weight: bold;">Comentario de alguien</span>
-                            <p>este es el comentaio</p>
+                <div class="row">
+                    <div class="col l4 s12">
+                        <h5 class="white-text">Hotel</h5>
+                        <p class="grey-text text-lighten-4">1. El hotel cuenta con cuartos</p>
+                        <p class="grey-text text-lighten-4">2. Es un putiadero que nos llevo farid</p>
+                        <p class="grey-text text-lighten-4">3. A veinte la noche</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Direccion</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">Calle falsa #123 barrio inexistente</a></li>
 
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle blue">comment</i>
-                            <span class="title" style="font-weight: bold;">Comentario de alguien x2</span>
-                            <p>este es otro el comentaio</p>
-
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle blue">comment</i>
-                            <span class="title" style="font-weight: bold;">Comentario de alguien x3</span>
-                            <p>este tambien es otro el comentaio</p>
-
-                        </li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-        </div>
-
-
-
-    </div>
-
-
-    <footer class="page-footer grey darken-3">
-        <div class="container">
-            <div class="row">
-                <div class="col l4 s12">
-                    <h5 class="white-text">Hotel</h5>
-                    <p class="grey-text text-lighten-4">1. El hotel cuenta con cuartos</p>
-                    <p class="grey-text text-lighten-4">2. Es un putiadero que nos llevo farid</p>
-                    <p class="grey-text text-lighten-4">3. A veinte la noche</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Direccion</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Calle falsa #123 barrio inexistente</a></li>
-
-                    </ul>
+            <div class="footer-copyright grey darken-4">
+                <div class="container">
+                    © 2016 Copyright Text
+                    <a class="grey-text text-lighten-4 right" href="#!">UFPS</a>
                 </div>
             </div>
-        </div>
-        <div class="footer-copyright grey darken-4">
-            <div class="container">
-                © 2016 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">UFPS</a>
-            </div>
-        </div>
-    </footer>
+        </footer>
 </html>
