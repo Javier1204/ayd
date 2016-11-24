@@ -4,6 +4,7 @@
     Author     : tuto2
 --%>
 
+<%@page import="facade.Fachada"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -23,29 +24,15 @@
         <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
         <script type="text/javascript" src="../public/css/line.css"></script>
         <script type="text/javascript" src="js/login.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script language="javascript">
-
+            function openWindow() {
+                newWindow = window.open("formRegistro.jsp", null, "height=500,width=800,status=yes,toolbar=no,menubar=no,location=no");
+            }
             $(document).ready(function () {
-                $('.datepicker').pickadate({
-                    selectMonths: true, // Creates a dropdown to control month
-                    selectYears: 15, // Creates a dropdown of 15 years to control year
-                    format: 'yyyy-mm-dd',
-                    labelMonthNext: 'Mes siguiente',
-                    labelMonthPrev: 'Mes anterior',
-                    labelMonthSelect: 'Seleccionar mes',
-                    labelYearSelect: 'Seleccionar año',
-                    monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                    weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
-                    weekdaysShort: ['Dom', 'Lun', 'Mts', 'Mie', 'Jue', 'Vie', 'Sab'],
-                    weekdaysLetter: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-                    today: 'Hoy',
-                    clear: 'Limpiar',
-                    close: 'Cerrar'
-                });
-
                 $('select').material_select();
-
                 $(".button-collapse").sideNav();
                 $(document).on('change', function (e) {
                     $('select').material_select();
@@ -55,22 +42,12 @@
                     $(this).material_select();
                 });
                 $('input#input_text, textarea#descrip').characterCounter();
-
                 $(document).ready(function () {
                     $('.slider').slider({full_width: true});
                 });
-
-
-
                 $('.modal-trigger').leanModal();
-
             });
-
-
-
-
         </script> 
-
         <script>
             $(function () {
                 $("#from").datepicker({
@@ -93,6 +70,12 @@
         </script>
         <title>SIHYEST</title>
     </head>
+    <%
+        Fachada fachada = new Fachada();
+        String mision = fachada.mostrarMision();
+        String vision = fachada.mostrarVision();
+        String historia = fachada.mostrarHistoria();
+    %>
     <body>
         <div class="navbar-fixed">
             <nav>
@@ -148,18 +131,8 @@
     <div class="container">
         <div class="card-panel  indigo darken-4">
             <div class="row">
-                <div  class="col s3">
-                    <span class="white-text "><h6>Reserva ahora al <p>mejor precio</p></h6></span>
-                </div>
-                <div  class="col  s3">
-                    <input required type="text" name="from" id="from" placeholder="Fecha Entrada" class="form-control">
-                </div>
-                <div  class="col s3">
-
-                    <input required type="text" name="to" id="to" placeholder="Fecha Salida" class="form-control" onchange="javascript:validarCampoPersonas()">
-                </div>
-                <div  class="col s3">
-                    <a href="#!" class="btn grey waves-effect waves-green">Comprobar</a>
+                <div  class="col s12">
+                    <center><a href="#!" onclick="openWindow();" class="btn grey waves-effect waves-green">¡Haz tu reserva ya!  </a></center>
                 </div>
             </div>
         </div>
@@ -248,36 +221,21 @@
             <div class="col s4">
                 <div class="card-panel indigo">
                     <img src="../images/mision.png" alt="" class="circle responsive-img">
-                    <span class="white-text">El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje
+                    <span class="white-text"><%= mision%>
                     </span>
                 </div>
             </div>
             <div class="col s4">
                 <div class="card-panel indigo">
                     <img src="../images/vision.png" alt="" class="circle responsive-img">
-                    <span class="white-text">El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje
+                    <span class="white-text"><%= vision%>
                     </span>
                 </div>
             </div>
             <div class="col s4">
                 <div class="card-panel indigo">
                     <img src="../images/historia.png" alt="" class="responsive-img">
-                    <span class="white-text">El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje 
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje
-                        El hotel Dayamar quiere brindar todo de manera óptima jeje
+                    <span class="white-text"><%= historia%>
                     </span>
                 </div>
             </div>
@@ -333,7 +291,7 @@
                     <h5 class="white-text">Direccion</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">Calle falsa #123 barrio inexistente</a></li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -345,6 +303,4 @@
             </div>
         </div>
     </footer>
-
-
 </html>
