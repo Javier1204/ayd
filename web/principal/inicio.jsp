@@ -96,40 +96,6 @@
             </nav>
         </div>
     </body>
-
-    <div class="slider">
-        <ul class="slides">
-            <li>
-                <img src="../images/img0.jpg"> <!-- random image -->
-                <div class="caption center-align">
-                    <h3>Bienvenidos</h3>
-                    <h5 class="light grey-text text-lighten-3"></h5>
-                </div>
-            </li>
-            <li>
-                <img src="../images/img1.jpg"> <!-- random image -->
-                <div class="caption left-align">
-                    <h3 ></h3>
-                    <h5 class="light grey-text text-lighten-3"></h5>
-                </div>
-            </li>
-            <li>
-                <img src="../images/img2.jpg"> <!-- random image -->
-                <div class="caption right-align">
-                    <h3></h3>
-                    <h5 class="light grey-text text-lighten-3"></h5>
-                </div>
-            </li>
-            <li>
-                <img src="../images/img3.jpg"> <!-- random image -->
-                <div class="caption center-align">
-                    <h3></h3>
-                    <h5 class="light grey-text text-lighten-3"></h5>
-                </div>
-            </li>
-        </ul>
-    </div>
-
     <div class="container">
         <div class="card-panel  indigo darken-4">
             <div class="row">
@@ -243,75 +209,60 @@
             </div>
         </div>
 
+
+        <%
+            ArrayList<ComentarioDTO> comentarios = fachada.obtenerComentarios();
+        %> 
+
         <center><HR align="CENTER" size="2" width="800" color="Grey" noshade><h4>
-                <span class="grey-text text-darken-3">Nuestros clientes dijeron</span></h4></center>
+                <span class="grey-text text-darken-3">Comentarios</span></h4></center>
+                
+        <table>
+            <thead>
+                <tr>
+                    <th data-field="nick">Usuario</th>
+                    <th data-field="comment">Comentario</th>
+                    <th data-field="date">Fecha</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                <%for (ComentarioDTO dto : comentarios) {
+                        String nick = dto.getNick();
+                        String comment = dto.getComentario();
+                        String date = dto.getFecha();
+                %>
+                <tr>
+                    <td><%=nick%></td>
+                    <td><%=comment%></td>
+                    <td><%=date%></td>
+                </tr>
+                <% }%>
+            </tbody>
+        </table>
+
+        <center><HR align="CENTER" size="2" width="800" color="Grey" noshade><h4>
+                <span class="grey-text text-darken-3">Registra un Comentario</span></h4></center>
+            
         <div class="row">
-
-            <%
-                ArrayList<ComentarioDTO> comentarios = fachada.obtenerComentarios();
-            %>   
-            <div class="container-fluid">
+            <form name="registrarForm" action="procesar/registrarComentario.jsp" method="POST" class="col s12">
                 <div class="row">
-                    <div class="col-lg-offset-3 col-lg-6">
-                        <div class="row">
-                            <div class="col-md-12" style="margin-bottom: 30px;">
-                                <div class="form-group">
-                                    <div class="col-lg-offset-0">
-                                        <table class="table table-responsive table-condensed">
-                                            <% for (ComentarioDTO c : comentarios) {%>
-                                            <tr>
-                                                <td> <label><%=c.getNick()%></label></td>
-                                                <td> <%=c.getComentario()%></td>
-                                                <td> <%=c.getFecha()%></td>
-                                            </tr> 
-                                            <% }%>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                    <div class="input-field col s12">
+                        <input requred id="txtNick" name="txtNick" class="validate" placeholder="Usuario">
                     </div>
                 </div>
-            </div>
-
-            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-offset-2 col-lg-8">
-                        <div class="box">
-                            <div class="box-pane">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12" style="margin-bottom: 30px;">
-                                        <form name="registrarForm" id="registrarForm" action="procesar/registrarComentario.jsp" method="post">
-                                            <legend><i class="fa fa-comment"></i> Comenta </legend><br>
-                                            <div class="col-lg-4 col-md-4">
-                                                <label>Nick</label>
-                                                <input type="text" name="txtNick" required id="txtNick" placeholder="Nick" class="form-control" />    
-                                            </div>
-                                            <div class="col-lg-6 col-md-4">
-                                                <label> Comentario</label>
-                                                <textarea type="text" name="txtComentario" id="txtComentario" required placeholder="Comentario" class="form-control"> </textarea>
-                                            </div>  
-                                            <div class="col-md-12 col-lg-12" style="margin-bottom: 30px;">
-                                                <div class="col-lg-6 col-md-6">
-                                                    <input type="submit" class="btn btn-primary" value="Registrar" name="registrar" id="registrar"/> 
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="input-field col s12">
+                        <input required id="txtComentario" name="txtComentario" class="validate" placeholder="Comentario">
                     </div>
                 </div>
-
-            </div>
-
-
-
+                <div class="row">
+                    <div class="input field col s12">
+                        <a class="waves-effect waves-light btn"><input type="submit"></a>
+                    </div>
+                </div>
+            </form>
         </div>
-
 
         <footer class="page-footer grey darken-3">
             <div class="container">

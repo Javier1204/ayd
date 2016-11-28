@@ -83,7 +83,7 @@ function cargarHabitaciones() {
     var cant = document.getElementById("txtCantPer");
     var fechaE = document.getElementById("from");
     var fechaS = document.getElementById("to");
-    var select = document.getElementById("habitacion");
+    var select = document.getElementById("room");
     alert(select);
     ajax = nuevoAjax();
 

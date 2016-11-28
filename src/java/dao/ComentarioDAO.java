@@ -54,7 +54,7 @@ public class ComentarioDAO implements IComentarioDAO{
         PreparedStatement stmt = null;
         ArrayList<ComentarioDTO> comentarios=new ArrayList<>();
         try{
-            stmt = conn.prepareStatement("SELECT * FROM comentario WHERE 1");
+            stmt = conn.prepareStatement("SELECT * FROM comentario WHERE 1 ORDER BY fecha DESC");
             ResultSet res = stmt.executeQuery();
             while(res.next()){
                 ComentarioDTO dto = new ComentarioDTO(res.getString(1), res.getString(2), res.getString(3));

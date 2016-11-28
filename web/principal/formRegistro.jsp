@@ -52,7 +52,7 @@
                                             <table id="tablaAdmin" class="table table-bordered table-striped">
                                                 <tr>
                                                     <td> Habitación</td>
-                                                    <td> <select required id="habitacion" name="habitacion" onchange="javascript:cargarDescripcion(this)" class="form-control">
+                                                    <td> <select required id="room" name="room" onchange="javascript:cargarDescripcion(this)" class="form-control">
                                                             <option value=""> -No selection-</option>
                                                         </select> </td>
                                                 </tr>
