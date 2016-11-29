@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% response.sendRedirect("index/index.jsp");%>
+        <% response.sendRedirect("principal/inicio.jsp");%>
     </body>
 </html>

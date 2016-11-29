@@ -24,11 +24,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script type="text/javascript" src="../materialize/js/jquery-3.1.0.js"></script>
         <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
-        <script type="text/javascript" src="../public/css/line.css"></script>
         <script type="text/javascript" src="js/login.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
         <script language="javascript">
             function openWindow() {
                 newWindow = window.open("formRegistro.jsp", null, "height=500,width=800,status=yes,toolbar=no,menubar=no,location=no");
@@ -91,11 +88,52 @@
 
                             <li><a href="#"class="black-text">Servicios</a></li>
                         </ul>
+                        <ul id="nav-mobile" class="right ">
+
+                            <li><a href="../login/login.jsp"class="black-text">Iniciar sesion</a></li>
+
+                            
+                        </ul>
                     </div>
                 </div>
             </nav>
         </div>
     </body>
+
+
+    -    <div class="slider">
+        -        <ul class="slides">
+            -            <li>
+                -                <img src="../images/img0.jpg"> <!-- random image -->
+                -                <div class="caption center-align">
+                    -                    <h3>Bienvenidos</h3>
+                    -                    <h5 class="light grey-text text-lighten-3"></h5>
+                    -                </div>
+                -            </li>
+            -            <li>
+                -                <img src="../images/img1.jpg"> <!-- random image -->
+                -                <div class="caption left-align">
+                    -                    <h3 ></h3>
+                    -                    <h5 class="light grey-text text-lighten-3"></h5>
+                    -                </div>
+                -            </li>
+            -            <li>
+                -                <img src="../images/img2.jpg"> <!-- random image -->
+                -                <div class="caption right-align">
+                    -                    <h3></h3>
+                    -                    <h5 class="light grey-text text-lighten-3"></h5>
+                    -                </div>
+                -            </li>
+            -            <li>
+                -                <img src="../images/img3.jpg"> <!-- random image -->
+                -                <div class="caption center-align">
+                    -                    <h3></h3>
+                    -                    <h5 class="light grey-text text-lighten-3"></h5>
+                    -                </div>
+                -            </li>
+            -        </ul>
+        -    </div>
+
     <div class="container">
         <div class="card-panel  indigo darken-4">
             <div class="row">
@@ -216,7 +254,7 @@
 
         <center><HR align="CENTER" size="2" width="800" color="Grey" noshade><h4>
                 <span class="grey-text text-darken-3">Comentarios</span></h4></center>
-                
+
         <table>
             <thead>
                 <tr>
@@ -243,7 +281,7 @@
 
         <center><HR align="CENTER" size="2" width="800" color="Grey" noshade><h4>
                 <span class="grey-text text-darken-3">Registra un Comentario</span></h4></center>
-            
+
         <div class="row">
             <form name="registrarForm" action="procesar/registrarComentario.jsp" method="POST" class="col s12">
                 <div class="row">
@@ -263,30 +301,35 @@
                 </div>
             </form>
         </div>
+    </div>
+    <footer class="page-footer grey darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l4 s12">
+                    <h5 class="white-text">Hotel</h5>
+                    <p class="grey-text text-lighten-4">1. El hotel cuenta con cuartos</p>
+                    <p class="grey-text text-lighten-4">2. Excelente ubicacion</p>
+                    <p class="grey-text text-lighten-4">3. Elmejor espacio para su descanso</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Direccion</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Calle falsa #123 barrio inexistente</a></li>
 
-        <footer class="page-footer grey darken-3">
+                    </ul>
+                    <h5 class="white-text">Contactenos</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Tel:555-5555 Cel:312-213-3121</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright grey darken-4">
             <div class="container">
-                <div class="row">
-                    <div class="col l4 s12">
-                        <h5 class="white-text">Hotel</h5>
-                        <p class="grey-text text-lighten-4">1. El hotel cuenta con cuartos</p>
-                        <p class="grey-text text-lighten-4">2. Es un putiadero que nos llevo farid</p>
-                        <p class="grey-text text-lighten-4">3. A veinte la noche</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Direccion</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">Calle falsa #123 barrio inexistente</a></li>
-
-                        </ul>
-                    </div>
-                </div>
+                © 2016 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">UFPS</a>
             </div>
-            <div class="footer-copyright grey darken-4">
-                <div class="container">
-                    © 2016 Copyright Text
-                    <a class="grey-text text-lighten-4 right" href="#!">UFPS</a>
-                </div>
-            </div>
-        </footer>
+        </div>
+    </footer>
 </html>
