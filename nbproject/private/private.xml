@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>web/public/css/font-awesome.css</url>
+            <bookmark id="1">
+                <name/>
+                <line>2026</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/index.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/reservas/verReservas.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/plantillas/adminis/header.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/reservas/realizarReserva.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/login/cerrarSesion.jsp</file>
+            <file>file:/C:/Users/tuto2/Documents/Projects/ayd/web/principal/inicio.jsp</file>
+        </group>
     </open-files>
 </project-private>
